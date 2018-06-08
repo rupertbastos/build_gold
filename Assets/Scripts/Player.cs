@@ -169,13 +169,13 @@ public class Player : MonoBehaviour
     {
         if (comandosFinalList[movimentos].ToString() == "Mover")
         {
-            Debug.Log("Mover");
+            //Debug.Log("Mover");
             estadoAtual = EstadosPlayer.Movendo;
 
         }
         else if (comandosFinalList[movimentos].ToString() == "Pular")
         {
-            Debug.Log("Pular");
+            //Debug.Log("Pular");
             estadoAtual = EstadosPlayer.Pulando;
         }
         else if (comandosFinalList[movimentos].ToString() == "Delay")
@@ -184,38 +184,36 @@ public class Player : MonoBehaviour
             jogadaCount++;
             countdown = timeCountdown;
             estadoAtual = EstadosPlayer.Delay;
-            Debug.Log("Delay");
+            //Debug.Log("Delay");
         }
         else if (comandosFinalList[movimentos].ToString() == "Fim")
         {
             estadoAtual = EstadosPlayer.Fim;
-            Debug.Log("Fim");
+            //Debug.Log("Fim");
         }
         else if (comandosFinalList[movimentos].ToString() == "Repetir2x")
         {
-            //iniFor = 
             estadoAtual = EstadosPlayer.Aguardando;
-            Debug.Log("Parado");
+            //Debug.Log("Parado");
         }
         else if (comandosFinalList[movimentos].ToString() == "FimFor2x")
         {
             estadoAtual = EstadosPlayer.Aguardando;
-            Debug.Log("Parado");
+            //Debug.Log("Parado");
         }
         else if (comandosFinalList[movimentos].ToString() == "Repetir4x")
         {
             estadoAtual = EstadosPlayer.Aguardando;
-            Debug.Log("Parado");
+            //Debug.Log("Parado");
         }
         else if (comandosFinalList[movimentos].ToString() == "FimFor4x")
         {
             estadoAtual = EstadosPlayer.Aguardando;
-            Debug.Log("Parado");
+            //Debug.Log("Parado");
         }
         else
         {
-            Debug.Log("Opção Inválida: " + comandosFinalList[movimentos].ToString());
-
+            Debug.LogWarning("Opção Inválida: " + comandosFinalList[movimentos].ToString());
         }
 
         movimentos++;
@@ -258,6 +256,7 @@ public class Player : MonoBehaviour
                 int primeiroI = i + 1;
                 IList<string> listaFor = new List<string>();
                 listaFor.Add(metodos[i].Trim());
+
                 while (metodos[primeiroI].Trim().CompareTo("FimFor2x") != 0)
                 {
                     listaFor.Add(metodos[primeiroI].Trim());
@@ -284,6 +283,7 @@ public class Player : MonoBehaviour
                 int primeiroI = i + 1;
                 IList<string> listaFor = new List<string>();
                 listaFor.Add(metodos[i].Trim());
+
                 while (metodos[primeiroI].Trim().CompareTo("FimFor4x") != 0)
                 {
                     listaFor.Add(metodos[primeiroI].Trim());
@@ -298,13 +298,13 @@ public class Player : MonoBehaviour
                         comandosFinalList.Add(m);
                         comandosFinalList.Add("Delay");
                     }
+                    
+                        comandosFinalList.Add("FimFor4x");
+                    
                 }
                 i = primeiroI;
             }
-            //if (metodos[i].Trim().CompareTo("FimFor2x") == 0 || (metodos[i].Trim().CompareTo("FimFor4x") == 0))
-            //{
-
-            //}
+            
             else
             {
                 comandosFinalList.Add(metodos[i].Trim());
@@ -321,17 +321,13 @@ public class Player : MonoBehaviour
 
         slotsWork = painelWork.GetComponentsInChildren<Slot>();
 
-        /*foreach (string a in comandosFinalList)
-        {
-            Debug.Log(a);
-        }*/
-
-
-        Debug.Log("Inicio");
+       Debug.Log("Inicio");
     }
 
     private void PintarSlot(int i)
     {
+        
+
         if(i < slotsWork.Length)
         {
             Slot st = slotsWork[i];
@@ -339,26 +335,32 @@ public class Player : MonoBehaviour
 
             if (st.item != null)
             {
-                if (st.item.name.CompareTo("Repetir2x") == 0)
+                //Debug.LogWarning(st.item.name);
+                //Debug.LogWarning("FimFor: " + fimFor);
+                if (st.item.name.CompareTo("Repetir2x") == 0 || st.item.name.CompareTo("Repetir4x") == 0)
                 {
                     iniFor = jogadaCount;
                     st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
                 }
 
-                else if (st.item.name.CompareTo("FimFor2x") == 0 && fimFor == 0)
+                else if(st.item.name.CompareTo("FimFor4x") == 0 && fimFor == 0)
                 {
+                    Debug.LogWarning(fimFor);
+                }
+
+                else if (st.item.name.CompareTo("FimFor2x") == 0  && fimFor == 0)
+                {
+                    //Debug.LogWarning(st.item.name);
+                    
                     fimFor = jogadaCount;
-
-                    //Debug.LogWarning("Entrou");
-
-                    //st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
 
                     int aux = iniFor;
 
+                    //Debug.LogWarning("aux: " + aux + " - FimFor: " + fimFor);
                     while (aux <= fimFor)
                     {
-                        //Debug.LogWarning("Aux: " + aux);
                         stAnterior = slotsWork[aux];
+                        //Debug.LogWarning(stAnterior.item.name);
                         stAnterior.item.GetComponent<Image>().color = new Color(stAnterior.item.GetComponent<Image>().color.r, stAnterior.item.GetComponent<Image>().color.g, stAnterior.item.GetComponent<Image>().color.b, 1f);
                         aux++;
                     }
@@ -368,10 +370,6 @@ public class Player : MonoBehaviour
                     stAnterior.item.GetComponent<Image>().color = new Color(stAnterior.item.GetComponent<Image>().color.r, stAnterior.item.GetComponent<Image>().color.g, stAnterior.item.GetComponent<Image>().color.b, 0.5f);
 
                 }
-                /*else if (st.item.name.CompareTo("FimFor2x") == 0 && fimFor != 0)
-                {
-                    st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
-                }*/
                 else
                 {
                     st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
