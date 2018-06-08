@@ -25,7 +25,7 @@ public class ColisorItem : MonoBehaviour {
             {
                 txt = GameObject.FindGameObjectWithTag("CountCoin");
                 textUI = txt.GetComponent<Text>();
-                Debug.Log("10 pontos");
+                //Debug.Log("10 pontos");
                 int valor = int.Parse(textUI.text);
                 valor += 10;
                 textUI.text = valor.ToString();
@@ -35,7 +35,7 @@ public class ColisorItem : MonoBehaviour {
             {
                 txt = GameObject.FindGameObjectWithTag("CountStar");
                 textUI = txt.GetComponent<Text>();
-                Debug.Log("1 estrela");
+                //Debug.Log("1 estrela");
 
                 var array = textUI.text.Split('/');
 
@@ -48,7 +48,7 @@ public class ColisorItem : MonoBehaviour {
             {
                 txt = GameObject.FindGameObjectWithTag("CountCristal");
                 textUI = txt.GetComponent<Text>();
-                Debug.Log("1 cristal");
+                //Debug.Log("1 cristal");
 
                 int valor = int.Parse(textUI.text);
                 valor += 1;

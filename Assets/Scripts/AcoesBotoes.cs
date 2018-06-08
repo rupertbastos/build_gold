@@ -29,7 +29,7 @@ public class AcoesBotoes : MonoBehaviour
                 }
             case "Sair":
                 {
-                    Debug.Log("Sair");
+                    Application.Quit();
                     break;
                 }
             default:

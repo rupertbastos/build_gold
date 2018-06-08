@@ -21,6 +21,11 @@ TagManager:
   - ForFim4x
   - CountPontuacaoTotal
   - ColisorInferior
+  - PainelBtWorkstation
+  - ListaBTMetodos
+  - BtPlay
+  - PainelMetodos
+  - SliderVelocidadePlayer
   layers:
   - Default
   - TransparentFX

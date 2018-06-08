@@ -117,13 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f316e52acaac547bc64d7df66ab2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: {fileID: 0}
-  animator: {fileID: 95626623023646146}
-  painelInventario: {fileID: 0}
-  painelWork: {fileID: 0}
-  btPlay: {fileID: 0}
-  player: {fileID: 1457248230978418}
-  listaBtMetodos: {fileID: 0}
+  sliderVelocidadePlayer: {fileID: 0}
   metodos: []
   pos: 134
   speed: 0
@@ -132,6 +126,7 @@ MonoBehaviour:
   movimentos: 0
   totalMovimentos: 0
   countdown: 3
+  timeCountdown: 1
   forcaPuloX: 54
   forcaPuloY: 200
   slotsWork: []
