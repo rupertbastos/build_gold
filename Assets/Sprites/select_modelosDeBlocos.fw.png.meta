@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: dfc936739bcb09f4cbd39a25773d555a
+timeCreated: 1528067332
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: select_modelosDeBlocos.fw_0
+    21300002: select_modelosDeBlocos.fw_1
+    21300004: select_modelosDeBlocos.fw_2
+    21300006: select_modelosDeBlocos.fw_3
+    21300008: select_modelosDeBlocos.fw_4
+    21300010: select_modelosDeBlocos.fw_5
+    21300012: select_modelosDeBlocos.fw_6
+    21300014: select_modelosDeBlocos.fw_7
+    21300016: select_modelosDeBlocos.fw_8
+    21300018: select_modelosDeBlocos.fw_9
+    21300020: select_modelosDeBlocos.fw_10
+    21300022: select_modelosDeBlocos.fw_11
+    21300024: select_modelosDeBlocos.fw_12
+    21300026: select_modelosDeBlocos.fw_13
+    21300028: select_modelosDeBlocos.fw_14
+    21300030: select_modelosDeBlocos.fw_15
+    21300032: select_modelosDeBlocos.fw_16
+    21300034: select_modelosDeBlocos.fw_17
+    21300036: select_modelosDeBlocos.fw_18
+    21300038: select_modelosDeBlocos.fw_19
+    21300040: select_modelosDeBlocos.fw_20
+    21300042: select_modelosDeBlocos.fw_21
+    21300044: select_modelosDeBlocos.fw_22
+    21300046: select_modelosDeBlocos.fw_23
+    21300048: select_modelosDeBlocos.fw_24
+    21300050: select_modelosDeBlocos.fw_25
+    21300052: select_modelosDeBlocos.fw_26
+    21300054: select_modelosDeBlocos.fw_27
+    21300056: select_modelosDeBlocos.fw_28
+    21300058: select_modelosDeBlocos.fw_29
+    21300060: select_modelosDeBlocos.fw_30
+    21300062: select_modelosDeBlocos.fw_31
+    21300064: select_modelosDeBlocos.fw_32
+    21300066: select_modelosDeBlocos.fw_33
+    21300068: select_modelosDeBlocos.fw_34
+    21300070: select_modelosDeBlocos.fw_35
+    21300072: select_modelosDeBlocos.fw_36
+    21300074: select_modelosDeBlocos.fw_37
+    21300076: select_modelosDeBlocos.fw_38
+    21300078: select_modelosDeBlocos.fw_39
+    21300080: select_modelosDeBlocos.fw_40
+    21300082: select_modelosDeBlocos.fw_41
+    21300084: select_modelosDeBlocos.fw_42
+    21300086: select_modelosDeBlocos.fw_43
+    21300088: select_modelosDeBlocos.fw_44
+    21300090: select_modelosDeBlocos.fw_45
+    21300092: select_modelosDeBlocos.fw_46
+    21300094: select_modelosDeBlocos.fw_47
+    21300096: select_modelosDeBlocos.fw_48
+    21300098: select_modelosDeBlocos.fw_49
+    21300100: select_modelosDeBlocos.fw_50
+    21300102: select_modelosDeBlocos.fw_51
+    21300104: select_modelosDeBlocos.fw_52
+    21300106: select_modelosDeBlocos.fw_53
+    21300108: select_modelosDeBlocos.fw_54
+    21300110: select_modelosDeBlocos.fw_55
+    21300112: select_modelosDeBlocos.fw_56
+    21300114: select_modelosDeBlocos.fw_57
+    21300116: select_modelosDeBlocos.fw_58
+    21300118: select_modelosDeBlocos.fw_59
+    21300120: select_modelosDeBlocos.fw_60
+    21300122: select_modelosDeBlocos.fw_61
+    21300124: select_modelosDeBlocos.fw_62
+    21300126: select_modelosDeBlocos.fw_63
+    21300128: select_modelosDeBlocos.fw_64
+    21300130: select_modelosDeBlocos.fw_65
+    21300132: select_modelosDeBlocos.fw_66
+    21300134: select_modelosDeBlocos.fw_67
+    21300136: select_modelosDeBlocos.fw_68
+    21300138: select_modelosDeBlocos.fw_69
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: select_modelosDeBlocos.fw_64
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 375
+        width: 209
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: select_modelosDeBlocos.fw_65
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 375
+        width: 210
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: select_modelosDeBlocos.fw_66
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 375
+        width: 209
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: select_modelosDeBlocos.fw_67
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 375
+        width: 209
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: select_modelosDeBlocos.fw_68
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 292
+        width: 195
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: select_modelosDeBlocos.fw_69
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 37
+        width: 299
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
