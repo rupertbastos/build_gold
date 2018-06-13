@@ -44,7 +44,7 @@ public class ColisorItem : MonoBehaviour {
                 textUI.text = valor.ToString() + "/" + array[1];
                 this.gameObject.SetActive(false);
             }
-            else if (this.gameObject.tag == "Cristal")
+            /*else if (this.gameObject.tag == "Cristal")
             {
                 txt = GameObject.FindGameObjectWithTag("CountCristal");
                 textUI = txt.GetComponent<Text>();
@@ -56,7 +56,7 @@ public class ColisorItem : MonoBehaviour {
                 this.gameObject.SetActive(false);
 
 
-            }
+            }*/
 
         }
 
