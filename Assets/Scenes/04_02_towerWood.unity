@@ -6936,7 +6936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1294300538}
   m_Layer: 0
-  m_Name: // TOWER LEVEL //
+  m_Name: // LEVEL - towerWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
