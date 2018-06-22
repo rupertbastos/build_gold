@@ -26,6 +26,8 @@ TagManager:
   - BtPlay
   - PainelMetodos
   - SliderVelocidadePlayer
+  - VirarDireita
+  - VirarEsquerda
   layers:
   - Default
   - TransparentFX

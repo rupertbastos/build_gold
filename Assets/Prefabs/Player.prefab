@@ -129,6 +129,7 @@ MonoBehaviour:
   timeCountdown: 1
   forcaPuloX: 54
   forcaPuloY: 200
+  direcao: 0
   slotsWork: []
   jogadaCount: 0
   iniFor: 0

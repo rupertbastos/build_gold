@@ -15,13 +15,13 @@ public class AcoesBotoes : MonoBehaviour
                     SceneManager.LoadScene("02_NovoJogo_Entrada_Dados");
                     break;
                 }
-            
+
             case "Continuar":
                 {
                     SceneManager.LoadScene("02_CarregarJogo");
                     break;
                 }
-            
+
             case "Creditos":
                 {
                     Debug.Log("Creditos");
@@ -62,7 +62,6 @@ public class AcoesBotoes : MonoBehaviour
                 }
         }
     }
-
 
     public void AcaoBotaoCarregarJogo(string opcao)
     {
@@ -121,7 +120,6 @@ public class AcoesBotoes : MonoBehaviour
                 }
         }
     }
-
 
     public void AcaoBotaoSelecaoFaseWood(int i)
     {

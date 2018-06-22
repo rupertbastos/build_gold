@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public float forcaPuloX = 35;
     public float forcaPuloY = 200f;
 
+    public int direcao;
 
     public IList<int> pintarSlots = new List<int>();
 
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         btPlay = GameObject.FindGameObjectWithTag("BtPlay");
         sliderVelocidadePlayer = GameObject.FindGameObjectWithTag("SliderVelocidadePlayer").GetComponent<Slider>();
         countdown = timeCountdown;
+        direcao = 1;
     }
 
     void Update()
@@ -86,7 +88,7 @@ public class Player : MonoBehaviour
                             animator.SetBool("playerCaminhando", true);
                             Debug.Log("Movimentou o personagem");
 
-                            GetComponent<Rigidbody2D>().AddForce(new Vector2(GetComponent<Transform>().transform.position.x + pos, GetComponent<Transform>().transform.position.y));
+                            GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
                             //Debug.Log(GetComponent<Transform>().position.x);
 
                             VerificaProximoMovimento();
@@ -97,7 +99,7 @@ public class Player : MonoBehaviour
                             animator.SetBool("playerParado", false);
                             animator.SetBool("playerPulando", true);
                             Debug.Log("Pulou o personagem");
-                            GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
+                            GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX * direcao, forcaPuloY));
                             VerificaProximoMovimento();
                             break;
                         }
@@ -143,6 +145,22 @@ public class Player : MonoBehaviour
                             Debug.Log("Fim da Rodada");
                             executaPlay = false;
                             VerificaFimRodada();
+                            break;
+                        }
+                    case EstadosPlayer.VirarDireita:
+                        {
+                            direcao = 1;
+                            GetComponent<SpriteRenderer>().flipX = false;
+                            Debug.Log("Virou: Direita");
+                            VerificaProximoMovimento();
+                            break;
+                        }
+                    case EstadosPlayer.VirarEsquerda:
+                        {
+                            direcao = -1;
+                            GetComponent<SpriteRenderer>().flipX = true;
+                            Debug.Log("Virou: Direita");
+                            VerificaProximoMovimento();
                             break;
                         }
                     default:
@@ -211,6 +229,16 @@ public class Player : MonoBehaviour
             estadoAtual = EstadosPlayer.Aguardando;
             //Debug.Log("Parado");
         }
+        else if (comandosFinalList[movimentos].ToString() == "VirarDireita")
+        {
+            estadoAtual = EstadosPlayer.VirarDireita;
+            //Debug.Log("Parado");
+        }
+        else if (comandosFinalList[movimentos].ToString() == "VirarEsquerda")
+        {
+            estadoAtual = EstadosPlayer.VirarEsquerda;
+            //Debug.Log("Parado");
+        }
         else
         {
             Debug.LogWarning("Opção Inválida: " + comandosFinalList[movimentos].ToString());
@@ -220,18 +248,6 @@ public class Player : MonoBehaviour
     }
 
     public void AcaoBotaoMenuMetodos(GameObject go)
-    {
-        if (go.activeSelf == false)
-        {
-            go.gameObject.SetActive(true);
-        }
-        else
-        {
-            go.gameObject.SetActive(false);
-        }
-    }
-
-    public void AcaoBotaoOpenTips(GameObject go)
     {
         if (go.activeSelf == false)
         {
@@ -298,13 +314,13 @@ public class Player : MonoBehaviour
                         comandosFinalList.Add(m);
                         comandosFinalList.Add("Delay");
                     }
-                    
-                        comandosFinalList.Add("FimFor4x");
-                    
+
+                    comandosFinalList.Add("FimFor4x");
+
                 }
                 i = primeiroI;
             }
-            
+
             else
             {
                 comandosFinalList.Add(metodos[i].Trim());
@@ -321,14 +337,14 @@ public class Player : MonoBehaviour
 
         slotsWork = painelWork.GetComponentsInChildren<Slot>();
 
-       Debug.Log("Inicio");
+        Debug.Log("Inicio");
     }
 
     private void PintarSlot(int i)
     {
-        
 
-        if(i < slotsWork.Length)
+
+        if (i < slotsWork.Length)
         {
             Slot st = slotsWork[i];
             Slot stAnterior;
@@ -343,15 +359,15 @@ public class Player : MonoBehaviour
                     st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
                 }
 
-                else if(st.item.name.CompareTo("FimFor4x") == 0 && fimFor == 0)
+                else if (st.item.name.CompareTo("FimFor4x") == 0 && fimFor == 0)
                 {
                     Debug.LogWarning(fimFor);
                 }
 
-                else if (st.item.name.CompareTo("FimFor2x") == 0  && fimFor == 0)
+                else if (st.item.name.CompareTo("FimFor2x") == 0 && fimFor == 0)
                 {
                     //Debug.LogWarning(st.item.name);
-                    
+
                     fimFor = jogadaCount;
 
                     int aux = iniFor;
@@ -376,7 +392,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -399,6 +415,8 @@ public class Player : MonoBehaviour
     {
         timeCountdown = vel;
     }
+
+
 }
 
 public enum EstadosPlayer
@@ -409,5 +427,7 @@ public enum EstadosPlayer
     Delay,
     Parado,
     Fim,
-    Morto
+    Morto,
+    VirarDireita,
+    VirarEsquerda
 }

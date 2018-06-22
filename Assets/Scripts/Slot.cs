@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class Slot : MonoBehaviour, IDropHandler {
+public class Slot : MonoBehaviour, IDropHandler
+{
     public GameObject item
     {
         get
         {
-            if(transform.childCount > 0)
+            if (transform.childCount > 0)
             {
                 return transform.GetChild(0).gameObject;
             }

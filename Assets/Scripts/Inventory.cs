@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour, IHasChanged
 
     [SerializeField] public Transform slots;
     private string texto;
-    
+
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour, IHasChanged
         {
             Debug.Log(word);
         }*/
-        
+
         return mov;
     }
 }

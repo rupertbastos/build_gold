@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadInOut : MonoBehaviour {
+public class FadInOut : MonoBehaviour
+{
 
     private bool aumenta;
     private Text texto;
     private float tempoanim, tempoanimbkp;
 
-    void Start () {
+    void Start()
+    {
         texto = GetComponent<Text>();
         aumenta = false;
         tempoanim = 3f;
         tempoanimbkp = 3f;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         tempoanim -= Time.deltaTime;
         if (tempoanim <= 0)
         {
@@ -34,5 +37,5 @@ public class FadInOut : MonoBehaviour {
         }
     }
 
-   
+
 }

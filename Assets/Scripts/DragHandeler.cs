@@ -30,10 +30,11 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (transform.parent == startParent) {
+        if (transform.parent == startParent)
+        {
             transform.position = startPosition;
         }
-        
+
     }
     #endregion
 }

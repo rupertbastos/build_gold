@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    
+
     public GameObject painelInventario;
     public GameObject painelWork;
     public GameObject btPlay;
@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
     public float forcaPuloX = 35;
     public float forcaPuloY = 200f;
 
-    
-    public IList<int> pintarSlots = new List<int>(); 
+
+    public IList<int> pintarSlots = new List<int>();
 
     public Slot[] slotsWork;
     public int jogadaCount = 0;
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
                             animator.SetBool("playerParado", false);
                             animator.SetBool("playerCaminhando", true);
                             Debug.Log("Movimentou o personagem");
-                            
+
                             player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.GetComponent<Transform>().transform.position.x + pos, player.GetComponent<Transform>().transform.position.y));
                             Debug.Log(player.GetComponent<Transform>().position.x);
 
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
                             break;
                         }
                 }
-                
+
             }
 
         }
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Opção Inválida: " + comandosFinalList[movimentos].ToString());
 
         }
-        
+
         movimentos++;
     }
 
@@ -219,14 +219,14 @@ public class PlayerController : MonoBehaviour
 
     public void AcaoBotaoPlay()
     {
-        
+
         btPlay.GetComponent<Button>().interactable = false;
         comandosFinalList = new List<string>();
         for (int i = 0; i < metodos.Length - 1; i++)
         {
             if (metodos[i].Trim().CompareTo("Repetir2x") == 0)
             {
-                
+
                 int primeiroI = i + 1;
                 IList<string> listaFor = new List<string>();
                 listaFor.Add(metodos[i].Trim());
@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
             }
             //if (metodos[i].Trim().CompareTo("FimFor2x") == 0 || (metodos[i].Trim().CompareTo("FimFor4x") == 0))
             //{
-               
+
             //}
             else
             {
@@ -290,10 +290,10 @@ public class PlayerController : MonoBehaviour
         estadoAtual = EstadosPlayer.Aguardando;
         executaPlay = true;
 
-        
+
         slotsWork = painelWork.GetComponentsInChildren<Slot>();
 
-        foreach(string a in comandosFinalList)
+        foreach (string a in comandosFinalList)
         {
             Debug.Log(a);
         }
@@ -304,7 +304,7 @@ public class PlayerController : MonoBehaviour
 
     private void PintarSlot(int i)
     {
-        
+
         Slot st = slotsWork[i];
         Slot stAnterior;
 
