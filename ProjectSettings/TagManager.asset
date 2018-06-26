@@ -28,6 +28,9 @@ TagManager:
   - SliderVelocidadePlayer
   - VirarDireita
   - VirarEsquerda
+  - HUDInGame
+  - PauseGame
+  - Audio
   layers:
   - Default
   - TransparentFX

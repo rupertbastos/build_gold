@@ -17,8 +17,9 @@ public class Player : MonoBehaviour
     private GameObject painelInventario;
     private GameObject painelWork;
     private GameObject btPlay;
-    private EstadosPlayer estadoAtual;
-    public Slider sliderVelocidadePlayer;
+    private EstadosPlayer estadoAtual, estadoPausado;
+    public GameObject audioS;
+    //public Slider sliderVelocidadePlayer;
 
     public string[] metodos;
     public IList<string> comandosFinalList;
@@ -42,13 +43,15 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        estadoPausado = EstadosPlayer.Parado;
         estadoAtual = EstadosPlayer.Parado;
         animator = GetComponent<Animator>();
+        audioS = GameObject.FindGameObjectWithTag("Audio");
         painelInventario = GameObject.FindGameObjectWithTag("PainelMetodos");
         painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
         slots = painelWork.GetComponent<Transform>();
         btPlay = GameObject.FindGameObjectWithTag("BtPlay");
-        sliderVelocidadePlayer = GameObject.FindGameObjectWithTag("SliderVelocidadePlayer").GetComponent<Slider>();
+        //sliderVelocidadePlayer = GameObject.FindGameObjectWithTag("SliderVelocidadePlayer").GetComponent<Slider>();
         countdown = timeCountdown;
         direcao = 1;
     }
@@ -72,104 +75,111 @@ public class Player : MonoBehaviour
 
         if (executaPlay)
         {
-            if (movimentos <= totalMovimentos + 1)
+            if(estadoAtual != EstadosPlayer.Pausado)
             {
-                switch (estadoAtual)
+                if (movimentos <= totalMovimentos + 1)
                 {
-                    case EstadosPlayer.Aguardando:
-                        {
-                            Debug.Log("Aguardando comando");
-                            VerificaProximoMovimento();
-                            break;
-                        }
-                    case EstadosPlayer.Movendo:
-                        {
-                            animator.SetBool("playerParado", false);
-                            animator.SetBool("playerCaminhando", true);
-                            Debug.Log("Movimentou o personagem");
-
-                            GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
-                            //Debug.Log(GetComponent<Transform>().position.x);
-
-                            VerificaProximoMovimento();
-                            break;
-                        }
-                    case EstadosPlayer.Pulando:
-                        {
-                            animator.SetBool("playerParado", false);
-                            animator.SetBool("playerPulando", true);
-                            Debug.Log("Pulou o personagem");
-                            GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX * direcao, forcaPuloY));
-                            VerificaProximoMovimento();
-                            break;
-                        }
-                    case EstadosPlayer.Delay:
-                        {
-                            animator.SetBool("playerParado", true);
-                            animator.SetBool("playerCaminhando", false);
-                            animator.SetBool("playerPulando", false);
-
-                            if (countdown <= 0.0f)
+                    switch (estadoAtual)
+                    {
+                        case EstadosPlayer.Aguardando:
                             {
-                                delayLiberado = true;
-                                Debug.Log("Deley personagem");
-                            }
-
-                            if (delayLiberado)
-                            {
-                                Debug.Log("Fim do deley personagem");
-                                delayLiberado = false;
+                                Debug.Log("Aguardando comando");
                                 VerificaProximoMovimento();
+                                break;
                             }
+                        case EstadosPlayer.Movendo:
+                            {
+                                animator.SetBool("playerParado", false);
+                                animator.SetBool("playerCaminhando", true);
+                                Debug.Log("Movimentou o personagem");
 
-                            break;
-                        }
-                    /*case EstadosPlayer.Parado:
-                        {
-                            //Debug.Log("Fim da Rodada");
-                            //btPlay.GetComponent<Button>().interactable = true;
-                            //executaPlay = false;
-                            break;
-                        }*/
-                    case EstadosPlayer.Morto:
-                        {
-                            Debug.Log("Merreu");
-                            // btPlay.GetComponent<Button>().interactable = true;
-                            executaPlay = false;
-                            animator.SetBool("playerParado", false);
-                            animator.SetBool("playerMorto", true);
-                            break;
-                        }
-                    case EstadosPlayer.Fim:
-                        {
-                            Debug.Log("Fim da Rodada");
-                            executaPlay = false;
-                            VerificaFimRodada();
-                            break;
-                        }
-                    case EstadosPlayer.VirarDireita:
-                        {
-                            direcao = 1;
-                            GetComponent<SpriteRenderer>().flipX = false;
-                            Debug.Log("Virou: Direita");
-                            VerificaProximoMovimento();
-                            break;
-                        }
-                    case EstadosPlayer.VirarEsquerda:
-                        {
-                            direcao = -1;
-                            GetComponent<SpriteRenderer>().flipX = true;
-                            Debug.Log("Virou: Direita");
-                            VerificaProximoMovimento();
-                            break;
-                        }
-                    default:
-                        {
-                            Debug.Log("Opção inválida: " + estadoAtual);
-                            break;
-                        }
+                                GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
+                                //Debug.Log(GetComponent<Transform>().position.x);
+
+                                VerificaProximoMovimento();
+                                break;
+                            }
+                        case EstadosPlayer.Pulando:
+                            {
+                                animator.SetBool("playerParado", false);
+                                animator.SetBool("playerPulando", true);
+                                Debug.Log("Pulou o personagem");
+                                GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX * direcao, forcaPuloY));
+                                VerificaProximoMovimento();
+                                break;
+                            }
+                        case EstadosPlayer.Delay:
+                            {
+                                animator.SetBool("playerParado", true);
+                                animator.SetBool("playerCaminhando", false);
+                                animator.SetBool("playerPulando", false);
+
+                                if (countdown <= 0.0f)
+                                {
+                                    delayLiberado = true;
+                                    Debug.Log("Deley personagem");
+                                }
+
+                                if (delayLiberado)
+                                {
+                                    Debug.Log("Fim do deley personagem");
+                                    delayLiberado = false;
+                                    VerificaProximoMovimento();
+                                }
+
+                                break;
+                            }
+                        /*case EstadosPlayer.Parado:
+                            {
+                                //Debug.Log("Fim da Rodada");
+                                //btPlay.GetComponent<Button>().interactable = true;
+                                //executaPlay = false;
+                                break;
+                            }*/
+                        case EstadosPlayer.Morto:
+                            {
+                                Debug.Log("Merreu");
+                                // btPlay.GetComponent<Button>().interactable = true;
+                                executaPlay = false;
+                                animator.SetBool("playerParado", false);
+                                animator.SetBool("playerMorto", true);
+                                break;
+                            }
+                        case EstadosPlayer.Fim:
+                            {
+                                Debug.Log("Fim da Rodada");
+                                executaPlay = false;
+                                VerificaFimRodada();
+                                break;
+                            }
+                        case EstadosPlayer.VirarDireita:
+                            {
+                                direcao = 1;
+                                GetComponent<SpriteRenderer>().flipX = false;
+                                Debug.Log("Virou: Direita");
+                                VerificaProximoMovimento();
+                                break;
+                            }
+                        case EstadosPlayer.VirarEsquerda:
+                            {
+                                direcao = -1;
+                                GetComponent<SpriteRenderer>().flipX = true;
+                                Debug.Log("Virou: Direita");
+                                VerificaProximoMovimento();
+                                break;
+                            }
+                        default:
+                            {
+                                Debug.Log("Opção inválida: " + estadoAtual);
+                                break;
+                            }
+                    }
+
                 }
-
+            }
+            else
+            {
+                executaPlay = false;
             }
 
         }
@@ -180,7 +190,7 @@ public class Player : MonoBehaviour
     private void VerificaFimRodada()
     {
         btPlay.GetComponent<Button>().interactable = true;
-        sliderVelocidadePlayer.interactable = true;
+        //sliderVelocidadePlayer.interactable = true;
     }
 
     private void VerificaProximoMovimento()
@@ -261,7 +271,7 @@ public class Player : MonoBehaviour
 
     public void AcaoBotaoPlay()
     {
-        sliderVelocidadePlayer.interactable = false;
+        //sliderVelocidadePlayer.interactable = false;
         btPlay.GetComponent<Button>().interactable = false;
         comandosFinalList = new List<string>();
         for (int i = 0; i < metodos.Length - 1; i++)
@@ -417,6 +427,19 @@ public class Player : MonoBehaviour
     }
 
 
+    public void Pause()
+    {
+        estadoPausado = estadoAtual;
+        estadoAtual = EstadosPlayer.Pausado;
+        audioS.GetComponent<AudioSource>().Pause();
+
+    }
+    public void Despause()
+    {
+        estadoAtual = estadoPausado;
+        audioS.GetComponent<AudioSource>().Play();
+    }
+
 }
 
 public enum EstadosPlayer
@@ -429,5 +452,6 @@ public enum EstadosPlayer
     Fim,
     Morto,
     VirarDireita,
-    VirarEsquerda
+    VirarEsquerda,
+    Pausado
 }

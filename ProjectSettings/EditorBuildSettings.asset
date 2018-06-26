@@ -30,8 +30,59 @@ EditorBuildSettings:
     path: Assets/Scenes/04_01_towerWood_TESTE.unity
     guid: 6e1f5677adb957f4aa9d96edd2c93aa4
   - enabled: 1
-    path: Assets/Scenes/_anim_collectables.unity
-    guid: b6a173ac2ebad9b479b9781a707acbd1
-  - enabled: 1
     path: Assets/Scenes/04_02_towerWood.unity
     guid: 199b87f9c0dfb4c4b9e6c67f7a85e6c1
+  - enabled: 1
+    path: Assets/Scenes/04_03_towerWood.unity
+    guid: 46e1133ded4bf9641a3b5e6d82d60995
+  - enabled: 1
+    path: Assets/Scenes/04_04_towerWood.unity
+    guid: ea15504336650214b94bf8f8e937028a
+  - enabled: 1
+    path: Assets/Scenes/04_05_towerWood.unity
+    guid: 52307f5b1ae8aa3478dcd190f2440aa5
+  - enabled: 1
+    path: Assets/Scenes/05_01_towerConcrete.unity
+    guid: cc567ed8caf10b44da123cb0b4a6c98f
+  - enabled: 1
+    path: Assets/Scenes/05_02_towerConcrete.unity
+    guid: 5d266f1394002a9438eaafa931d203c8
+  - enabled: 1
+    path: Assets/Scenes/05_03_towerConcrete.unity
+    guid: 388d28f91b5af8a46afe8272a6c5e3ed
+  - enabled: 1
+    path: Assets/Scenes/05_04_towerConcrete.unity
+    guid: 397e2c63928c79547a72a85589997c56
+  - enabled: 1
+    path: Assets/Scenes/05_05_towerConcrete.unity
+    guid: 62eca595abf614c4bbebf613e975a4fa
+  - enabled: 1
+    path: Assets/Scenes/06_01_towerJade.unity
+    guid: e5bf02515fba6e24eadfb2aa8d8ca43a
+  - enabled: 1
+    path: Assets/Scenes/06_02_towerJade.unity
+    guid: ce35e9e8736b0d24bb1f8adfa03c9fe2
+  - enabled: 1
+    path: Assets/Scenes/06_03_towerJade.unity
+    guid: f3ce384eb1792534292e11aa98855a69
+  - enabled: 1
+    path: Assets/Scenes/06_04_towerJade.unity
+    guid: b972b0dcbcc0bcb4cbe7bcb9a03ab532
+  - enabled: 1
+    path: Assets/Scenes/06_05_towerJade.unity
+    guid: e5b98a01eea14ab459bd1d222f833c49
+  - enabled: 1
+    path: Assets/Scenes/07_01_towerIce.unity
+    guid: 7291f65e05b642b48a62743b143f4841
+  - enabled: 1
+    path: Assets/Scenes/07_02_towerIce.unity
+    guid: 38038b5e8b4973b49a770e97d2647d46
+  - enabled: 1
+    path: Assets/Scenes/07_03_towerIce.unity
+    guid: 717bac30a5f56d248af5c5b004ac7c81
+  - enabled: 1
+    path: Assets/Scenes/07_04_towerIce.unity
+    guid: 2c253cf80aa51bc43b218efa73346a1a
+  - enabled: 1
+    path: Assets/Scenes/07_05_towerIce.unity
+    guid: 41d9258e2edbb21408b53fb5b36d1980

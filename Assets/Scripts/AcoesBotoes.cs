@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AcoesBotoes : MonoBehaviour
 {
-
     public void AcaoBotaoMainMenu(string opcao)
     {
         switch (opcao)
@@ -29,6 +29,7 @@ public class AcoesBotoes : MonoBehaviour
                 }
             case "Sair":
                 {
+                    Debug.Log("Sair");
                     Application.Quit();
                     break;
                 }
@@ -147,6 +148,26 @@ public class AcoesBotoes : MonoBehaviour
                     Debug.Log("Opção Inválida");
                     break;
                 }
+        }
+    }
+
+    public void AcaoBotaoPause(GameObject go)
+    {
+        if (go.activeSelf == false)
+        {
+            go.SetActive(true);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<Player>().Pause();
+        }
+    }
+
+    public void AcaoBotaoResume(GameObject go)
+    {
+        if (go.activeSelf == true)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<Player>().Despause();
+            go.SetActive(false);
         }
     }
 }

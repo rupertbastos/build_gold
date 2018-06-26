@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 138328959}
   m_Layer: 0
   m_Name: // UICANVAS - pause game
-  m_TagString: Untagged
+  m_TagString: PauseGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1499,7 +1499,7 @@ GameObject:
   - component: {fileID: 210503936}
   m_Layer: 0
   m_Name: // UICANVAS - HUD Ingame
-  m_TagString: Untagged
+  m_TagString: HUDInGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1604,7 +1604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &221942062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1942,6 +1942,7 @@ GameObject:
   - component: {fileID: 267635127}
   - component: {fileID: 267635126}
   - component: {fileID: 267635125}
+  - component: {fileID: 267635128}
   m_Layer: 0
   m_Name: btn-pauseGame
   m_TagString: Untagged
@@ -2005,7 +2006,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267635126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 267635128}
+        m_MethodName: AcaoBotaoPause
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 138328958}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &267635126
@@ -2041,6 +2053,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 267635123}
+--- !u!114 &267635128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267635123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0b7613ffa2ae745a4163a03cf5ffac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &297550745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,6 +3199,7 @@ GameObject:
   - component: {fileID: 533289212}
   - component: {fileID: 533289211}
   - component: {fileID: 533289210}
+  - component: {fileID: 533289213}
   m_Layer: 5
   m_Name: ':: btn-resume'
   m_TagString: Untagged
@@ -3241,7 +3265,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 533289211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 533289213}
+        m_MethodName: AcaoBotaoResume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 138328958}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &533289211
@@ -3277,6 +3312,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 533289208}
+--- !u!114 &533289213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 533289208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0b7613ffa2ae745a4163a03cf5ffac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &565425850
 Prefab:
   m_ObjectHideFlags: 0
@@ -6002,7 +6048,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037919698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7130,6 +7176,7 @@ GameObject:
   - component: {fileID: 1244795947}
   - component: {fileID: 1244795946}
   - component: {fileID: 1244795945}
+  - component: {fileID: 1244795948}
   m_Layer: 5
   m_Name: ':: btn-sair'
   m_TagString: Untagged
@@ -7195,7 +7242,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1244795946}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1244795948}
+        m_MethodName: AcaoBotaoMainMenu
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Sair
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1244795946
@@ -7231,6 +7289,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1244795943}
+--- !u!114 &1244795948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244795943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0b7613ffa2ae745a4163a03cf5ffac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1245935681
 GameObject:
   m_ObjectHideFlags: 0
@@ -7700,7 +7769,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8037,6 +8106,7 @@ RectTransform:
   - {fileID: 75098493}
   - {fileID: 1065147495}
   - {fileID: 221942062}
+  - {fileID: 1937976907}
   m_Father: {fileID: 210503939}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10686,7 +10756,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11756,6 +11826,142 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224646822587784404, guid: 1657bde4496de18429ae8bef30a352ef,
     type: 2}
   m_PrefabInternal: {fileID: 1983218662}
+--- !u!1 &1937976906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1937976907}
+  - component: {fileID: 1937976910}
+  - component: {fileID: 1937976909}
+  - component: {fileID: 1937976908}
+  - component: {fileID: 1937976911}
+  m_Layer: 0
+  m_Name: BtVelocidade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1937976907
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937976906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1367984715}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -31, y: -65.12}
+  m_SizeDelta: {x: 104.64, y: 69.76}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1937976908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937976906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1937976909}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1937976911}
+        m_MethodName: AcaoBotaoVel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1937976906}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1937976909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937976906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 35b3fbca5bad074438d47665659f5590, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1937976910
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937976906}
+--- !u!114 &1937976911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937976906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7772f109b2d85174a98952db9bc821c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BTVel1: {fileID: 21300000, guid: 35b3fbca5bad074438d47665659f5590, type: 3}
+  BTVel2: {fileID: 21300000, guid: 95d3cf69b1f5c6248bbd9c727be93c22, type: 3}
+  BTVel3: {fileID: 21300000, guid: ee50e0b56f28edc4dac779e352f140b2, type: 3}
 --- !u!1 &1954071661
 GameObject:
   m_ObjectHideFlags: 0
@@ -12164,6 +12370,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114985675696443240, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
+        type: 2}
+      propertyPath: timeCountdown
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
   m_IsPrefabParent: 0
@@ -12179,7 +12390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f316e52acaac547bc64d7df66ab2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderVelocidadePlayer: {fileID: 0}
+  audioS: {fileID: 0}
   metodos: []
   pos: 134
   speed: 0
@@ -12188,7 +12399,7 @@ MonoBehaviour:
   movimentos: 0
   totalMovimentos: 0
   countdown: 3
-  timeCountdown: 1
+  timeCountdown: 3
   forcaPuloX: 54
   forcaPuloY: 200
   direcao: 0
