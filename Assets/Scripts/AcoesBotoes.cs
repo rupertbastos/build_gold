@@ -41,7 +41,7 @@ public class AcoesBotoes : MonoBehaviour
         }
     }*/
 
-    public void AcaoBotaoNovoJogoEntrada_Dados(string opcao)
+    /*public void AcaoBotaoNovoJogoEntrada_Dados(string opcao)
     {
         switch (opcao)
         {
@@ -62,7 +62,7 @@ public class AcoesBotoes : MonoBehaviour
                     break;
                 }
         }
-    }
+    }*/
 
     public void AcaoBotaoCarregarJogo(string opcao)
     {
