@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AcoesBotoes : MonoBehaviour
 {
-    public void AcaoBotaoMainMenu(string opcao)
+    /*public void AcaoBotaoMainMenu(string opcao)
     {
         switch (opcao)
         {
@@ -39,7 +39,7 @@ public class AcoesBotoes : MonoBehaviour
                     break;
                 }
         }
-    }
+    }*/
 
     public void AcaoBotaoNovoJogoEntrada_Dados(string opcao)
     {

@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f316e52acaac547bc64d7df66ab2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderVelocidadePlayer: {fileID: 0}
+  audioS: {fileID: 0}
   metodos: []
   pos: 134
   speed: 0
