@@ -98,7 +98,7 @@ public class AcoesBotoes : MonoBehaviour
         }
     }
 
-    public void AcaoBotaoSelectTowers(string opcao)
+    /*public void AcaoBotaoSelectTowers(string opcao)
     {
         switch (opcao)
         {
@@ -120,7 +120,7 @@ public class AcoesBotoes : MonoBehaviour
                     break;
                 }
         }
-    }
+    }*/
 
     public void AcaoBotaoSelecaoFaseWood(int i)
     {

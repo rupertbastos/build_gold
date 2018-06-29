@@ -8,7 +8,34 @@ public class NovoJogoEntradaDados : MonoBehaviour {
 
     public Text nome;
     public GameObject canvasNome, canvasAvatar;
+    public Button btContinuarAvatar, btNovaCena, btPlayer, btCor;
 
+    void Start()
+    {
+        btPlayer = null;
+        btCor = null;
+    }
+
+    void Update() {
+        if (nome.text.ToString().Length > 0)
+        {
+            btContinuarAvatar.interactable = true;
+        }
+        else
+        {
+            btContinuarAvatar.interactable = false;
+        }
+
+        if (btPlayer != null && btCor != null)
+        {
+            btNovaCena.interactable = true;
+        }
+        else
+        {
+            btNovaCena.interactable = false;
+        }
+
+    }
 
     public void AcaoBotaoNovoJogoEntrada_Dados(string opcao)
     {
@@ -16,19 +43,10 @@ public class NovoJogoEntradaDados : MonoBehaviour {
         {
             case "Continuar":
                 {
-                    //SceneManager.LoadScene("03_01_SelectTowers");
-
-
-                    if(nome.text.ToString().Length > 0)
-                    {
-                        Debug.LogWarning("Nome: " + nome.text.ToString().ToUpper());
-                        canvasNome.SetActive(false);
-                        canvasAvatar.SetActive(true);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Nome não pode ficar em branco!");
-                    }
+                    Debug.LogWarning("Nome: " + nome.text.ToString().ToUpper());
+                    canvasNome.SetActive(false);
+                    canvasAvatar.SetActive(true);
+                    
                     
                     break;
                 }
@@ -37,12 +55,36 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     SceneManager.LoadScene("01_MainMenu");
                     break;
                 }
-
+            case "Voltar2":
+                {
+                    canvasNome.SetActive(true);
+                    canvasAvatar.SetActive(false);
+                    btPlayer = null;
+                    btCor = null;
+                    break;
+                }
+            case "Avançar":
+                {
+                    SceneManager.LoadScene("03_01_SelectTowers");
+                    break;
+                }
             default:
                 {
                     Debug.Log("Opção Inválida");
                     break;
                 }
         }
+    }
+
+    public void SelecionaPlayer(GameObject go)
+    {
+        btPlayer = (Button) go.GetComponent<Button>();
+        Debug.LogWarning(btPlayer.name);
+    }
+
+    public void SelecionaCor(GameObject go)
+    {
+        btCor = (Button)go.GetComponent<Button>();
+        Debug.LogWarning(btPlayer.name);
     }
 }

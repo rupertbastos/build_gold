@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 27219733}
   - component: {fileID: 27219732}
   m_Layer: 5
-  m_Name: ':: bt - avatar 01'
+  m_Name: ':: bt - avatar 02'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ RectTransform:
   m_Children:
   - {fileID: 245319530}
   m_Father: {fileID: 1610349800}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 77f6756b1e2adbc45ad22548c4964388,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 818464b3126e7214f9a0e80c4e8a0fe4, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -190,12 +190,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaPlayer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 27219730}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 649351858}
         m_MethodName: AcaoBotaoNovoJogoEntrada_Dados
         m_Mode: 5
         m_Arguments:
@@ -461,7 +461,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Voltar
+          m_StringArgument: Voltar2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 97114194}
   - component: {fileID: 97114193}
   m_Layer: 5
-  m_Name: ':: bt - avatar 02'
+  m_Name: ':: bt - avatar 04'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +670,7 @@ RectTransform:
   m_Children:
   - {fileID: 1905605167}
   m_Father: {fileID: 1610349800}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: dcf36edd9b7968e4baa396642793b6d5,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 9c906e10ba4da5c449986beb109fd526, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -717,12 +717,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaPlayer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 97114191}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 114736429}
   - component: {fileID: 114736428}
   m_Layer: 5
-  m_Name: ':: bt - cor (3)'
+  m_Name: ':: bt - cor (2)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,7 +793,7 @@ RectTransform:
   m_Children:
   - {fileID: 300145266}
   m_Father: {fileID: 1610349800}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 47b796047d9a18542b1d1049638408d9,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 3fa2c93cb699d854080955e4b560e537, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -840,12 +840,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaCor
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 114736426}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -1106,80 +1106,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 222850401}
---- !u!1 &242496896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 242496897}
-  - component: {fileID: 242496899}
-  - component: {fileID: 242496898}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &242496897
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 242496896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1886034741}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.91}
-  m_SizeDelta: {x: 0, y: -5.82}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &242496898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 242496896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &242496899
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 242496896}
 --- !u!1 &245319529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,7 +1340,7 @@ GameObject:
   - component: {fileID: 346750839}
   - component: {fileID: 346750838}
   m_Layer: 5
-  m_Name: ':: bt - avatar 05'
+  m_Name: ':: bt - avatar 01'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1432,7 +1358,7 @@ RectTransform:
   m_Children:
   - {fileID: 52427221}
   m_Father: {fileID: 1610349800}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1467,7 +1393,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 722c26e6109c1e84791ff0dbccecf7b3,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 256e44e084751164c83028f0b8f82938, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1479,12 +1405,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaPlayer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 346750836}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -1639,7 +1565,7 @@ GameObject:
   - component: {fileID: 399277210}
   - component: {fileID: 399277209}
   m_Layer: 5
-  m_Name: ':: bt - avatar 04'
+  m_Name: ':: bt - avatar 05'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,7 +1583,7 @@ RectTransform:
   m_Children:
   - {fileID: 1582366194}
   m_Father: {fileID: 1610349800}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1692,7 +1618,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: f9099ce9809f427408139146a7e06ecc,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: e0e48d35889348a418e2326e2a24f1d3, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1704,12 +1630,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaPlayer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 399277207}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -1952,6 +1878,10 @@ MonoBehaviour:
   nome: {fileID: 1249585976}
   canvasNome: {fileID: 1084328017}
   canvasAvatar: {fileID: 1610349794}
+  btContinuarAvatar: {fileID: 1651352988}
+  btNovaCena: {fileID: 1197271599}
+  btPlayer: {fileID: 0}
+  btCor: {fileID: 0}
 --- !u!81 &649351859
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2080,7 +2010,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 750986634fa35074c9dbabb335b0e916,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 448f9ef946e89124b8888f43bbacc476, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2092,12 +2022,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaPlayer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 678688164}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -2320,7 +2250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: -300}
+  m_AnchoredPosition: {x: 0, y: -309}
   m_SizeDelta: {x: 80, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735076614
@@ -2757,7 +2687,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: ef9d773b5f8e664468431e073c835fc1,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 0bb62850cfaf5f742bf4bbbc4b0252f5, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2769,12 +2699,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaCor
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 950054949}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -2971,7 +2901,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: e5d0da68bbcddca4f9fa1557991acfb8,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 91a15679745e7ef45aff54f1cf1f308b, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2983,12 +2913,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaPlayer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1072617315}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -3158,7 +3088,6 @@ RectTransform:
   - {fileID: 1210320538}
   - {fileID: 425387577}
   - {fileID: 735076613}
-  - {fileID: 1886034741}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3340,12 +3269,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1197271600}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 649351858}
         m_MethodName: AcaoBotaoNovoJogoEntrada_Dados
         m_Mode: 5
         m_Arguments:
@@ -3590,7 +3519,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 1982ff4f056c4cc4aafd22ce6f143bf3,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: cbd519e7ed18b3140bd04fbdafabe01f, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3602,12 +3531,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaCor
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1234949936}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -4044,7 +3973,7 @@ GameObject:
   - component: {fileID: 1581079913}
   - component: {fileID: 1581079912}
   m_Layer: 5
-  m_Name: ':: bt - cor (2)'
+  m_Name: ':: bt - cor (3)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4062,7 +3991,7 @@ RectTransform:
   m_Children:
   - {fileID: 1965315810}
   m_Father: {fileID: 1610349800}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4097,7 +4026,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: e5e50ce15196a4e4b866ec01da0a0d9e,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 3d3efe4f92c8bb94b952dfd555a22172, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4109,12 +4038,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaCor
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1581079910}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -4294,7 +4223,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 7acbb4adcc5d2834cb75648420bba986,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 9d4d1158be682a74f8419a925b790759, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4306,12 +4235,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaCor
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1603176324}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -4472,11 +4401,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1376704622}
-  - {fileID: 27219731}
-  - {fileID: 97114192}
-  - {fileID: 678688165}
-  - {fileID: 399277208}
   - {fileID: 346750837}
+  - {fileID: 27219731}
+  - {fileID: 678688165}
+  - {fileID: 97114192}
+  - {fileID: 399277208}
   - {fileID: 1072617316}
   - {fileID: 27824170}
   - {fileID: 902442396}
@@ -4485,8 +4414,8 @@ RectTransform:
   - {fileID: 545032206}
   - {fileID: 1956363610}
   - {fileID: 1653537910}
-  - {fileID: 1581079911}
   - {fileID: 114736427}
+  - {fileID: 1581079911}
   - {fileID: 1603176325}
   - {fileID: 1234949937}
   - {fileID: 950054950}
@@ -4572,7 +4501,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1651352989}
   m_OnClick:
     m_PersistentCalls:
@@ -4688,7 +4617,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 9c32e1ca82cfd5d4189233de44c39346,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c44da0dc35fbe294f85f3f84f41ced72, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 45c622f542d4f1c488582a3fb1a2f276, type: 3}
     m_DisabledSprite: {fileID: 21300000, guid: 7847c42ea659dba4183046ca4dddc4da, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4700,12 +4629,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 649351858}
+        m_MethodName: SelecionaCor
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1653537909}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Continuar
@@ -4996,128 +4925,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1801582307}
---- !u!1 &1886034740
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1886034741}
-  - component: {fileID: 1886034744}
-  - component: {fileID: 1886034743}
-  - component: {fileID: 1886034742}
-  m_Layer: 5
-  m_Name: ':: btn - next'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1886034741
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1886034740}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 242496897}
-  m_Father: {fileID: 1084328023}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: -300}
-  m_SizeDelta: {x: 80, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1886034742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1886034740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 0
-  m_TargetGraphic: {fileID: 1886034743}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcaoBotaoNovoJogoEntrada_Dados
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: "Avan\xE7ar"
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1886034743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1886034740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bba8c020f29c33145ad17f4ea2027a98, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1886034744
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1886034740}
 --- !u!1 &1905605166
 GameObject:
   m_ObjectHideFlags: 0

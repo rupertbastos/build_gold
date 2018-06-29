@@ -528,20 +528,20 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 405248674}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 614321533}
-        m_MethodName: AcaoBotao
+        m_MethodName: AcaoBotaoSelectTowers
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FasesDelta
+          m_StringArgument: Concreto
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 614321528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0b7613ffa2ae745a4163a03cf5ffac, type: 3}
+  m_Script: {fileID: 11500000, guid: 64404ffb0ce28744099c87aea3b74f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &661225531
@@ -1127,20 +1127,20 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 926958208}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 614321533}
-        m_MethodName: AcaoBotao
+        m_MethodName: AcaoBotaoSelectTowers
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FasesZeta
+          m_StringArgument: Gelo
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1488,20 +1488,20 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1238122671}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 614321533}
-        m_MethodName: AcaoBotao
+        m_MethodName: AcaoBotaoSelectTowers
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FasesBeta
+          m_StringArgument: Jade
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

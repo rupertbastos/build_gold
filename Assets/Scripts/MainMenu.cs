@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public AudioClip audioBotaoClique;
-    public AudioClip audioBotaoPassarMouse;
 
 
     public void AcaoBotaoMainMenu(string opcao)
