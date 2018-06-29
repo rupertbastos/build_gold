@@ -122,7 +122,7 @@ public class AcoesBotoes : MonoBehaviour
         }
     }*/
 
-    public void AcaoBotaoSelecaoFaseWood(int i)
+    /*public void AcaoBotaoSelecaoFaseWood(int i)
     {
         switch (i)
         {
@@ -149,7 +149,7 @@ public class AcoesBotoes : MonoBehaviour
                     break;
                 }
         }
-    }
+    }*/
 
     public void AcaoBotaoPause(GameObject go)
     {

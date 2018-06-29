@@ -12,28 +12,33 @@ public class SelectTowers : MonoBehaviour {
 
             case "Voltar":
                 {
+                    GameController.instance.ExecutaSomVoltar();
                     SceneManager.LoadScene("02_CarregarJogo");
                     break;
                 }
 
             case "Madeira":
                 {
+                    GameController.instance.ExecutaSomContinuar();
                     SceneManager.LoadScene("03_02_SelecaoFases");
                     break;
                 }
             
             case "Concreto":
                 {
+                    GameController.instance.ExecutaSomContinuar();
                     Debug.LogWarning("Concreto");
                     break;
                 }
             case "Jade":
                 {
+                    GameController.instance.ExecutaSomContinuar();
                     Debug.LogWarning("Jade");
                     break;
                 }
             case "Gelo":
                 {
+                    GameController.instance.ExecutaSomContinuar();
                     Debug.LogWarning("Gelo");
                     break;
                 }

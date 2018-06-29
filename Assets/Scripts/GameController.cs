@@ -22,7 +22,8 @@ public class GameController : MonoBehaviour
     public int estrelas, cristais, moedas, xp;
     public string nome;
 
-    public AudioSource audioS;
+    public AudioSource audioS, audioC;
+    public AudioClip audioVoltar, audioContinuar;
 
     /*public GameState State { set; get; }
     public Stack<GameScreens> Screens = new Stack<GameScreens>();
@@ -58,7 +59,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        audioS = GetComponent<AudioSource>();
+        //audioS = GetComponent<AudioSource>();
         audioS.Play();
 
         /*State = GameState.None;
@@ -155,6 +156,17 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void ExecutaSomVoltar()
+    {
+        audioC.clip = audioVoltar;
+        audioC.Play();
+    }
+
+    public void ExecutaSomContinuar()
+    {
+        audioC.clip = audioContinuar;
+        audioC.Play();
+    }
 
 }
 

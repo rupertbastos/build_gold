@@ -3,37 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class SelecaoFaseMadeira : MonoBehaviour {
 
-    public void AcaoBotaoMainMenu(string opcao)
+    public void AcaoBotaoSelecaoFaseWood(int i)
     {
-        switch (opcao)
+        switch (i)
         {
-            case "NovoJogo":
+            case 1:
                 {
+                    //SceneManager.LoadScene("04_01_towerWood");
                     GameController.instance.ExecutaSomContinuar();
-                    SceneManager.LoadScene("02_NovoJogo_Entrada_Dados");
+                    SceneManager.LoadScene("04_01_towerWood_TESTE");
                     break;
                 }
 
-            case "Continuar":
+            case 2:
                 {
                     GameController.instance.ExecutaSomContinuar();
-                    //SceneManager.LoadScene("02_CarregarJogo");
+                    SceneManager.LoadScene("04_02_towerWood");
                     break;
                 }
-
-            case "Creditos":
-                {
-                    GameController.instance.ExecutaSomContinuar();
-                    Debug.Log("Creditos");
-                    break;
-                }
-            case "Sair":
+            case -1:
                 {
                     GameController.instance.ExecutaSomVoltar();
-                    Debug.Log("Sair");
-                    Application.Quit();
+                    SceneManager.LoadScene("03_01_SelectTowers");
                     break;
                 }
             default:
@@ -43,5 +36,4 @@ public class MainMenu : MonoBehaviour {
                 }
         }
     }
-
 }

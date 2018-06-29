@@ -9,7 +9,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
     public Text nome;
     public GameObject canvasNome, canvasAvatar;
     public Button btContinuarAvatar, btNovaCena, btPlayer, btCor;
-
+    
     void Start()
     {
         btPlayer = null;
@@ -43,6 +43,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
         {
             case "Continuar":
                 {
+                    GameController.instance.ExecutaSomContinuar();
                     Debug.LogWarning("Nome: " + nome.text.ToString().ToUpper());
                     canvasNome.SetActive(false);
                     canvasAvatar.SetActive(true);
@@ -52,11 +53,13 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 }
             case "Voltar":
                 {
+                    GameController.instance.ExecutaSomVoltar();
                     SceneManager.LoadScene("01_MainMenu");
                     break;
                 }
             case "Voltar2":
                 {
+                    GameController.instance.ExecutaSomVoltar();
                     canvasNome.SetActive(true);
                     canvasAvatar.SetActive(false);
                     btPlayer = null;
@@ -65,6 +68,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 }
             case "Avançar":
                 {
+                    GameController.instance.ExecutaSomContinuar();
                     SceneManager.LoadScene("03_01_SelectTowers");
                     break;
                 }
