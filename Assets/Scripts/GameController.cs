@@ -195,6 +195,7 @@ public class GameController : MonoBehaviour
         sXp.GetComponent<Slider>().maxValue = perfilAtivo.GetLimite();
         sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
         player.GetComponent<SpriteRenderer>().color = perfilAtivo.GetCor();
+        audioS.Stop();
     }
 
 }

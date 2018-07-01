@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
+
+    public AudioSource audioS;
+
     public GameObject item
     {
         get
@@ -21,6 +24,7 @@ public class Slot : MonoBehaviour, IDropHandler
     #region IDropHandler implementation
     public void OnDrop(PointerEventData eventData)
     {
+        audioS.Play();
         if (!item)
         {
             DragHandeler.itemBeingDragged.transform.SetParent(transform);

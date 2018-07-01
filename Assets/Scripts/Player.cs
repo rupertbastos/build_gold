@@ -451,13 +451,11 @@ public class Player : MonoBehaviour
     {
         estadoPausado = estadoAtual;
         estadoAtual = EstadosPlayer.Pausado;
-        //audioS.GetComponent<AudioSource>().Pause();
 
     }
     public void Despause()
     {
         estadoAtual = estadoPausado;
-        //audioS.GetComponent<AudioSource>().Play();
     }
 
 }

@@ -32,6 +32,7 @@ TagManager:
   - PauseGame
   - Audio
   - Coletador
+  - AudioFase
   layers:
   - Default
   - TransparentFX

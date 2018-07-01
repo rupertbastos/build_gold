@@ -48,7 +48,6 @@ public class NovoJogoEntradaDados : MonoBehaviour {
             case "Continuar":
                 {
                     GameController.instance.ExecutaSomContinuar();
-                    Debug.LogWarning("Nome: " + nome.text.ToString().ToUpper());
                     canvasNome.SetActive(false);
                     canvasAvatar.SetActive(true);
                     
@@ -174,12 +173,10 @@ public class NovoJogoEntradaDados : MonoBehaviour {
     public void SelecionaPlayer(GameObject go)
     {
         btPlayer = (Button) go.GetComponent<Button>();
-        Debug.LogWarning(btPlayer.name);
     }
 
     public void SelecionaCor(GameObject go)
     {
         btCor = go.GetComponent<Button>();
-        Debug.LogWarning(btCor.name);
     }
 }

@@ -151,7 +151,7 @@ public class AcoesBotoes : MonoBehaviour
         }
     }*/
 
-    public void AcaoBotaoPause(GameObject go)
+    /*public void AcaoBotaoPause(GameObject go)
     {
         if (go.activeSelf == false)
         {
@@ -159,9 +159,9 @@ public class AcoesBotoes : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<Player>().Pause();
         }
-    }
+    }*/
 
-    public void AcaoBotaoResume(GameObject go)
+    /*public void AcaoBotaoResume(GameObject go)
     {
         if (go.activeSelf == true)
         {
@@ -169,5 +169,5 @@ public class AcoesBotoes : MonoBehaviour
             player.GetComponent<Player>().Despause();
             go.SetActive(false);
         }
-    }
+    }*/
 }
