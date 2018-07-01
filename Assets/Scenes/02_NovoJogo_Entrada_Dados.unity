@@ -1044,7 +1044,6 @@ GameObject:
   - component: {fileID: 204759467}
   - component: {fileID: 204759466}
   - component: {fileID: 204759465}
-  - component: {fileID: 204759464}
   m_Layer: 5
   m_Name: ':: btn - back'
   m_TagString: Untagged
@@ -1052,19 +1051,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &204759464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114098308398430550, guid: f41a255ead9d06f4e83107909d068747,
-    type: 2}
-  m_PrefabInternal: {fileID: 239529628}
-  m_GameObject: {fileID: 204759463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb41adb5b15305140b6a911773e74009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioS: {fileID: 0}
 --- !u!114 &204759465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 5
 --- !u!222 &222850404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1607,7 +1593,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 2
 --- !u!222 &300145268
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1804,7 +1790,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 6
 --- !u!222 &349699753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2166,8 +2152,14 @@ MonoBehaviour:
   canvasAvatar: {fileID: 1610349794}
   btContinuarAvatar: {fileID: 1651352988}
   btNovaCena: {fileID: 1197271599}
-  btPlayer: {fileID: 0}
-  btCor: {fileID: 0}
+  btPlayer: {fileID: 346750838}
+  btCor: {fileID: 1653537911}
+  sp1: {fileID: 21300000, guid: 9c906e10ba4da5c449986beb109fd526, type: 3}
+  sp2: {fileID: 21300000, guid: e0e48d35889348a418e2326e2a24f1d3, type: 3}
+  sp3: {fileID: 21300000, guid: 91a15679745e7ef45aff54f1cf1f308b, type: 3}
+  sp4: {fileID: 21300000, guid: 256e44e084751164c83028f0b8f82938, type: 3}
+  sp5: {fileID: 21300000, guid: 818464b3126e7214f9a0e80c4e8a0fe4, type: 3}
+  sp6: {fileID: 21300000, guid: 448f9ef946e89124b8888f43bbacc476, type: 3}
 --- !u!81 &649351859
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3397,6 +3389,7 @@ GameObject:
   - component: {fileID: 1197271601}
   - component: {fileID: 1197271600}
   - component: {fileID: 1197271599}
+  - component: {fileID: 1197271602}
   m_Layer: 5
   m_Name: ':: btn - next'
   m_TagString: Untagged
@@ -3508,6 +3501,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1197271597}
+--- !u!114 &1197271602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197271597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd4a3ead434eb24b84b3dfe34d671d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210320537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,7 +3984,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 1
 --- !u!222 &1367487621
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4930,7 +4934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 4
 --- !u!222 &1653744238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5321,7 +5325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 3
 --- !u!222 &1965315812
 CanvasRenderer:
   m_ObjectHideFlags: 0

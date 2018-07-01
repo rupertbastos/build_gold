@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private GameObject painelWork;
     private GameObject btPlay;
     private EstadosPlayer estadoAtual, estadoPausado;
-    public GameObject audioS;
+    //public GameObject audioS;
     //public Slider sliderVelocidadePlayer;
 
     public string[] metodos;
@@ -41,16 +41,19 @@ public class Player : MonoBehaviour
     public int iniFor = 0;
     public int fimFor = 0;
 
+    public GameObject coletador;
+
     void Start()
     {
         estadoPausado = EstadosPlayer.Parado;
         estadoAtual = EstadosPlayer.Parado;
         animator = GetComponent<Animator>();
-        audioS = GameObject.FindGameObjectWithTag("Audio");
+        //audioS = GameObject.FindGameObjectWithTag("Audio");
         painelInventario = GameObject.FindGameObjectWithTag("PainelMetodos");
         painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
         slots = painelWork.GetComponent<Transform>();
         btPlay = GameObject.FindGameObjectWithTag("BtPlay");
+        coletador = GameObject.FindGameObjectWithTag("Coletador");
         //sliderVelocidadePlayer = GameObject.FindGameObjectWithTag("SliderVelocidadePlayer").GetComponent<Slider>();
         countdown = timeCountdown;
         direcao = 1;
@@ -124,6 +127,10 @@ public class Player : MonoBehaviour
                                 {
                                     Debug.Log("Fim do deley personagem");
                                     delayLiberado = false;
+                                    if (coletador.GetComponent<BoxCollider2D>().enabled)
+                                    {
+                                        coletador.GetComponent<BoxCollider2D>().enabled = false;
+                                    }
                                     VerificaProximoMovimento();
                                 }
 
@@ -136,6 +143,13 @@ public class Player : MonoBehaviour
                                 //executaPlay = false;
                                 break;
                             }*/
+
+                        case EstadosPlayer.Pegando:
+                            {
+                                coletador.GetComponent<BoxCollider2D>().enabled = true;
+                                VerificaProximoMovimento();
+                                break;
+                            }
                         case EstadosPlayer.Morto:
                             {
                                 Debug.Log("Merreu");
@@ -206,6 +220,11 @@ public class Player : MonoBehaviour
             //Debug.Log("Pular");
             estadoAtual = EstadosPlayer.Pulando;
         }
+        else if (comandosFinalList[movimentos].ToString() == "Pegar")
+        {
+            //Debug.Log("Pegar");
+            estadoAtual = EstadosPlayer.Pegando;
+        }
         else if (comandosFinalList[movimentos].ToString() == "Delay")
         {
             PintarSlot(jogadaCount);
@@ -253,6 +272,8 @@ public class Player : MonoBehaviour
         {
             Debug.LogWarning("Opção Inválida: " + comandosFinalList[movimentos].ToString());
         }
+
+        
 
         movimentos++;
     }
@@ -425,19 +446,18 @@ public class Player : MonoBehaviour
     {
         timeCountdown = vel;
     }
-
-
+    
     public void Pause()
     {
         estadoPausado = estadoAtual;
         estadoAtual = EstadosPlayer.Pausado;
-        audioS.GetComponent<AudioSource>().Pause();
+        //audioS.GetComponent<AudioSource>().Pause();
 
     }
     public void Despause()
     {
         estadoAtual = estadoPausado;
-        audioS.GetComponent<AudioSource>().Play();
+        //audioS.GetComponent<AudioSource>().Play();
     }
 
 }
@@ -453,5 +473,6 @@ public enum EstadosPlayer
     Morto,
     VirarDireita,
     VirarEsquerda,
+    Pegando,
     Pausado
 }

@@ -12,10 +12,10 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
-
     private bool isNewGame = false;
     private const string FILE_PATH = "saveGameData.dat";
     private SaveGameData saveGame;
+    
 
     //Variaver para save
     public int vidas, save;
@@ -24,6 +24,9 @@ public class GameController : MonoBehaviour
 
     public AudioSource audioS, audioC;
     public AudioClip audioVoltar, audioContinuar;
+
+    public Perfil perfilAtivo;
+
 
     /*public GameState State { set; get; }
     public Stack<GameScreens> Screens = new Stack<GameScreens>();
@@ -166,6 +169,21 @@ public class GameController : MonoBehaviour
     {
         audioC.clip = audioContinuar;
         audioC.Play();
+    }
+
+    public void SetPerfilAtivo(Perfil p)
+    {
+        perfilAtivo = p;
+    }
+
+    public void AtualizaSelectTowers(Text porcentagem, Text estrelas, Text cristais, Text moedas, Text total, Text level)
+    {
+        porcentagem.GetComponent<Text>().text = "0%";
+        estrelas.GetComponent<Text>().text = perfilAtivo.GetEstrelas().ToString();
+        cristais.GetComponent<Text>().text = perfilAtivo.GetCristais().ToString();
+        moedas.GetComponent<Text>().text = perfilAtivo.GetMoedas().ToString();
+        total.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
+        level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
     }
 
 }
