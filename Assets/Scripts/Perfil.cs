@@ -16,7 +16,7 @@ public class Perfil{
         SetNome(n);
         SetImagem(img);
         SetColor(c);
-        SetXp(0);
+        SetXp(1);
         SetLevel(1);
         SetLimite(500);
         SetVidas(4);

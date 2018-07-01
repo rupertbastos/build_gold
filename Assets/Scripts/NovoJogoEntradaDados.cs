@@ -88,9 +88,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
 
     private void ConfiguraPerfil()
     {
-
         Sprite sp;
-
         switch (btPlayer.name)
         {
             case ":: bt - avatar 01":
@@ -129,7 +127,6 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     break;
                 }
         }
-
 
         Color c;
         switch (btCor.name)
@@ -172,9 +169,6 @@ public class NovoJogoEntradaDados : MonoBehaviour {
         }
 
         p = new Perfil(nome.text.ToString().ToUpper(), sp, c);
-        Debug.LogWarning(p.GetNome());
-        Debug.LogWarning(p.GetImagem().name);
-        Debug.LogWarning(p.GetCor().r + "," + p.GetCor().g + "," + p.GetCor().b);
     }
 
     public void SelecionaPlayer(GameObject go)

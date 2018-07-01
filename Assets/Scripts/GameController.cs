@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     private bool isNewGame = false;
+
     private const string FILE_PATH = "saveGameData.dat";
     private SaveGameData saveGame;
     
@@ -26,6 +27,8 @@ public class GameController : MonoBehaviour
     public AudioClip audioVoltar, audioContinuar;
 
     public Perfil perfilAtivo;
+
+    public GameObject player;
 
 
     /*public GameState State { set; get; }
@@ -88,9 +91,6 @@ public class GameController : MonoBehaviour
 
     public void SaveGame(int val)
     {
-
-
-
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Path.Combine(Application.streamingAssetsPath, FILE_PATH));
 
@@ -184,6 +184,17 @@ public class GameController : MonoBehaviour
         moedas.GetComponent<Text>().text = perfilAtivo.GetMoedas().ToString();
         total.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
+    }
+
+    internal void AtualizaFaseInicio(Text nome, Text xp, Text level, GameObject sXp, GameObject foto, Color c, GameObject player)
+    {
+        nome.GetComponent<Text>().text = perfilAtivo.GetNome().ToString();
+        xp.GetComponent<Text>().text = perfilAtivo.GetXp().ToString() + "/" + perfilAtivo.GetLimite().ToString();
+        level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
+        foto.GetComponent<Image>().sprite = perfilAtivo.GetImagem();
+        sXp.GetComponent<Slider>().maxValue = perfilAtivo.GetLimite();
+        sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
+        player.GetComponent<SpriteRenderer>().color = perfilAtivo.GetCor();
     }
 
 }
