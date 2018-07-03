@@ -6,23 +6,25 @@ using UnityEngine;
 public class Perfil{
 
     public string nome;
-    public Sprite imagem;
+    public Sprite imagem, spI, spP;
     public Color cor;
     public int xp, level, limite, vidas;
     public int moedas, cristais, estrelas;
 
-    public Perfil(string n, Sprite img, Color c)
+    public Perfil(string n, Sprite img, Color c, Sprite i, Sprite p)
     {
         SetNome(n);
         SetImagem(img);
         SetColor(c);
-        SetXp(1);
+        SetXp(0);
         SetLevel(1);
         SetLimite(500);
         SetVidas(4);
         SetMoedas(0);
         SetCristais(0);
         SetEstrelas(0);
+        SetSpI(i);
+        SetSpP(p);
     }
 
     private void SetEstrelas(int e)
@@ -70,6 +72,16 @@ public class Perfil{
         imagem = img;
     }
 
+    private void SetSpI(Sprite i)
+    {
+        spI = i;
+    }
+
+    private void SetSpP(Sprite p)
+    {
+        spP = p;
+    }
+
     private void SetNome(string n)
     {
         nome = n.ToUpper();
@@ -83,6 +95,16 @@ public class Perfil{
     public Sprite GetImagem()
     {
         return imagem;
+    }
+
+    public Sprite GetSpI()
+    {
+        return spI;
+    }
+
+    public Sprite GetSpP()
+    {
+        return spP;
     }
 
     public int GetXp()

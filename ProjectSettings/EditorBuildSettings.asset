@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/01_MainMenu.unity
     guid: 9856b5b985400ac428fce49431c68eea
   - enabled: 1
-    path: Assets/Scenes/02_CarregarJogo.unity
+    path: Assets/Scenes/02_01_NovoJogo.unity
+    guid: ed647500470955644aac265e08f0a064
+  - enabled: 1
+    path: Assets/Scenes/02_02_Continue.unity
     guid: a979b2e9786843b4eb98a72f07911284
   - enabled: 1
-    path: Assets/Scenes/02_NovoJogo_Entrada_Dados.unity
-    guid: 5b4ca987ce700894583adcb702c3a32a
+    path: Assets/Scenes/02_03_Credits.unity
+    guid: 81de2cb01a039cb47a2161062889f87e
   - enabled: 1
     path: Assets/Scenes/03_01_SelectTowers.unity
     guid: 897adb4d2b54dc3499b7fa155b673914

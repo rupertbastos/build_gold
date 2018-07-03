@@ -189,7 +189,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 649351858}
         m_MethodName: AcaoBotaoNovoJogoEntrada_Dados
         m_Mode: 5
         m_Arguments:
@@ -197,7 +197,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Voltar2
+          m_StringArgument: Voltar3
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2406,7 +2406,6 @@ GameObject:
   - component: {fileID: 575742479}
   - component: {fileID: 575742478}
   - component: {fileID: 575742477}
-  - component: {fileID: 575742476}
   m_Layer: 5
   m_Name: ':: btn - next'
   m_TagString: Untagged
@@ -2433,17 +2432,6 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -300}
   m_SizeDelta: {x: 80, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &575742476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 575742474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd4a3ead434eb24b84b3dfe34d671d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &575742477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2478,12 +2466,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 575742478}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 649351858}
         m_MethodName: AcaoBotaoNovoJogoEntrada_Dados
         m_Mode: 5
         m_Arguments:
@@ -2491,7 +2479,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "Avan\xE7ar"
+          m_StringArgument: "Avan\xE7ar2"
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2560,18 +2548,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nome: {fileID: 1249585976}
+  nomeExibicao: {fileID: 415837264}
   canvasNome: {fileID: 1084328017}
   canvasAvatar: {fileID: 1610349794}
+  canvasConfirmacao: {fileID: 1428294755}
   btContinuarAvatar: {fileID: 1651352988}
   btNovaCena: {fileID: 1197271599}
   btPlayer: {fileID: 0}
   btCor: {fileID: 0}
-  sp1: {fileID: 0}
-  sp2: {fileID: 0}
-  sp3: {fileID: 0}
-  sp4: {fileID: 0}
-  sp5: {fileID: 0}
-  sp6: {fileID: 0}
+  sp: {fileID: 0}
+  sp1: {fileID: 21300000, guid: 256e44e084751164c83028f0b8f82938, type: 3}
+  sp2: {fileID: 21300000, guid: 818464b3126e7214f9a0e80c4e8a0fe4, type: 3}
+  sp3: {fileID: 21300000, guid: 448f9ef946e89124b8888f43bbacc476, type: 3}
+  sp4: {fileID: 21300000, guid: 9c906e10ba4da5c449986beb109fd526, type: 3}
+  sp5: {fileID: 21300000, guid: e0e48d35889348a418e2326e2a24f1d3, type: 3}
+  sp6: {fileID: 21300000, guid: 91a15679745e7ef45aff54f1cf1f308b, type: 3}
+  spI: {fileID: 0}
+  spI1: {fileID: 21300000, guid: 6305762dadf8661479f5d2675db819da, type: 3}
+  spI2: {fileID: 21300000, guid: c9f8b112b47468c488ff4b26d1065ecb, type: 3}
+  spI3: {fileID: 21300000, guid: e34708b6e0e4698468fc3a8c8da938cf, type: 3}
+  spI4: {fileID: 21300000, guid: b977a29023ba64e4da76cfa61e27064f, type: 3}
+  spI5: {fileID: 21300000, guid: 737fdf5a88d22fe4fa20af21fcc08ad5, type: 3}
+  spI6: {fileID: 21300000, guid: 587db39e3bc31d44a8ef379f2eebd332, type: 3}
+  spP: {fileID: 0}
+  spP1: {fileID: 21300000, guid: 411734fb29b6adf42b305269e4379290, type: 3}
+  spP2: {fileID: 21300000, guid: 604d4216176e16348a7c7bc96ee22575, type: 3}
+  spP3: {fileID: 21300000, guid: f5521d107a6285941a0039b8d09c251f, type: 3}
+  spP4: {fileID: 21300000, guid: d32cfbf24fb329c4e8c6f56a58c8ef8a, type: 3}
+  spP5: {fileID: 21300000, guid: 0b4563028b7acb74cab6654a736f8bd9, type: 3}
+  spP6: {fileID: 21300000, guid: 321ead01a749192439b60a290946233b, type: 3}
+  avatar: {fileID: 1710981582}
+  icon: {fileID: 872512099}
+  player: {fileID: 2135231688}
+  c: {r: 0, g: 0, b: 0, a: 0}
 --- !u!81 &649351859
 AudioListener:
   m_ObjectHideFlags: 0

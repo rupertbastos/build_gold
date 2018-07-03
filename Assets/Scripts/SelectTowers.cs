@@ -21,7 +21,7 @@ public class SelectTowers : MonoBehaviour {
             case "Voltar":
                 {
                     GameController.instance.ExecutaSomVoltar();
-                    SceneManager.LoadScene("02_CarregarJogo");
+                    SceneManager.LoadScene("02_02_Continue");
                     break;
                 }
 

@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour {
             case "NovoJogo":
                 {
                     GameController.instance.ExecutaSomContinuar();
-                    SceneManager.LoadScene("02_NovoJogo_Entrada_Dados");
+                    SceneManager.LoadScene("02_01_NovoJogo");
                     break;
                 }
 
@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour {
             case "Creditos":
                 {
                     GameController.instance.ExecutaSomContinuar();
-                    Debug.Log("Creditos");
+                    SceneManager.LoadScene("02_03_Credits");
                     break;
                 }
             case "Sair":

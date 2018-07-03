@@ -65,14 +65,22 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //audioS = GetComponent<AudioSource>();
-        audioS.Play();
+       
+        
 
         /*State = GameState.None;
         currentScreen = GameScreens.MainMenu;*/
     }
 
+    private void Start()
+    {
+        //audioS = GetComponent<AudioSource>();
 
+        if (audioS.isPlaying == false)
+        {
+            audioS.Play();
+        }
+    }
     public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -194,7 +202,7 @@ public class GameController : MonoBehaviour
         foto.GetComponent<Image>().sprite = perfilAtivo.GetImagem();
         sXp.GetComponent<Slider>().maxValue = perfilAtivo.GetLimite();
         sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
-        player.GetComponent<SpriteRenderer>().color = perfilAtivo.GetCor();
+        player.GetComponent<SpriteRenderer>().sprite = perfilAtivo.GetSpP();
         audioS.Stop();
     }
 
