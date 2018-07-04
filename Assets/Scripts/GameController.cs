@@ -194,15 +194,19 @@ public class GameController : MonoBehaviour
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
     }
 
-    internal void AtualizaFaseInicio(Text nome, Text xp, Text level, GameObject sXp, GameObject foto, Color c, GameObject player)
+    internal void AtualizaFaseInicio(Text nome, Text xp, Text level, GameObject sXp, GameObject foto, Color c, GameObject player, GameObject icon)
     {
         nome.GetComponent<Text>().text = perfilAtivo.GetNome().ToString();
         xp.GetComponent<Text>().text = perfilAtivo.GetXp().ToString() + "/" + perfilAtivo.GetLimite().ToString();
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
-        foto.GetComponent<Image>().sprite = perfilAtivo.GetImagem();
+        foto.GetComponent<Image>().sprite = perfilAtivo.GetImagem(); //cara do player
+        icon.GetComponent<Image>().sprite = perfilAtivo.GetSpI(); //icone do player
+        //icon.GetComponent<Image>().sprite = perfilAtivo.GetSpP(); //personagem do player
+        player.GetComponent<SpriteRenderer>().sprite = perfilAtivo.GetSpP();
         sXp.GetComponent<Slider>().maxValue = perfilAtivo.GetLimite();
         sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
         player.GetComponent<SpriteRenderer>().sprite = perfilAtivo.GetSpP();
+        player.GetComponent<Player>().SetAnimCont(perfilAtivo.corNumber);
         audioS.Stop();
     }
 

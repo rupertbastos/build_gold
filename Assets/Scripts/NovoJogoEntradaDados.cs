@@ -16,7 +16,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
     public Image avatar, icon, player;
     public Perfil p;
     public Color c;
-
+    private int corNumber;
 
     void Start()
     {
@@ -100,6 +100,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     avatar.GetComponent<Image>().sprite = sp;
                     icon.GetComponent<Image>().sprite = spI;
                     player.GetComponent<Image>().sprite = spP;
+                    
                     break;
                 }
             case "Avançar2":
@@ -167,6 +168,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(83,109,132);
                     spI = spI1;
                     spP = spP1;
+                    corNumber = 1;
                     break;
                 }
             case ":: bt - cor (2)":
@@ -174,6 +176,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(239,199,0);
                     spI = spI2;
                     spP = spP2;
+                    corNumber = 2;
                     break;
                 }
             case ":: bt - cor (3)":
@@ -181,6 +184,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(244,67,54);
                     spI = spI3;
                     spP = spP3;
+                    corNumber = 3;
                     break;
                 }
             case ":: bt - cor (4)":
@@ -188,6 +192,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(0, 218,243);
                     spI = spI4;
                     spP = spP4;
+                    corNumber = 4;
                     break;
                 }
             case ":: bt - cor (5)":
@@ -195,6 +200,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(173, 4, 255);
                     spI = spI5;
                     spP = spP5;
+                    corNumber = 5;
                     break;
                 }
             case ":: bt - cor (6)":
@@ -202,6 +208,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(16, 243, 0);
                     spI = spI6;
                     spP = spP6;
+                    corNumber = 6;
                     break;
                 }
             default:
@@ -209,11 +216,12 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                     c = new Color(0, 0, 0);
                     spI = null;
                     spP = null;
+                    corNumber = 1;
                     break;
                 }
         }
 
-        p = new Perfil(nome.text.ToString().ToUpper(), sp, c, spI, spP);
+        p = new Perfil(nome.text.ToString().ToUpper(), sp, c, spI, spP, corNumber);
     }
 
     public void SelecionaPlayer(GameObject go)

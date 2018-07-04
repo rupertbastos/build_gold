@@ -1166,7 +1166,6 @@ GameObject:
   - component: {fileID: 204759467}
   - component: {fileID: 204759466}
   - component: {fileID: 204759465}
-  - component: {fileID: 204759464}
   m_Layer: 5
   m_Name: ':: btn - back'
   m_TagString: Untagged
@@ -1174,19 +1173,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &204759464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114098308398430550, guid: f41a255ead9d06f4e83107909d068747,
-    type: 2}
-  m_PrefabInternal: {fileID: 239529628}
-  m_GameObject: {fileID: 204759463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb41adb5b15305140b6a911773e74009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioS: {fileID: 0}
 --- !u!114 &204759465
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
     private GameObject painelInventario;
     private GameObject painelWork;
     private GameObject btPlay;
-    private EstadosPlayer estadoAtual, estadoPausado;
+    
+    public EstadosPlayer estadoAtual, estadoPausado;
     //public GameObject audioS;
     //public Slider sliderVelocidadePlayer;
 
@@ -43,6 +44,14 @@ public class Player : MonoBehaviour
 
     public GameObject coletador;
 
+    public AudioSource audioClipFase;
+    public AudioClip playClip;
+
+    public AnimatorOverrideController animatorOverrideController;
+    
+    public AnimationClip acIdle01, acIdle02, acIdle03, acIdle04, acIdle05, acIdle06;
+    public int animCont;
+
     void Start()
     {
         estadoPausado = EstadosPlayer.Parado;
@@ -57,6 +66,11 @@ public class Player : MonoBehaviour
         //sliderVelocidadePlayer = GameObject.FindGameObjectWithTag("SliderVelocidadePlayer").GetComponent<Slider>();
         countdown = timeCountdown;
         direcao = 1;
+        audioClipFase = GameObject.FindGameObjectWithTag("AudioClipFase").GetComponent<AudioSource>();
+        animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        animator.runtimeAnimatorController = animatorOverrideController;
+        //Debug.LogWarning(animCont);
+        SetCorDoPlayer(animCont);
     }
 
     void Update()
@@ -164,6 +178,12 @@ public class Player : MonoBehaviour
                                 Debug.Log("Fim da Rodada");
                                 executaPlay = false;
                                 VerificaFimRodada();
+                                break;
+                            }
+                        case EstadosPlayer.FimCaminhoCompleto:
+                            {
+                                Debug.Log("Fim do Estagio: " + estadoAtual);
+                                executaPlay = false;
                                 break;
                             }
                         case EstadosPlayer.VirarDireita:
@@ -365,8 +385,10 @@ public class Player : MonoBehaviour
         estadoAtual = EstadosPlayer.Aguardando;
         executaPlay = true;
 
-
+        audioClipFase.clip = playClip;
+        audioClipFase.Play();
         slotsWork = painelWork.GetComponentsInChildren<Slot>();
+
 
         Debug.Log("Inicio");
     }
@@ -442,6 +464,8 @@ public class Player : MonoBehaviour
         animator.SetBool("playerMorto", true);
     }
 
+    
+
     public void AlteraVelocidade(float vel)
     {
         timeCountdown = vel;
@@ -458,6 +482,64 @@ public class Player : MonoBehaviour
         estadoAtual = estadoPausado;
     }
 
+    public void SetAnimCont(int i)
+    {
+        Debug.LogWarning("Entrou X: " + i);
+        animCont = i;
+    }
+
+    public void SetCorDoPlayer(int i)
+    {
+        //Debug.LogWarning("Entrou");
+        switch (i)
+        {
+            case 1:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle01;
+                    break;
+                }
+            case 2:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle02;
+                    break;
+                }
+            case 3:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle03;
+                    break;
+                }
+            case 4:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle04;
+                    break;
+                }
+            case 5:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle05;
+                    break;
+                }
+            case 6:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle06;
+                    break;
+                }
+            default:
+                {
+                    animatorOverrideController["player_idle_01"] = acIdle01;
+                    break;
+                }
+        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("FimDeFase"))
+        {
+            estadoAtual = EstadosPlayer.FimCaminhoCompleto;
+        }
+    }
+
 }
 
 public enum EstadosPlayer
@@ -468,6 +550,7 @@ public enum EstadosPlayer
     Delay,
     Parado,
     Fim,
+    FimCaminhoCompleto,
     Morto,
     VirarDireita,
     VirarEsquerda,

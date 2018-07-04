@@ -13,11 +13,13 @@ public class Item : MonoBehaviour
     private string tagAlvo;
     public float x, y, z;
     private Transform trans;
-    //public AudioSource audioS;
-    //public AudioClip audioC;
+
+    public AudioSource audioClipFase;
+    public AudioClip itemClip;
 
     private void Start()
     {
+        audioClipFase = GameObject.FindGameObjectWithTag("AudioClipFase").GetComponent<AudioSource>();
         switch (tag)
         {
             case "Cristal":
@@ -66,7 +68,10 @@ public class Item : MonoBehaviour
             txt = GameObject.FindGameObjectWithTag(tagAlvo);
             textUI = txt.GetComponent<Text>();
 
-            GetComponent<AudioSource>().Play();
+            audioClipFase.clip = itemClip;
+            audioClipFase.Play();
+
+
             GetComponent<Renderer>().enabled = false;
             if (tagAlvo.CompareTo("CountCoin") == 0)
             {

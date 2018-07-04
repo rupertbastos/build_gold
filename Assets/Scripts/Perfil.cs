@@ -9,9 +9,9 @@ public class Perfil{
     public Sprite imagem, spI, spP;
     public Color cor;
     public int xp, level, limite, vidas;
-    public int moedas, cristais, estrelas;
+    public int moedas, cristais, estrelas, corNumber;
 
-    public Perfil(string n, Sprite img, Color c, Sprite i, Sprite p)
+    public Perfil(string n, Sprite img, Color c, Sprite i, Sprite p, int cor)
     {
         SetNome(n);
         SetImagem(img);
@@ -25,6 +25,12 @@ public class Perfil{
         SetEstrelas(0);
         SetSpI(i);
         SetSpP(p);
+        SetCorNumber(cor);
+    }
+
+    private void SetCorNumber(int c)
+    {
+        corNumber = c;
     }
 
     private void SetEstrelas(int e)
@@ -105,6 +111,11 @@ public class Perfil{
     public Sprite GetSpP()
     {
         return spP;
+    }
+
+    public int GetCorNumber()
+    {
+        return corNumber;
     }
 
     public int GetXp()
