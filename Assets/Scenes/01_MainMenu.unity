@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 104656580}
   - component: {fileID: 104656582}
   - component: {fileID: 104656581}
+  - component: {fileID: 104656583}
   m_Layer: 5
   m_Name: ':: divider'
   m_TagString: Untagged
@@ -282,6 +283,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 104656579}
+--- !u!95 &104656583
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104656579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00000000000000000000000000000000, type: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &133483326
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +629,8 @@ GameObject:
   - component: {fileID: 720729315}
   - component: {fileID: 720729317}
   - component: {fileID: 720729316}
+  - component: {fileID: 720729319}
+  - component: {fileID: 720729318}
   m_Layer: 5
   m_Name: ':: logo'
   m_TagString: Untagged
@@ -668,6 +688,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 720729314}
+--- !u!95 &720729318
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720729314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34eb5b283d0f26141b9e22b9d46eb45c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &720729319
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720729314}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f3c920d51f7dfca44998428f607460ce, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &819843367
 GameObject:
   m_ObjectHideFlags: 0
