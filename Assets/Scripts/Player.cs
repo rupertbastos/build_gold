@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     
     public AnimationClip acIdle01, acIdle02, acIdle03, acIdle04, acIdle05, acIdle06;
     public AnimationClip acWalk01, acWalk02, acWalk03, acWalk04, acWalk05, acWalk06;
-    public AnimationClip acRun01, acRun02, acRun03, acRun04, acRun05, acRun06;
+    //public AnimationClip acRun01, acRun02, acRun03, acRun04, acRun05, acRun06;
     public AnimationClip acJump01, acJump02, acJump03, acJump04, acJump05, acJump06;
     public AnimationClip acDeath01, acDeath02, acDeath03, acDeath04, acDeath05, acDeath06;
     public AnimationClip acDropAttack01, acDropAttack02, acDropAttack03, acDropAttack04, acDropAttack05, acDropAttack06;

@@ -919,7 +919,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 108413723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7700002, y: -0.945, z: -4}
+  m_LocalPosition: {x: 0.91, y: -0.91, z: -4}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children:
   - {fileID: 190345986}
@@ -977,7 +977,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115331226
 GameObject:
@@ -1128,6 +1128,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2102033913}
   - {fileID: 1954071662}
   - {fileID: 1195047239}
   - {fileID: 1226652063}
@@ -1423,7 +1424,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1495,7 +1496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &168289289
 Prefab:
@@ -1506,7 +1507,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4428022719675550, guid: 1dcacca2a79f7d446b24c33929a030ab, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.6350002
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4428022719675550, guid: 1dcacca2a79f7d446b24c33929a030ab, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1629,7 +1630,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1705,7 +1706,7 @@ RectTransform:
   m_Children:
   - {fileID: 490603733}
   m_Father: {fileID: 123521249}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1750,7 +1751,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 203441059}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037919703}
+        m_MethodName: ReiniciarFase
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1907013336}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &203441059
@@ -3235,7 +3247,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5949,7 +5961,7 @@ RectTransform:
   m_Children:
   - {fileID: 386753193}
   m_Father: {fileID: 123521249}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6059,7 +6071,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7534,8 +7546,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44eeb7f28e55c0843b5542274296111e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listaMoedas: []
+  itensFasesTodos: []
   player: {fileID: 0}
   fimDeFase: {fileID: 1903571140}
+  posInicialPlayer: {x: -1.77, y: -0.945, z: -4}
   c1: {fileID: 1167291795}
   c2: {fileID: 1695486818}
   c3: {fileID: 1403459329}
@@ -7547,6 +7562,10 @@ MonoBehaviour:
   cristais: {fileID: 250236733}
   moedas: {fileID: 1651006099}
   total: {fileID: 75098494}
+  estrelasTxt: 
+  cristaisTxt: 
+  moedasTxt: 
+  totalTxt: 
   nome: {fileID: 349831315}
   xp: {fileID: 1656693253}
   level: {fileID: 1955440788}
@@ -7557,7 +7576,11 @@ MonoBehaviour:
   BTVel1: {fileID: 21300000, guid: 5e6f232cd85c25f479e157c9c8f172d2, type: 3}
   BTVel2: {fileID: 21300000, guid: 178ecb223b4cdae4aae0a9af442ec927, type: 3}
   BTVel3: {fileID: 21300000, guid: c3c87594dba10ef46ae6a6f2ece33884, type: 3}
-  StageCompleto: {fileID: 1907013336}
+  canvasStageCompleto: {fileID: 1907013336}
+  canvasPause: {fileID: 138328958}
+  canvasInGame: {fileID: 210503935}
+  canvasGameOVer: {fileID: 698759029}
+  mostraMoedas: 0
 --- !u!4 &1053063833 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
@@ -8340,7 +8363,7 @@ RectTransform:
   - {fileID: 995169305}
   - {fileID: 455089964}
   m_Father: {fileID: 123521249}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8643,7 +8666,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8838,7 +8861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1231027116 stripped
 RectTransform:
@@ -8910,7 +8933,6 @@ GameObject:
   - component: {fileID: 1244795947}
   - component: {fileID: 1244795946}
   - component: {fileID: 1244795945}
-  - component: {fileID: 1244795948}
   m_Layer: 5
   m_Name: ':: btn-sair'
   m_TagString: Untagged
@@ -8977,9 +8999,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244795948}
-        m_MethodName: AcaoBotaoMainMenu
-        m_Mode: 5
+      - m_Target: {fileID: 1037919703}
+        m_MethodName: Home
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9023,17 +9045,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1244795943}
---- !u!114 &1244795948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1244795943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0b7613ffa2ae745a4163a03cf5ffac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1245935681
 GameObject:
   m_ObjectHideFlags: 0
@@ -9639,7 +9650,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1322356459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037919703}
+        m_MethodName: ReiniciarFase
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 138328958}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1322356459
@@ -10320,7 +10342,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4508694891215522, guid: 0e2d683a0e1def34692a265e4ebd089e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.009999886
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4508694891215522, guid: 0e2d683a0e1def34692a265e4ebd089e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10353,6 +10375,10 @@ Prefab:
     - target: {fileID: 1128560403914534, guid: 0e2d683a0e1def34692a265e4ebd089e, type: 2}
       propertyPath: m_Name
       value: coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128560403914534, guid: 0e2d683a0e1def34692a265e4ebd089e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e2d683a0e1def34692a265e4ebd089e, type: 2}
@@ -10712,7 +10738,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10814,7 +10840,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11145,7 +11171,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13129,7 +13155,7 @@ RectTransform:
   m_Children:
   - {fileID: 1883531439}
   m_Father: {fileID: 123521249}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13174,7 +13200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1807591030}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037919703}
+        m_MethodName: Home
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1807591030
@@ -13930,7 +13967,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 123521249}
-  - {fileID: 2102033913}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14190,7 +14226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123521249}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1955440786
 Prefab:
@@ -14930,12 +14966,6 @@ MonoBehaviour:
   acWalk04: {fileID: 7400000, guid: 36392da1e6474734a832dd604aa3a277, type: 2}
   acWalk05: {fileID: 7400000, guid: 6166baaac87450a47b18928aa4e18fb5, type: 2}
   acWalk06: {fileID: 7400000, guid: 351a480cb5ecca8439349e835f9df45c, type: 2}
-  acRun01: {fileID: 0}
-  acRun02: {fileID: 0}
-  acRun03: {fileID: 0}
-  acRun04: {fileID: 0}
-  acRun05: {fileID: 0}
-  acRun06: {fileID: 7400000, guid: 351a480cb5ecca8439349e835f9df45c, type: 2}
   acJump01: {fileID: 7400000, guid: 53cdeae8cffb51b48b37e46d22b43237, type: 2}
   acJump02: {fileID: 7400000, guid: 57ff72162e2f29a4f8cfbcc5a8da33dd, type: 2}
   acJump03: {fileID: 7400000, guid: 43f08f086480c234cbcc3a960962ebdf, type: 2}
@@ -15092,10 +15122,10 @@ RectTransform:
   m_GameObject: {fileID: 2102033912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1907013340}
-  m_RootOrder: 1
+  m_Father: {fileID: 123521249}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
