@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EventoIniciaJogo : MonoBehaviour {
 
-    public void PrintEvent(string s)
+    public void ChamaMenu()
     {
         SceneManager.LoadScene("01_MainMenu");
     }
