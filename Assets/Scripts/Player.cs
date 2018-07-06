@@ -471,8 +471,6 @@ public class Player : MonoBehaviour
         animator.SetBool("playerMorto", true);
     }
 
-    
-
     public void AlteraVelocidade(float vel)
     {
         timeCountdown = vel;
@@ -502,37 +500,79 @@ public class Player : MonoBehaviour
         {
             case 1:
                 {
+                    animatorOverrideController["player_death"] = acDeath01;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack01;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack01;
                     animatorOverrideController["player_idle_01"] = acIdle01;
+                    animatorOverrideController["player_jump"] = acJump01;
+                    animatorOverrideController["player_ladder"] = acLadder01;
+                    animatorOverrideController["player_walk"] = acWalk01;
                     break;
                 }
             case 2:
                 {
+                    animatorOverrideController["player_death"] = acDeath02;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack02;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack02;
                     animatorOverrideController["player_idle_01"] = acIdle02;
+                    animatorOverrideController["player_jump"] = acJump02;
+                    animatorOverrideController["player_ladder"] = acLadder02;
+                    animatorOverrideController["player_walk"] = acWalk02;
                     break;
                 }
             case 3:
                 {
+                    animatorOverrideController["player_death"] = acDeath03;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack03;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack03;
                     animatorOverrideController["player_idle_01"] = acIdle03;
+                    animatorOverrideController["player_jump"] = acJump03;
+                    animatorOverrideController["player_ladder"] = acLadder03;
+                    animatorOverrideController["player_walk"] = acWalk03;
                     break;
                 }
             case 4:
                 {
+                    animatorOverrideController["player_death"] = acDeath04;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack04;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack04;
                     animatorOverrideController["player_idle_01"] = acIdle04;
+                    animatorOverrideController["player_jump"] = acJump04;
+                    animatorOverrideController["player_ladder"] = acLadder04;
+                    animatorOverrideController["player_walk"] = acWalk04;
                     break;
                 }
             case 5:
                 {
+                    animatorOverrideController["player_death"] = acDeath05;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack05;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack05;
                     animatorOverrideController["player_idle_01"] = acIdle05;
+                    animatorOverrideController["player_jump"] = acJump05;
+                    animatorOverrideController["player_ladder"] = acLadder05;
+                    animatorOverrideController["player_walk"] = acWalk05;
                     break;
                 }
             case 6:
                 {
+                    animatorOverrideController["player_death"] = acDeath06;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack06;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack06;
                     animatorOverrideController["player_idle_01"] = acIdle06;
+                    animatorOverrideController["player_jump"] = acJump06;
+                    animatorOverrideController["player_ladder"] = acLadder06;
+                    animatorOverrideController["player_walk"] = acWalk06;
                     break;
                 }
             default:
                 {
-                    animatorOverrideController["player_idle_01"] = acIdle01;
+                    animatorOverrideController["player_death"] = acDeath01;
+                    animatorOverrideController["player_dropAttack"] = acDropAttack02;
+                    animatorOverrideController["player_frontAttack"] = acFrontAttack03;
+                    animatorOverrideController["player_idle_01"] = acIdle04;
+                    animatorOverrideController["player_jump"] = acJump05;
+                    animatorOverrideController["player_ladder"] = acLadder06;
+                    animatorOverrideController["player_walk"] = acWalk01;
                     break;
                 }
         }
