@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,6 +29,25 @@ public class Fase : MonoBehaviour {
 
     public bool mostraMoedas;
 
+    public Slot[] slotsMovimentoIncial;
+    public Slot[] slotsMovimentosPlay;
+    public Slot[] slotsZerado;
+
+    public GameObject painelWork;
+    public GameObject painelInventario;
+
+    public string[] movimentos;
+
+    public GameObject btnPlay, btnVel;
+
+    public float delay;
+    public Boolean entraDelay, podeJogar, delayInicial;
+    public int movPos;
+    public float pos, speed;
+    public int direcao;
+    public float countdown, countdownIncial;
+    public float timeCountdown;
+
     private void Awake()
     {
         estrelasTxt = estrelas.text;
@@ -54,6 +74,16 @@ public class Fase : MonoBehaviour {
         {
             m.gameObject.SetActive(mostraMoedas);
         }*/
+
+        painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
+        painelInventario = GameObject.FindGameObjectWithTag("PainelMetodos");
+        slotsZerado = painelWork.GetComponentsInChildren<Slot>();
+        btnPlay = GameObject.FindGameObjectWithTag("BtPlay");
+        btnVel = GameObject.FindGameObjectWithTag("BtVel");
+        podeJogar = false;
+        direcao = 1;
+        countdown = timeCountdown;
+        countdownIncial = timeCountdown + 5;
     }
 
     private void Update()
@@ -74,13 +104,101 @@ public class Fase : MonoBehaviour {
             }
         }
 
-        Debug.LogWarning("Entrou aqui: " + player.GetComponent<Player>().estadoAtual);
+        //Debug.LogWarning("Entrou aqui: " + player.GetComponent<Player>().estadoAtual);
         if(player.GetComponent<Player>().estadoAtual == EstadosPlayer.FimCaminhoCompleto)
         {
             Debug.LogWarning("Entrou aqui 2");
             canvasStageCompleto.SetActive(true);
             player.GetComponent<Player>().estadoAtual = EstadosPlayer.Fim;
         }
+
+        /*if (delayInicial)
+        {
+            countdownIncial -= Time.deltaTime;
+            if (countdownIncial <= 0.0f)
+            {
+                delayInicial = false;
+            }
+        }
+        else
+        {*/
+            if (entraDelay)
+            {
+                countdown -= Time.deltaTime;
+                if (countdown <= 0.0f)
+                {
+                    entraDelay = false;
+                }
+            }
+            else
+            {
+                if (podeJogar)
+                {
+                    entraDelay = true;
+                    ExecutaMovimento(ProximoMovimento());
+
+                }
+            }
+        //}
+        
+
+        
+
+
+    }
+
+    private void ExecutaMovimento(string v)
+    {
+        switch (v)
+        {
+            case "Mover":
+                {
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Movendo;
+                    player.GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
+                    
+                    entraDelay = true;
+                    break;
+                }
+            case "Fim":
+                {
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Parado;
+                    Debug.Log("Fim da rodada");
+                    podeJogar = false;
+                    break;
+                }
+            default:
+                player.GetComponent<Player>().estadoAtual = EstadosPlayer.Parado;
+                break;
+        }
+            
+        
+    }
+
+    public void Play()
+    {
+        movimentos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
+        btnPlay.GetComponent<Button>().interactable = false;
+        btnVel.GetComponent<Button>().interactable = false;
+
+        podeJogar = true;
+        //delayInicial = true;
+
+        Debug.Log(movimentos[0].ToString());
+
+        
+
+    }
+
+    
+
+    private string ProximoMovimento()
+    {
+        string moveTxt = movimentos[movPos].ToString();
+        movPos = movPos + 1;
+
+       
+
+        return (moveTxt.Trim());
     }
 
     public void ReiniciarFase(GameObject go)

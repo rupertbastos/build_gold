@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     //public GameObject[] slots;
     //[SerializeField] Transform slots;
 
+    public GameObject[] listaBlocos;
+    public GameObject[] listaColisoresBlocos;
+    //public Component[] listaComponentesBlocos;
+    public int posColisor;
+
     private Transform slots;
     private Animator animator;
     private GameObject painelInventario;
@@ -24,7 +29,7 @@ public class Player : MonoBehaviour
 
     public string[] metodos;
     public IList<string> comandosFinalList;
-    public float pos, speed;
+    public float pos, speed, pos2;
     public bool executaPlay = false;
     public bool delayLiberado = false;
     public int movimentos, totalMovimentos;
@@ -69,13 +74,49 @@ public class Player : MonoBehaviour
         painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
         slots = painelWork.GetComponent<Transform>();
         btPlay = GameObject.FindGameObjectWithTag("BtPlay");
-        coletador = GameObject.FindGameObjectWithTag("Coletador");
+        //coletador = GameObject.FindGameObjectWithTag("Coletador");
         //sliderVelocidadePlayer = GameObject.FindGameObjectWithTag("SliderVelocidadePlayer").GetComponent<Slider>();
         countdown = timeCountdown;
         direcao = 1;
         audioClipFase = GameObject.FindGameObjectWithTag("AudioClipFase").GetComponent<AudioSource>();
         animatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = animatorOverrideController;
+
+        /*listaBlocos = GameObject.FindGameObjectsWithTag("Bloco");
+        listaColisoresBlocos = new GameObject[listaBlocos.Length];
+        
+        for (int i = 0; i < listaBlocos.Length; i++)
+        {
+            
+            foreach (Component c in listaBlocos[i].GetComponentsInChildren<Component>())
+            {
+                String auxName = c.GetType().ToString();
+                if ((c.name.CompareTo("Colisor0") == 0 || c.name.CompareTo("Colisor1") == 0 || c.name.CompareTo("Colisor2") == 0 || c.name.CompareTo("Colisor3") == 0) && auxName.CompareTo("UnityEngine.BoxCollider2D") == 0)
+                {
+                    //Debug.LogWarning("Bloco: " + i + " - Nome: " + c.name + " - Type: " + c.GetType());
+                    listaColisoresBlocos[i] = c.gameObject;
+
+                }
+                
+            }
+
+            //listaComponentesBlocos = listaBlocos[i].GetComponents<Component>();
+            /*for (int j = 0; j < listaComponentesBlocos.Length; j++)
+            {
+                Debug.LogWarning("Bloco: " + i + " - Nome: " + listaComponentesBlocos[j].name + " - Type: " + listaComponentesBlocos[j].GetType());
+            }
+            //GameObject go = listaComponentesBlocos[6].gameObject;
+            //listaColisoresBlocos[i] = listaComponentesBlocos[5];
+        }
+
+        foreach (GameObject go in listaColisoresBlocos)
+        {
+            Debug.LogWarning(go.name);
+        }
+
+            //Debug.LogWarning(listaComponentesBlocos[6].name);
+            posColisor = 0;*/
+
         //Debug.LogWarning(animCont);
         SetCorDoPlayer(animCont);
     }
@@ -97,6 +138,22 @@ public class Player : MonoBehaviour
             countdown -= Time.deltaTime;
         }
 
+        switch (estadoAtual)
+        {
+            case EstadosPlayer.Movendo:
+                {
+                    animator.SetBool("playerCaminhando", true);
+                    animator.SetBool("playerParado", false);
+                    break;
+                }
+            default:
+                {
+                    animator.SetBool("playerCaminhando", false);
+                    animator.SetBool("playerParado", true);
+                    break;
+                }
+        }
+
         if (executaPlay)
         {
             if(estadoAtual != EstadosPlayer.Pausado)
@@ -113,20 +170,25 @@ public class Player : MonoBehaviour
                             }
                         case EstadosPlayer.Movendo:
                             {
-                                animator.SetBool("playerParado", false);
-                                animator.SetBool("playerCaminhando", true);
+                                
                                 Debug.Log("Movimentou o personagem");
 
                                 GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
+                                //GetComponent<Transform>().Translate(Vector2.right * pos2 * Time.deltaTime);
+                                //GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, new Vector3(GetComponent<Transform>().position.x + 50, GetComponent<Transform>().position.y, GetComponent<Transform>().position.z), pos2 * Time.deltaTime);
+                                //transform.Translate(Vector2.right * velocidade * Time.deltaTime);
                                 //Debug.Log(GetComponent<Transform>().position.x);
+
+                                //transform.localPosition = Vector3.Lerp(transform.localPosition, transform.localPosition + new Vector3(pos2, transform.localPosition.y, transform.localPosition.z),speed * Time.deltaTime);
+
 
                                 VerificaProximoMovimento();
                                 break;
                             }
                         case EstadosPlayer.Pulando:
                             {
-                                animator.SetBool("playerParado", false);
-                                animator.SetBool("playerPulando", true);
+                                //animator.SetBool("playerParado", false);
+                                //animator.SetBool("playerPulando", true);
                                 Debug.Log("Pulou o personagem");
                                 GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX * direcao, forcaPuloY));
                                 VerificaProximoMovimento();
@@ -134,19 +196,20 @@ public class Player : MonoBehaviour
                             }
                         case EstadosPlayer.Delay:
                             {
-                                animator.SetBool("playerParado", true);
-                                animator.SetBool("playerCaminhando", false);
-                                animator.SetBool("playerPulando", false);
+                                //animator.SetBool("playerCaminhando", false);
 
                                 if (countdown <= 0.0f)
                                 {
                                     delayLiberado = true;
+                                    //animator.SetBool("playerParado", true);
+                                    //animator.SetBool("playerCaminhando", false);
                                     Debug.Log("Deley personagem");
                                 }
 
                                 if (delayLiberado)
                                 {
                                     Debug.Log("Fim do deley personagem");
+                                    //animator.SetBool("playerCaminhando", false);
                                     delayLiberado = false;
                                     if (coletador.GetComponent<BoxCollider2D>().enabled)
                                     {
@@ -173,11 +236,11 @@ public class Player : MonoBehaviour
                             }
                         case EstadosPlayer.Morto:
                             {
-                                Debug.Log("Merreu");
+                                Debug.Log("Morreu");
                                 // btPlay.GetComponent<Button>().interactable = true;
                                 executaPlay = false;
-                                animator.SetBool("playerParado", false);
-                                animator.SetBool("playerMorto", true);
+                                //animator.SetBool("playerParado", false);
+                                //animator.SetBool("playerMorto", true);
                                 break;
                             }
                         case EstadosPlayer.Fim:
@@ -238,8 +301,11 @@ public class Player : MonoBehaviour
     {
         if (comandosFinalList[movimentos].ToString() == "Mover")
         {
+            //animator.SetBool("playerCaminhando", true);
             //Debug.Log("Mover");
             estadoAtual = EstadosPlayer.Movendo;
+            //animator.SetBool("playerParado", false);
+            
 
         }
         else if (comandosFinalList[movimentos].ToString() == "Pular")
@@ -258,6 +324,8 @@ public class Player : MonoBehaviour
             jogadaCount++;
             countdown = timeCountdown;
             estadoAtual = EstadosPlayer.Delay;
+            //animator.SetBool("playerParado", true);
+            //animator.SetBool("playerCaminhando", false);
             //Debug.Log("Delay");
         }
         else if (comandosFinalList[movimentos].ToString() == "Fim")
@@ -586,6 +654,32 @@ public class Player : MonoBehaviour
             estadoAtual = EstadosPlayer.FimCaminhoCompleto;
         }
     }
+
+    public void FimAnimacao()
+    {
+        animator.SetBool("playerCaminhando", false);
+    }
+
+    public void RemoveColisorProximo()
+    {
+        if(posColisor < listaBlocos.Length)
+        {
+            posColisor = posColisor + 1;
+            //
+        }
+        
+    }
+
+    public void ChamaPrimeiraAnimacao()
+    {
+        /*Debug.Log("ChamaPrimeiraAnimacao: ");
+        if (comandosFinalList[0] == "mover" + comandosFinalList[0])
+        {
+            animator.SetBool("playerCaminhando", true);
+            Debug.Log("Animação playerCaminhando");
+        }*/
+    }
+
 
 }
 
