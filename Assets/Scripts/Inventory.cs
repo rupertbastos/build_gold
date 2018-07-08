@@ -29,6 +29,7 @@ public class Inventory : MonoBehaviour, IHasChanged
                 builder.Append(" - ");
             }
         }
+        builder.Append("Fim");
         texto = builder.ToString();
         //Debug.Log(texto);
         ListarMovimentos();
