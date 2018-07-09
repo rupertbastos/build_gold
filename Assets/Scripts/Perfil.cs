@@ -190,4 +190,9 @@ public class Perfil{
         }
     }
 
+    public void RenovaVidas()
+    {
+        vidas = 4;
+    }
+
 }

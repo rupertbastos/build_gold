@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Fase : MonoBehaviour {
+public class Fase : MonoBehaviour
+{
 
     public GameObject[] listaMoedas;
     //public GameObject[] itensFasesTodos;
@@ -27,7 +28,7 @@ public class Fase : MonoBehaviour {
 
     public Sprite BTVel1, BTVel2, BTVel3;
 
-    public GameObject canvasStageCompleto, canvasPause, canvasInGame, canvasGameOVer;
+    public GameObject canvasStageCompleto, canvasPause, canvasInGame, canvasGameOver;
 
     public bool mostraMoedas;
 
@@ -66,8 +67,12 @@ public class Fase : MonoBehaviour {
 
     public GameObject ListaBTMetodos, PainelMovimento, PainelRepeticao;
 
+    public GameObject[] coracoes;
+    public int vidas;
+
     private void Awake()
     {
+        
         estrelasTxt = estrelas.text;
         cristaisTxt = cristais.text;
         moedasTxt = moedas.text;
@@ -108,7 +113,10 @@ public class Fase : MonoBehaviour {
         fimDeRodada = false;
         cristalFim.SetActive(false);
         estaPausado = false;
+        coracoes = GameObject.FindGameObjectsWithTag("Coracao");
     }
+
+    
 
     private void Update()
     {
@@ -130,15 +138,6 @@ public class Fase : MonoBehaviour {
 
 
             VerificaMoedasFases();
-
-
-            //Debug.LogWarning("Entrou aqui: " + player.GetComponent<Player>().estadoAtual);
-            /*if(player.GetComponent<Player>().estadoAtual == EstadosPlayer.FimCaminhoCompleto)
-            {
-                Debug.LogWarning("Entrou aqui 2");
-                canvasStageCompleto.SetActive(true);
-                player.GetComponent<Player>().estadoAtual = EstadosPlayer.Fim;
-            }*/
 
 
             if (entraDelay)
@@ -206,16 +205,71 @@ public class Fase : MonoBehaviour {
             {
                 ReiniciarFase();
                 Debug.Log("Não chegou ao fim da fase!");
-                /*if(GameController.instance.perfilAtivo.GetVidas() == 1)
+                if(GameController.instance.perfilAtivo.GetVidas() == 1)
                 {
-                    Debug.Log("Gameover");
+                    audioFase.Stop();
+                    canvasInGame.SetActive(false);
+                    canvasGameOver.SetActive(true);
                 }
                 else
                 {
                     GameController.instance.perfilAtivo.DiminuiVida();
+                    RemoveCoracao(GameController.instance.perfilAtivo.GetVidas());
                     ReiniciarFase();
-                }*/
+                }
             }
+        }
+    }
+
+    
+
+    private void RemoveCoracao(int v)
+    {
+        switch (v)
+        {
+            case 3:
+                {
+                    foreach(GameObject obj in coracoes)
+                    {
+                        string[] name = obj.name.Split('-');
+
+                        if (name[3].CompareTo("1") == 0)
+                        {
+                            obj.SetActive(false);
+                        }
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    foreach (GameObject obj in coracoes)
+                    {
+                        string[] name = obj.name.Split('-');
+
+                        if (name[3].CompareTo("2") == 0)
+                        {
+                            obj.SetActive(false);
+                        }
+                    }
+                    break;
+                }
+                case 1:
+                {
+                    foreach (GameObject obj in coracoes)
+                    {
+                        string[] name = obj.name.Split('-');
+
+                        if (name[3].CompareTo("3") == 0)
+                        {
+                            obj.SetActive(false);
+                        }
+                    }
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
         }
     }
 
@@ -333,8 +387,6 @@ public class Fase : MonoBehaviour {
         //Debug.Log(movimentos[0].ToString());
     }
 
-    
-
     private string ProximoMovimento()
     {
         string moveTxt = movimentos[movPos].ToString();
@@ -445,4 +497,6 @@ public class Fase : MonoBehaviour {
         SceneManager.LoadScene("03_01_SelectTowers");
         //SceneManager.LoadScene("03_02_SelecaoFases");
     }
+
+    
 }

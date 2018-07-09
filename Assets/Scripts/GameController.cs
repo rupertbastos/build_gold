@@ -207,6 +207,7 @@ public class GameController : MonoBehaviour
         sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
         player.GetComponent<SpriteRenderer>().sprite = perfilAtivo.GetSpP();
         player.GetComponent<Player>().SetAnimCont(perfilAtivo.corNumber);
+        perfilAtivo.RenovaVidas();
         audioS.Stop();
     }
 
