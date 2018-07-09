@@ -194,7 +194,7 @@ public class GameController : MonoBehaviour
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
     }
 
-    public void AtualizaFaseInicio(Text nome, Text xp, Text level, GameObject sXp, GameObject foto, Color c, GameObject player, GameObject icon)
+    public void AtualizaFaseInicio(Text nome, Text xp, Text level, GameObject sXp, GameObject foto, GameObject player, GameObject icon)
     {
         nome.GetComponent<Text>().text = perfilAtivo.GetNome().ToString();
         xp.GetComponent<Text>().text = perfilAtivo.GetXp().ToString() + "/" + perfilAtivo.GetLimite().ToString();

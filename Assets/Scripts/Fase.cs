@@ -8,27 +8,29 @@ using UnityEngine.UI;
 
 public class Fase : MonoBehaviour
 {
-
-    public GameObject[] listaMoedas;
-    //public GameObject[] itensFasesTodos;
-
-
-    public GameObject player, fimDeFase;
     public Vector3 posInicialPlayer;
-    public GameObject c1, c2, c3, c4;
-    public GameObject sXP, foto, iconFaceCharacter;
-    public Text estrelas, cristais, moedas, total;
-    public string estrelasTxt, cristaisTxt, moedasTxt, totalTxt;
-    public Text nome, xp, level;
-    public Color cor;
-    public AudioSource audioFase;
-    public AudioSource audioPause;
-    public AudioSource audioClipFase;
+    public string nameProximaFase;
     public AudioClip btVelocidadeClip;
-
     public Sprite BTVel1, BTVel2, BTVel3;
 
-    public GameObject canvasStageCompleto, canvasPause, canvasInGame, canvasGameOver;
+    private GameObject[] listaMoedas;
+
+    private GameObject player;
+    
+    private GameObject sXP,foto, iconFaceCharacter;
+    private Text cristais, moedas, total;
+
+    private string cristaisTxt, moedasTxt, totalTxt;
+    private Text nome, xp, level;
+
+    private AudioSource audioFase;
+    private AudioSource audioPause;
+    private AudioSource audioClipFase;
+    
+
+    
+
+    public GameObject canvasSucesso, canvasPause, canvasInGame, canvasGameOver;
 
     public bool mostraMoedas;
 
@@ -52,7 +54,7 @@ public class Fase : MonoBehaviour
     public float timeCountdown;
 	public float forcaPuloX;
 	public float forcaPuloY;
-    public GameObject playerColisorFim;
+
     public GameObject playerColetador;
     public GameObject cristalFim;
 
@@ -68,44 +70,87 @@ public class Fase : MonoBehaviour
     public GameObject ListaBTMetodos, PainelMovimento, PainelRepeticao;
 
     public GameObject[] coracoes;
-    public int vidas;
 
     private void Awake()
     {
         
-        estrelasTxt = estrelas.text;
-        cristaisTxt = cristais.text;
-        moedasTxt = moedas.text;
-        totalTxt = total.text;
+        
 
 
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Transform>().position = posInicialPlayer;
-        
+        playerColetador = GameObject.FindGameObjectWithTag("Coletador");
+
+
         audioFase = GameObject.FindGameObjectWithTag("AudioFase").GetComponent<AudioSource>();
         
         audioClipFase = GameObject.FindGameObjectWithTag("AudioClipFase").GetComponent<AudioSource>();
-        GameController.instance.AtualizaFaseInicio(nome, xp, level, sXP, foto, cor, player, iconFaceCharacter);
+        sXP = GameObject.FindGameObjectWithTag("SliderXP");
+        foto = GameObject.FindGameObjectWithTag("IconAvatar");
+
+
+        iconFaceCharacter = GameObject.FindGameObjectWithTag("IconFace");
+
+        cristais = GameObject.FindGameObjectWithTag("CountCristal").GetComponent<Text>();
+        moedas = GameObject.FindGameObjectWithTag("CountCoin").GetComponent<Text>();
+        total = GameObject.FindGameObjectWithTag("CountPontuacaoTotal").GetComponent<Text>();
+
+        nome = GameObject.FindGameObjectWithTag("UserName").GetComponent<Text>();
+        xp = GameObject.FindGameObjectWithTag("CountXP").GetComponent<Text>();
+        level = GameObject.FindGameObjectWithTag("CountLevel").GetComponent<Text>();
+        
+
+        cristaisTxt = cristais.text;
+        moedasTxt = moedas.text;
+        totalTxt = total.text;
+        canvasInGame = GameObject.FindGameObjectWithTag("HUDInGame");
+        canvasSucesso = GameObject.FindGameObjectWithTag("Sucesso");
+        canvasPause = GameObject.FindGameObjectWithTag("PauseGame");
+        canvasGameOver = GameObject.FindGameObjectWithTag("GameOver");
+        cristalFim = GameObject.FindGameObjectWithTag("Cristal");
+
+        ListaBTMetodos = GameObject.FindGameObjectWithTag("ListaBTMetodos");
+        PainelMovimento = GameObject.FindGameObjectWithTag("PainelMovimento");
+        PainelRepeticao = GameObject.FindGameObjectWithTag("PainelRepeticao");
+
+        
+
+        txtPontosFim = GameObject.FindGameObjectWithTag("TXTPontosFim");
+        txtCristalFim = GameObject.FindGameObjectWithTag("TXTCristalFim");
+        txtMoedaFim = GameObject.FindGameObjectWithTag("TXTMoedasFim");
+        txtPontosTotalFaseFim = GameObject.FindGameObjectWithTag("TXTPontosTotalFim");
+        scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
+        txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
+
+        GameController.instance.AtualizaFaseInicio(nome, xp, level, sXP, foto, player, iconFaceCharacter);
     }
 
     private void Start()
     {
+        canvasPause.SetActive(false);
+        canvasSucesso.SetActive(false);
+        canvasGameOver.SetActive(false);
+        ListaBTMetodos.SetActive(false);
+        PainelMovimento.SetActive(false);
+        PainelRepeticao.SetActive(false);
+
         audioFase.Play();
         estadoAnterior = player.GetComponent<Player>().estadoAtual;
 
         listaMoedas = GameObject.FindGameObjectsWithTag("Coin");
 
-        /*foreach (GameObject m in listaMoedas)
-        {
-            m.gameObject.SetActive(mostraMoedas);
-        }*/
-        //audioPause = GameObject.FindGameObjectWithTag("AudioPause").GetComponent<AudioSource>();
+        
+
+
         painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
         painelInventario = GameObject.FindGameObjectWithTag("PainelMetodos");
         
         slotsZerado = painelWork.GetComponentsInChildren<Slot>();
         btnPlay = GameObject.FindGameObjectWithTag("BtPlay");
         btnVel = GameObject.FindGameObjectWithTag("BtVel");
+
+        
+
         podeJogar = false;
         direcao = 1;
         countdown = timeCountdown;
@@ -115,8 +160,6 @@ public class Fase : MonoBehaviour
         estaPausado = false;
         coracoes = GameObject.FindGameObjectsWithTag("Coracao");
     }
-
-    
 
     private void Update()
     {
@@ -172,7 +215,7 @@ public class Fase : MonoBehaviour
         {
             Debug.Log("Cristal foi Capturado - Fim");
 
-            canvasStageCompleto.SetActive(true);
+            canvasSucesso.SetActive(true);
             scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
             txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
             txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
@@ -189,7 +232,7 @@ public class Fase : MonoBehaviour
         {
             if(player.GetComponent<Player>().colisorFim == true)
             {
-                canvasStageCompleto.SetActive(true);
+                canvasSucesso.SetActive(true);
                 scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
                 txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
                 txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
@@ -203,7 +246,7 @@ public class Fase : MonoBehaviour
             }
             else
             {
-                ReiniciarFase();
+                //ReiniciarFase();
                 Debug.Log("Não chegou ao fim da fase!");
                 if(GameController.instance.perfilAtivo.GetVidas() == 1)
                 {
@@ -220,8 +263,6 @@ public class Fase : MonoBehaviour
             }
         }
     }
-
-    
 
     private void RemoveCoracao(int v)
     {
@@ -278,6 +319,7 @@ public class Fase : MonoBehaviour
         player.GetComponent<Transform>().position = posInicialPlayer;
         movPos = 0;
         podeJogar = false;
+        btnVel.SetActive(true);
     }
 
     private void VerificaMoedasFases()
@@ -397,13 +439,17 @@ public class Fase : MonoBehaviour
         return (moveTxt.Trim());
     }
 
+    public void ProximaFase()
+    {
+        SceneManager.LoadScene(nameProximaFase);
+    }
+
     public void ReiniciarFase(GameObject go)
     {
         Debug.LogWarning("Reniciou");
         if (go.activeSelf == true)
         {
             audioFase.Play();
-            estrelas.text = estrelasTxt;
             cristais.text = cristaisTxt;
             moedas.text = moedasTxt;
             total.text = totalTxt;
@@ -497,6 +543,4 @@ public class Fase : MonoBehaviour
         SceneManager.LoadScene("03_01_SelectTowers");
         //SceneManager.LoadScene("03_02_SelecaoFases");
     }
-
-    
 }
