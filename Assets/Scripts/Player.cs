@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
     public AnimationClip acFrontAttack01, acFrontAttack02, acFrontAttack03, acFrontAttack04, acFrontAttack05, acFrontAttack06;
     public AnimationClip acLadder01, acLadder02, acLadder03, acLadder04, acLadder05, acLadder06;
     public int animCont;
+    public bool colisorFim;
 
     void Start()
     {
@@ -680,7 +681,13 @@ public class Player : MonoBehaviour
         }*/
     }
 
-
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "BlocoFim")
+        {
+            colisorFim = true;
+        }
+    }
 }
 
 public enum EstadosPlayer

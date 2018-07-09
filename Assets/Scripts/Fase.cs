@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class Fase : MonoBehaviour {
 
     public GameObject[] listaMoedas;
-    public GameObject[] itensFasesTodos;
+    //public GameObject[] itensFasesTodos;
 
 
     public GameObject player, fimDeFase;
@@ -20,6 +21,7 @@ public class Fase : MonoBehaviour {
     public Text nome, xp, level;
     public Color cor;
     public AudioSource audioFase;
+    public AudioSource audioPause;
     public AudioSource audioClipFase;
     public AudioClip btVelocidadeClip;
 
@@ -41,12 +43,28 @@ public class Fase : MonoBehaviour {
     public GameObject btnPlay, btnVel;
 
     public float delay;
-    public Boolean entraDelay, podeJogar, delayInicial;
+    public bool entraDelay, podeJogar, fimDeRodada, estaPausado;
     public int movPos;
     public float pos, speed;
     public int direcao;
     public float countdown, countdownIncial;
     public float timeCountdown;
+	public float forcaPuloX;
+	public float forcaPuloY;
+    public GameObject playerColisorFim;
+    public GameObject playerColetador;
+    public GameObject cristalFim;
+
+
+    public GameObject txtPontosFim;
+    public GameObject txtCristalFim;
+    public GameObject txtMoedaFim;
+    public GameObject txtPontosTotalFaseFim;
+    public GameObject scrollXPEstagioCompleto;
+    public GameObject txtLevel;
+    public EstadosPlayer estadoAnterior;
+
+    public GameObject ListaBTMetodos, PainelMovimento, PainelRepeticao;
 
     private void Awake()
     {
@@ -58,7 +76,9 @@ public class Fase : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Transform>().position = posInicialPlayer;
+        
         audioFase = GameObject.FindGameObjectWithTag("AudioFase").GetComponent<AudioSource>();
+        
         audioClipFase = GameObject.FindGameObjectWithTag("AudioClipFase").GetComponent<AudioSource>();
         GameController.instance.AtualizaFaseInicio(nome, xp, level, sXP, foto, cor, player, iconFaceCharacter);
     }
@@ -66,7 +86,7 @@ public class Fase : MonoBehaviour {
     private void Start()
     {
         audioFase.Play();
-        
+        estadoAnterior = player.GetComponent<Player>().estadoAtual;
 
         listaMoedas = GameObject.FindGameObjectsWithTag("Coin");
 
@@ -74,9 +94,10 @@ public class Fase : MonoBehaviour {
         {
             m.gameObject.SetActive(mostraMoedas);
         }*/
-
+        //audioPause = GameObject.FindGameObjectWithTag("AudioPause").GetComponent<AudioSource>();
         painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
         painelInventario = GameObject.FindGameObjectWithTag("PainelMetodos");
+        
         slotsZerado = painelWork.GetComponentsInChildren<Slot>();
         btnPlay = GameObject.FindGameObjectWithTag("BtPlay");
         btnVel = GameObject.FindGameObjectWithTag("BtVel");
@@ -84,11 +105,129 @@ public class Fase : MonoBehaviour {
         direcao = 1;
         countdown = timeCountdown;
         countdownIncial = timeCountdown + 5;
+        fimDeRodada = false;
+        cristalFim.SetActive(false);
+        estaPausado = false;
     }
 
     private void Update()
     {
+        if (estaPausado == false){
+            movimentos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
+            if (movimentos.Length > 1 && podeJogar == false)
+            {
+                btnPlay.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                btnPlay.GetComponent<Button>().interactable = false;
+            }
 
+            if (MostraCristal())
+            {
+                cristalFim.SetActive(true);
+            }
+
+
+            VerificaMoedasFases();
+
+
+            //Debug.LogWarning("Entrou aqui: " + player.GetComponent<Player>().estadoAtual);
+            /*if(player.GetComponent<Player>().estadoAtual == EstadosPlayer.FimCaminhoCompleto)
+            {
+                Debug.LogWarning("Entrou aqui 2");
+                canvasStageCompleto.SetActive(true);
+                player.GetComponent<Player>().estadoAtual = EstadosPlayer.Fim;
+            }*/
+
+
+            if (entraDelay)
+            {
+                countdown -= Time.deltaTime;
+                if (countdown <= 0.0f)
+                {
+                    entraDelay = false;
+                    if (fimDeRodada)
+                    {
+                        VerificaResultado();
+                    }
+                }
+            }
+            else
+            {
+                if (podeJogar)
+                {
+                    entraDelay = true;
+                    ExecutaMovimento(ProximoMovimento());
+
+                }
+            }
+        }
+		
+    }
+
+    private void VerificaResultado()
+    {
+        bool capturado = cristalFim.GetComponent<Item>().capturado;
+        if (capturado == true)
+        {
+            Debug.Log("Cristal foi Capturado - Fim");
+
+            canvasStageCompleto.SetActive(true);
+            scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
+            txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
+            txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
+            txtCristalFim.GetComponent<Text>().text = cristais.text;
+            txtMoedaFim.GetComponent<Text>().text = moedas.text;
+            int val = int.Parse(txtPontosFim.GetComponent<Text>().text) * 2;
+            Debug.Log(val);
+            txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
+
+            //GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>());
+
+        }
+        else if(capturado == false)
+        {
+            if(player.GetComponent<Player>().colisorFim == true)
+            {
+                canvasStageCompleto.SetActive(true);
+                scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
+                txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
+                txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
+                txtCristalFim.GetComponent<Text>().text = cristais.text;
+                txtMoedaFim.GetComponent<Text>().text = moedas.text;
+                int val = int.Parse(txtPontosFim.GetComponent<Text>().text);
+                Debug.Log(val);
+                txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
+
+                //GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>());
+            }
+            else
+            {
+                ReiniciarFase();
+                Debug.Log("Não chegou ao fim da fase!");
+                /*if(GameController.instance.perfilAtivo.GetVidas() == 1)
+                {
+                    Debug.Log("Gameover");
+                }
+                else
+                {
+                    GameController.instance.perfilAtivo.DiminuiVida();
+                    ReiniciarFase();
+                }*/
+            }
+        }
+    }
+
+    private void ReiniciarFase()
+    {
+        player.GetComponent<Transform>().position = posInicialPlayer;
+        movPos = 0;
+        podeJogar = false;
+    }
+
+    private void VerificaMoedasFases()
+    {
         if (mostraMoedas)
         {
             foreach (GameObject m in listaMoedas)
@@ -103,48 +242,18 @@ public class Fase : MonoBehaviour {
                 m.gameObject.SetActive(true);
             }
         }
+    }
 
-        //Debug.LogWarning("Entrou aqui: " + player.GetComponent<Player>().estadoAtual);
-        if(player.GetComponent<Player>().estadoAtual == EstadosPlayer.FimCaminhoCompleto)
+    private bool MostraCristal()
+    {
+        foreach (GameObject go in listaMoedas)
         {
-            Debug.LogWarning("Entrou aqui 2");
-            canvasStageCompleto.SetActive(true);
-            player.GetComponent<Player>().estadoAtual = EstadosPlayer.Fim;
-        }
-
-        /*if (delayInicial)
-        {
-            countdownIncial -= Time.deltaTime;
-            if (countdownIncial <= 0.0f)
+            if (go.GetComponent<Item>().capturado == false)
             {
-                delayInicial = false;
+                return false;
             }
         }
-        else
-        {*/
-            if (entraDelay)
-            {
-                countdown -= Time.deltaTime;
-                if (countdown <= 0.0f)
-                {
-                    entraDelay = false;
-                }
-            }
-            else
-            {
-                if (podeJogar)
-                {
-                    entraDelay = true;
-                    ExecutaMovimento(ProximoMovimento());
-
-                }
-            }
-        //}
-        
-
-        
-
-
+        return true;
     }
 
     private void ExecutaMovimento(string v)
@@ -153,9 +262,29 @@ public class Fase : MonoBehaviour {
         {
             case "Mover":
                 {
-                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Movendo;
+                    Debug.Log("Mover");
+                    //player.GetComponent<Player>().estadoAtual = EstadosPlayer.Movendo;
                     player.GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
-                    
+                    countdown = timeCountdown;
+                    entraDelay = true;
+                    break;
+                }
+		    case "Pular":
+			    {
+                    Debug.Log("Pular");
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Pulando;
+				    player.GetComponent<Rigidbody2D>().AddForce(new Vector2((forcaPuloX * direcao), forcaPuloY));
+                    countdown = timeCountdown;
+                    entraDelay = true;
+				    break;
+			    }
+
+            case "Pegar":
+                {
+                    Debug.Log("Pegar");
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Pegando;
+                    playerColetador.GetComponent<BoxCollider2D>().enabled = true;
+                    countdown = timeCountdown;
                     entraDelay = true;
                     break;
                 }
@@ -163,7 +292,23 @@ public class Fase : MonoBehaviour {
                 {
                     player.GetComponent<Player>().estadoAtual = EstadosPlayer.Parado;
                     Debug.Log("Fim da rodada");
+                    countdown = 1.5f;
+                    entraDelay = true;
+                    fimDeRodada = true;
                     podeJogar = false;
+                    break;
+                }
+            case "Pause":
+                {
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Pausado;
+                    estadoAnterior = player.GetComponent<Player>().estadoAtual;
+                    Debug.Log("Entrou em Pause");
+                    break;
+                }
+            case "Resumir":
+                {
+                    player.GetComponent<Player>().estadoAtual = estadoAnterior;
+                    Debug.Log("Entrou em Pause");
                     break;
                 }
             default:
@@ -179,14 +324,13 @@ public class Fase : MonoBehaviour {
         movimentos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
         btnPlay.GetComponent<Button>().interactable = false;
         btnVel.GetComponent<Button>().interactable = false;
-
+        ListaBTMetodos.SetActive(false);
+        PainelMovimento.SetActive(false);
+        PainelRepeticao.SetActive(false);
         podeJogar = true;
         //delayInicial = true;
 
-        Debug.Log(movimentos[0].ToString());
-
-        
-
+        //Debug.Log(movimentos[0].ToString());
     }
 
     
@@ -223,14 +367,23 @@ public class Fase : MonoBehaviour {
         go.SetActive(false);
     }
 
+    public void ReiniciarFaseTotal()
+    {
+        string nomeFase = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(nomeFase);
+        
+    }
 
     public void AcaoBotaoPause(GameObject go)
     {
         if (go.activeSelf == false)
         {
+            estaPausado = true;
             go.SetActive(true);
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            audioPause = GameObject.FindGameObjectWithTag("AudioPause").GetComponent<AudioSource>();
             player.GetComponent<Player>().Pause();
+            audioPause.Play();
             audioFase.Pause();
         }
     }
@@ -239,9 +392,11 @@ public class Fase : MonoBehaviour {
     {
         if (go.activeSelf == true)
         {
+            estaPausado = false;
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<Player>().Despause();
             go.SetActive(false);
+            audioPause.Stop();
             audioFase.Play();
         }
     }
@@ -265,19 +420,24 @@ public class Fase : MonoBehaviour {
         if (go.GetComponent<Button>().GetComponent<Image>().sprite.name.CompareTo("btn-speed-x1") == 0)
         {
             go.GetComponent<Button>().GetComponent<Image>().sprite = BTVel2;
-            player.GetComponent<Player>().AlteraVelocidade(2);
+            AlteraVelocidade(2);
         }
         else if (go.GetComponent<Button>().GetComponent<Image>().sprite.name.CompareTo("btn-speed-x2") == 0)
         {
             go.GetComponent<Button>().GetComponent<Image>().sprite = BTVel3;
-            player.GetComponent<Player>().AlteraVelocidade(1);
+            AlteraVelocidade(1);
         }
         else if (go.GetComponent<Button>().GetComponent<Image>().sprite.name.CompareTo("btn-speed-x3") == 0)
         {
             go.GetComponent<Button>().GetComponent<Image>().sprite = BTVel1;
-            player.GetComponent<Player>().AlteraVelocidade(3);
+            AlteraVelocidade(3);
         }
 
+    }
+
+    public void AlteraVelocidade(float vel)
+    {
+        timeCountdown = vel;
     }
 
     public void Home()

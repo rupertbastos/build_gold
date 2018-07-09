@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ public class Item : MonoBehaviour
 
     private GameObject txt;
     private Text textUI;
-    public Vector3 posicaoIni { get; private set; }
+    public Vector3 posicaoIni;// { get; private set; }
     public int valor;
     public string tagAlvo, nome;
     public float x, y, z;
@@ -17,9 +18,17 @@ public class Item : MonoBehaviour
     public AudioSource audioClipFase;
     public AudioClip itemClip;
 
+    public bool capturado;
+
+    public GameObject pontosTotal;
+
     private void Start()
     {
+        capturado = false;
         audioClipFase = GameObject.FindGameObjectWithTag("AudioClipFase").GetComponent<AudioSource>();
+
+        pontosTotal = GameObject.FindGameObjectWithTag("CountPontuacaoTotal");
+
         switch (tag)
         {
             case "Cristal":
@@ -95,6 +104,7 @@ public class Item : MonoBehaviour
                 val = val + 1;
                 textUI.text = val.ToString() + "/" + array[1];
                 this.gameObject.SetActive(false);
+                
             }
             else
             {
@@ -102,7 +112,28 @@ public class Item : MonoBehaviour
                 val = val + valor;
                 textUI.text = val.ToString();
                 this.gameObject.SetActive(false);
+
+                if (tag == "Cristal")
+                {
+                    AtualizaPontosTotal(200);
+                }
+                else
+                {
+                    AtualizaPontosTotal(100);
+                }
+                
             }
+            capturado = true;
+            
         }
+    }
+
+    private void AtualizaPontosTotal(int valorItem)
+    {
+        int val = int.Parse(pontosTotal.GetComponent<Text>().text);
+
+        val = val + valorItem;
+
+        pontosTotal.GetComponent<Text>().text = val.ToString();
     }
 }
