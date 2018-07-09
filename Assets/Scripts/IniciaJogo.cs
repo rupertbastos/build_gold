@@ -2,16 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IniciaJogo : MonoBehaviour
 {
-    public Animator animator;
-
+    
     void Update()
     {
         if (Input.anyKey)
         {
-            animator.SetBool("saida", true);
+            //animator.SetBool("saida", true);
+            SceneManager.LoadScene("01_MainMenu");
         }
     }
 
