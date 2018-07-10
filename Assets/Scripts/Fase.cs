@@ -10,6 +10,7 @@ public class Fase : MonoBehaviour
 {
     public Vector3 posInicialPlayer;
     public string nameProximaFase;
+    public int mundoAtual, faseAtual;
     public AudioClip btVelocidadeClip;
     public Sprite BTVel1, BTVel2, BTVel3;
 
@@ -229,7 +230,7 @@ public class Fase : MonoBehaviour
             Debug.Log(val);
             txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
 
-            GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>());
+            GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>(), mundoAtual, faseAtual);
 
         }
         else if(capturado == false)
@@ -246,7 +247,7 @@ public class Fase : MonoBehaviour
                 
                 txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
 
-                GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>());
+                GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>(), mundoAtual, faseAtual);
             }
             else
             {

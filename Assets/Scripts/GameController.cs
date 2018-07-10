@@ -19,9 +19,16 @@ public class GameController : MonoBehaviour
     
 
     //Variaver para save
-    public int vidas, save;
-    public int estrelas, cristais, moedas, xp;
-    public string nome;
+    //public int vidas, save;
+    //public int estrelas, cristais, moedas, xp;
+
+    /*public string nome;
+    public Sprite imagem, spI, spP;
+    public Color cor;
+    public int xp, level, limite, vidas;
+    public int moedas, cristais, estrelas, corNumber;
+    public int dia, mes, ano, hora, minuto, segundo;
+    public int[] fase_1_1, fase_1_2, fase_1_3, fase_1_4, fase_1_5;*/
 
     public AudioSource audioS, audioC;
     public AudioClip audioVoltar, audioContinuar;
@@ -58,7 +65,7 @@ public class GameController : MonoBehaviour
             audioS.Play();
         }
     }
-    public void SaveGame()
+    /*public void SaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Path.Combine(Application.streamingAssetsPath, FILE_PATH));
@@ -72,9 +79,9 @@ public class GameController : MonoBehaviour
         bf.Serialize(file, save);
 
         file.Close();
-    }
+    }*/
 
-    public void SaveGame(int val)
+    /*public void SaveGame(int val)
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Path.Combine(Application.streamingAssetsPath, FILE_PATH));
@@ -88,47 +95,35 @@ public class GameController : MonoBehaviour
         bf.Serialize(file, save);
 
         file.Close();
-    }
+    }*/
 
-    public void LoadGame()
-    {
-        if (File.Exists(Path.Combine(Application.streamingAssetsPath, FILE_PATH)))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Path.Combine(Application.streamingAssetsPath, FILE_PATH), FileMode.Open);
+    
 
-            SaveGameData save = (SaveGameData)bf.Deserialize(file);
-            saveGame = save;
-
-            file.Close();
-        }
-    }
-
-    public void NovoJogo()
+    /*public void NovoJogo()
     {
         isNewGame = true;
         LoadStage(0);
-    }
+    }*/
 
-    public void CarregaGame()
+    /*public void CarregaGame()
     {
         isNewGame = false;
         LoadGame();
         LoadStage(saveGame.save);
-    }
+    }*/
 
-    public void LoadStage(int stage)
+    /*public void LoadStage(int stage)
     {
         SceneManager.LoadScene(stage);
-    }
+    }*/
 
     //Quando fechar o jogo ele salva
     private void OnApplicationQuit()
     {
-        SaveGame();
+        //SaveGame();
     }
 
-    void OnStageLoad(Scene scene, LoadSceneMode mode)
+    /*void OnStageLoad(Scene scene, LoadSceneMode mode)
     {
         if (!isNewGame && saveGame != null && scene.name != "Menu")
         {
@@ -142,7 +137,7 @@ public class GameController : MonoBehaviour
 
             //UIManager.instace.UpdateUI();
         }
-    }
+    }*/
 
     public void ExecutaSomVoltar()
     {
@@ -188,7 +183,7 @@ public class GameController : MonoBehaviour
         audioS.Stop();
     }
 
-    public void AtualizaXPEstagioCompleto(int val, GameObject sXp, Text level, Text atual, Text limite)
+    public void AtualizaXPEstagioCompleto(int val, GameObject sXp, Text level, Text atual, Text limite, int mundo, int fase)
     {
         perfilAtivo.AumentaXp(val);
         sXp.GetComponent<Slider>().maxValue = int.Parse(perfilAtivo.GetLimite().ToString());
@@ -196,13 +191,77 @@ public class GameController : MonoBehaviour
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
         atual.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
         limite.GetComponent<Text>().text = "/   " + perfilAtivo.GetLimite().ToString();
+        perfilAtivo.SalvaFases(mundo, fase, perfilAtivo.GetMoedas(), perfilAtivo.GetCristais());
+        SaveGame();
     }
 
+    private void SaveGame()
+    {
+        
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Path.Combine(Application.streamingAssetsPath, FILE_PATH));
+
+        SaveGameData save = new SaveGameData
+        {
+            SGDnome = perfilAtivo.GetNome(),
+            SGDimagem = perfilAtivo.GetImagem(),
+            SGDspI = perfilAtivo.GetSpI(),
+            SGDspP = perfilAtivo.GetSpP(),
+            SGDcor = perfilAtivo.GetCor(),
+            SGDxp = perfilAtivo.GetXp(),
+            SGDlevel = perfilAtivo.GetLevel(),
+            SGDlimite = perfilAtivo.GetLimite(),
+            SGDvidas = perfilAtivo.GetVidas(),
+            SGDmoedas = perfilAtivo.GetMoedas(),
+            SGDcristais = perfilAtivo.GetCristais(),
+            SGDestrelas = perfilAtivo.GetEstrelas(),
+            SGDcorNumber = perfilAtivo.GetCorNumber(),
+            SGDdia = DateTime.Now.Day,
+            SGDmes = DateTime.Now.Month,
+            SGDano = DateTime.Now.Year,
+            SGDhora = DateTime.Now.Hour,
+            SGDminuto = DateTime.Now.Minute,
+            SGDsegundo = DateTime.Now.Second,
+            SGDfase_1_1 = perfilAtivo.GetFase_1_1(),
+            SGDfase_1_2 = perfilAtivo.GetFase_1_2(),
+            SGDfase_1_3 = perfilAtivo.GetFase_1_3(),
+            SGDfase_1_4 = perfilAtivo.GetFase_1_4(),
+            SGDfase_1_5 = perfilAtivo.GetFase_1_5()
+        };
+
+        bf.Serialize(file, save);
+
+        file.Close();
+    }
+
+    public void LoadGame()
+    {
+        if (File.Exists(Path.Combine(Application.streamingAssetsPath, FILE_PATH)))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Path.Combine(Application.streamingAssetsPath, FILE_PATH), FileMode.Open);
+
+            SaveGameData save = (SaveGameData)bf.Deserialize(file);
+            saveGame = save;
+
+            perfilAtivo = new Perfil(saveGame.SGDnome, saveGame.SGDimagem, saveGame.SGDcor, saveGame.SGDxp, saveGame.SGDlevel, saveGame.SGDlimite, saveGame.SGDvidas, saveGame.SGDmoedas, saveGame.SGDcristais, saveGame.SGDestrelas, saveGame.SGDspI, saveGame.SGDspP, saveGame.SGDcorNumber, saveGame.SGDfase_1_1, saveGame.SGDfase_1_2, saveGame.SGDfase_1_3, saveGame.SGDfase_1_4, saveGame.SGDfase_1_5);
+
+            file.Close();
+        }
+    }
 }
 
 [Serializable]
 class SaveGameData
 {
-    public int lifes, coins, save;
-    //public float positionX, positionY, positionZ;
+    
+
+    public string SGDnome;
+    public Sprite SGDimagem, SGDspI, SGDspP;
+    public Color SGDcor;
+    public int SGDxp, SGDlevel, SGDlimite, SGDvidas;
+    public int SGDmoedas, SGDcristais, SGDestrelas, SGDcorNumber;
+    public int SGDdia, SGDmes, SGDano, SGDhora, SGDminuto, SGDsegundo;
+    public int[] SGDfase_1_1, SGDfase_1_2, SGDfase_1_3, SGDfase_1_4, SGDfase_1_5;
+
 }

@@ -11,6 +11,10 @@ public class Perfil{
     public int xp, level, limite, vidas;
     public int moedas, cristais, estrelas, corNumber;
 
+    public int[] fase_1_1, fase_1_2, fase_1_3, fase_1_4, fase_1_5;
+
+
+
     public Perfil(string n, Sprite img, Color c, Sprite i, Sprite p, int cor)
     {
         SetNome(n);
@@ -26,6 +30,118 @@ public class Perfil{
         SetSpI(i);
         SetSpP(p);
         SetCorNumber(cor);
+        fase_1_1 = new int[2];
+        SalvaFases(1, 1, 0, 0);
+        fase_1_2 = new int[2];
+        SalvaFases(1, 2, -1, -1);
+        fase_1_3 = new int[2];
+        SalvaFases(1, 2, -1, -1);
+        fase_1_4 = new int[2];
+        SalvaFases(1, 2, -1, -1);
+        fase_1_5 = new int[2];
+        SalvaFases(1, 2, -1, -1);
+    }
+
+    public Perfil(string n, Sprite img, Color c, int xp, int level, int limite, int vidas, int moedas, int cristais, 
+        int estrelas, Sprite i, Sprite p, int cor, int[] fase11, int[] fase12, int[] fase13, int[] fase14, int[] fase15)
+    {
+        SetNome(n);
+        SetImagem(img);
+        SetColor(c);
+        SetXp(xp);
+        SetLevel(level);
+        SetLimite(limite);
+        SetVidas(vidas);
+        SetMoedas(moedas);
+        SetCristais(cristais);
+        SetEstrelas(estrelas);
+        SetSpI(i);
+        SetSpP(p);
+        SetCorNumber(cor);
+        fase_1_1 = fase11;
+        fase_1_2 = fase12;
+        fase_1_3 = fase13;
+        fase_1_4 = fase14;
+        fase_1_5 = fase15;
+    }
+
+    public void SalvaFases(int i, int j, int moed, int crist)
+{
+    switch (i)
+    {
+        case 1:
+            {
+                switch (j)
+                {
+                    case 1:
+                        {
+                            fase_1_1[0] = moed;
+                            fase_1_1[1] = crist;
+                            break;
+                        }
+                    case 2:
+                        {
+                            fase_1_2[0] = moed;
+                            fase_1_2[1] = crist;
+                            break;
+                        }
+                    case 3:
+                        {
+                            fase_1_3[0] = moed;
+                            fase_1_3[1] = crist;
+                            break;
+                        }
+                    case 4:
+                        {
+                            fase_1_4[0] = moed;
+                            fase_1_4[1] = crist;
+                            break;
+                        }
+                    case 5:
+                        {
+                            fase_1_5[0] = moed;
+                            fase_1_5[1] = crist;
+                            break;
+                        }
+                    default:
+                    {
+                        Debug.LogWarning("Erro ao salvar a fase");
+                        break;
+                    }
+                }
+                break;
+            }
+        default:
+            {
+                break;
+            }
+    }
+}
+
+
+    public int[] GetFase_1_1()
+    {
+        return fase_1_1;
+    }
+
+    public int[] GetFase_1_2()
+    {
+        return fase_1_2;
+    }
+
+    public int[] GetFase_1_3()
+    {
+        return fase_1_3;
+    }
+
+    public int[] GetFase_1_4()
+    {
+        return fase_1_4;
+    }
+
+    public int[] GetFase_1_5()
+    {
+        return fase_1_5;
     }
 
     private void SetCorNumber(int c)
