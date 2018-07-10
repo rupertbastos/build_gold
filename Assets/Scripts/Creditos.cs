@@ -7,7 +7,7 @@ public class Creditos : MonoBehaviour {
 
     public void AcaoBotaoVoltar()
     {
-        GameController.instance.ExecutaSomVoltar();
+        GameController.instance.ExecutaClip("Voltar");
         SceneManager.LoadScene("01_MainMenu");
     }
 }

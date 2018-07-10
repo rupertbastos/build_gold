@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
-    private bool isNewGame = false;
+    //private bool IsNewGame = false;
 
     private const string FILE_PATH = "saveGameData.dat";
     private SaveGameData saveGame;
@@ -31,7 +31,8 @@ public class GameController : MonoBehaviour
     public int[] fase_1_1, fase_1_2, fase_1_3, fase_1_4, fase_1_5;*/
 
     public AudioSource audioS, audioC;
-    public AudioClip audioVoltar, audioContinuar;
+    public AudioClip audioMenu, audioIr, audioVoltar, audioSetas, audioPause, audioBotaoTorres, audioBotaoFases, audioBotaoAvatar, audioBotaoCor;
+    public AudioClip audioErro;
 
     public Perfil perfilAtivo;
 
@@ -139,15 +140,70 @@ public class GameController : MonoBehaviour
         }
     }*/
 
-    public void ExecutaSomVoltar()
+    /*public void ExecutaSomVoltar()
     {
         audioC.clip = audioVoltar;
         audioC.Play();
-    }
+    }*/
 
-    public void ExecutaSomContinuar()
+    public void ExecutaClip(string nome)
     {
-        audioC.clip = audioContinuar;
+        switch (nome)
+        {
+            case "Ir":
+                {
+                    audioC.clip = audioIr;
+                    break;
+                }
+            case "Voltar":
+                {
+                    audioC.clip = audioVoltar;
+                    break;
+                }
+            case "Setas":
+                {
+                    audioC.clip = audioSetas;
+                    break;
+                }
+            case "Pause":
+                {
+                    audioC.clip = audioPause;
+                    break;
+                }
+            case "Torres":
+                {
+                    audioC.clip = audioBotaoTorres;
+                    break;
+                }
+            case "Fases":
+                {
+                    audioC.clip = audioBotaoFases;
+                    break;
+                }
+            case "Avatar":
+                {
+                    audioC.clip = audioBotaoAvatar;
+                    break;
+                }
+            case "Cor":
+                {
+                    audioC.clip = audioBotaoCor;
+                    break;
+                }
+            case "Metodos":
+                {
+                    audioC.clip = audioIr;
+                    break;
+                }
+            default:
+                {
+                    audioC.clip = audioErro;
+                    break;
+                }
+            
+        }
+
+        audioC.loop = false;
         audioC.Play();
     }
 

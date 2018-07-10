@@ -20,20 +20,20 @@ public class SelecaoFaseMadeira : MonoBehaviour {
             case 1:
                 {
                     //SceneManager.LoadScene("04_01_towerWood");
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Fases");
                     SceneManager.LoadScene("04_01_towerWood_TESTE");
                     break;
                 }
 
             case 2:
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Fases");
                     SceneManager.LoadScene("04_02_towerWood");
                     break;
                 }
             case -1:
                 {
-                    GameController.instance.ExecutaSomVoltar();
+                    GameController.instance.ExecutaClip("Fases");
                     SceneManager.LoadScene("03_01_SelectTowers");
                     break;
                 }

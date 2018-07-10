@@ -20,6 +20,23 @@ public class NovoJogoEntradaDados : MonoBehaviour {
 
     void Start()
     {
+
+        if (GameController.instance.audioS.isPlaying)
+        {
+            if (GameController.instance.audioS.clip != GameController.instance.audioMenu)
+            {
+                GameController.instance.audioS.clip = GameController.instance.audioMenu;
+                GameController.instance.audioS.loop = true;
+                GameController.instance.audioS.Play();
+            }
+        }
+        else
+        {
+            GameController.instance.audioS.clip = GameController.instance.audioMenu;
+            GameController.instance.audioS.loop = true;
+            GameController.instance.audioS.Play();
+        }
+
         btPlayer = null;
         btCor = null;
         canvasNome.SetActive(true);
@@ -59,7 +76,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
         {
             case "Continuar":
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Ir");
                     canvasNome.SetActive(false);
                     canvasAvatar.SetActive(true);
                     canvasConfirmacao.SetActive(false);
@@ -67,13 +84,13 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 }
             case "Voltar":
                 {
-                    GameController.instance.ExecutaSomVoltar();
+                    GameController.instance.ExecutaClip("Voltar");
                     SceneManager.LoadScene("01_MainMenu");
                     break;
                 }
             case "Voltar2":
                 {
-                    GameController.instance.ExecutaSomVoltar();
+                    GameController.instance.ExecutaClip("Voltar");
                     canvasNome.SetActive(true);
                     canvasAvatar.SetActive(false);
                     canvasConfirmacao.SetActive(false);
@@ -83,7 +100,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 }
             case "Voltar3":
                 {
-                    GameController.instance.ExecutaSomVoltar();
+                    GameController.instance.ExecutaClip("Voltar");
                     canvasNome.SetActive(false);
                     canvasAvatar.SetActive(true);
                     canvasConfirmacao.SetActive(false);
@@ -92,7 +109,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
             case "Avançar":
                 {
                     ConfiguraPerfil();
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Ir");
                     canvasNome.SetActive(false);
                     canvasAvatar.SetActive(false);
                     canvasConfirmacao.SetActive(true);
@@ -105,7 +122,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 }
             case "Avançar2":
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Ir");
                     GameController.instance.SetPerfilAtivo(p);
                     SceneManager.LoadScene("03_01_SelectTowers");
                     
@@ -227,10 +244,12 @@ public class NovoJogoEntradaDados : MonoBehaviour {
     public void SelecionaPlayer(GameObject go)
     {
         btPlayer = (Button) go.GetComponent<Button>();
+        GameController.instance.ExecutaClip("Avatar");
     }
 
     public void SelecionaCor(GameObject go)
     {
         btCor = go.GetComponent<Button>();
+        GameController.instance.ExecutaClip("Cor");
     }
 }
