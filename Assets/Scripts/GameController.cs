@@ -235,6 +235,7 @@ public class GameController : MonoBehaviour
         sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
         player.GetComponent<SpriteRenderer>().sprite = perfilAtivo.GetSpP();
         player.GetComponent<Player>().SetAnimCont(perfilAtivo.corNumber);
+        player.GetComponent<Player>().SetCorDoPlayer(perfilAtivo.corNumber);
         perfilAtivo.RenovaVidas();
         audioS.Stop();
     }
@@ -263,7 +264,10 @@ public class GameController : MonoBehaviour
             SGDimagem = perfilAtivo.GetImagem(),
             SGDspI = perfilAtivo.GetSpI(),
             SGDspP = perfilAtivo.GetSpP(),
-            SGDcor = perfilAtivo.GetCor(),
+            SGDa = perfilAtivo.GetCor().a,
+            SGDr = perfilAtivo.GetCor().r,
+            SGDg = perfilAtivo.GetCor().g,
+            SGDb = perfilAtivo.GetCor().b,
             SGDxp = perfilAtivo.GetXp(),
             SGDlevel = perfilAtivo.GetLevel(),
             SGDlimite = perfilAtivo.GetLimite(),
@@ -300,7 +304,9 @@ public class GameController : MonoBehaviour
             SaveGameData save = (SaveGameData)bf.Deserialize(file);
             saveGame = save;
 
-            perfilAtivo = new Perfil(saveGame.SGDnome, saveGame.SGDimagem, saveGame.SGDcor, saveGame.SGDxp, saveGame.SGDlevel, saveGame.SGDlimite, saveGame.SGDvidas, saveGame.SGDmoedas, saveGame.SGDcristais, saveGame.SGDestrelas, saveGame.SGDspI, saveGame.SGDspP, saveGame.SGDcorNumber, saveGame.SGDfase_1_1, saveGame.SGDfase_1_2, saveGame.SGDfase_1_3, saveGame.SGDfase_1_4, saveGame.SGDfase_1_5);
+            Color c = new Color(saveGame.SGDr, saveGame.SGDg, saveGame.SGDb, saveGame.SGDa);
+
+            perfilAtivo = new Perfil(saveGame.SGDnome, saveGame.SGDimagem, c, saveGame.SGDxp, saveGame.SGDlevel, saveGame.SGDlimite, saveGame.SGDvidas, saveGame.SGDmoedas, saveGame.SGDcristais, saveGame.SGDestrelas, saveGame.SGDspI, saveGame.SGDspP, saveGame.SGDcorNumber, saveGame.SGDfase_1_1, saveGame.SGDfase_1_2, saveGame.SGDfase_1_3, saveGame.SGDfase_1_4, saveGame.SGDfase_1_5);
 
             file.Close();
         }
@@ -314,10 +320,10 @@ class SaveGameData
 
     public string SGDnome;
     public Sprite SGDimagem, SGDspI, SGDspP;
-    public Color SGDcor;
     public int SGDxp, SGDlevel, SGDlimite, SGDvidas;
     public int SGDmoedas, SGDcristais, SGDestrelas, SGDcorNumber;
     public int SGDdia, SGDmes, SGDano, SGDhora, SGDminuto, SGDsegundo;
     public int[] SGDfase_1_1, SGDfase_1_2, SGDfase_1_3, SGDfase_1_4, SGDfase_1_5;
+    public float SGDr, SGDg, SGDb, SGDa;
 
 }
