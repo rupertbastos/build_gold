@@ -30,29 +30,6 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
 
-
-    /*public GameState State { set; get; }
-    public Stack<GameScreens> Screens = new Stack<GameScreens>();
-    public GameScreens currentScreen;
-
-    public enum GameState
-    {
-        None,
-        Title,
-        Playing,
-        Paused,
-        GameOver
-    };
-
-    //public enum GameScreens
-    {
-        MainMenu,
-        Options,
-        Credits,
-        Game
-    };*/
-
-
     void Awake()
     {
         if (instance == null)
@@ -211,12 +188,14 @@ public class GameController : MonoBehaviour
         audioS.Stop();
     }
 
-    public void AtualizaXPEstagioCompleto(int val, GameObject sXp, Text level)
+    public void AtualizaXPEstagioCompleto(int val, GameObject sXp, Text level, Text atual, Text limite)
     {
         perfilAtivo.AumentaXp(val);
-        sXp.GetComponent<Slider>().maxValue = perfilAtivo.GetLimite();
+        sXp.GetComponent<Slider>().maxValue = int.Parse(perfilAtivo.GetLimite().ToString());
         sXp.GetComponent<Slider>().value = perfilAtivo.GetXp();
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
+        atual.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
+        limite.GetComponent<Text>().text = "/   " + perfilAtivo.GetLimite().ToString();
     }
 
 }

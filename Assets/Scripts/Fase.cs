@@ -65,6 +65,8 @@ public class Fase : MonoBehaviour
     public GameObject txtPontosTotalFaseFim;
     public GameObject scrollXPEstagioCompleto;
     public GameObject txtLevel;
+    public GameObject txtXPAtual;
+    public GameObject txtXPLimite;
     public EstadosPlayer estadoAnterior;
 
     public GameObject ListaBTMetodos, PainelMovimento, PainelRepeticao;
@@ -121,6 +123,8 @@ public class Fase : MonoBehaviour
         txtPontosTotalFaseFim = GameObject.FindGameObjectWithTag("TXTPontosTotalFim");
         scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
         txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
+        txtXPAtual = GameObject.FindGameObjectWithTag("txtXPAtual");
+        txtXPLimite = GameObject.FindGameObjectWithTag("txtXPLimite");
 
         GameController.instance.AtualizaFaseInicio(nome, xp, level, sXP, foto, player, iconFaceCharacter);
     }
@@ -217,7 +221,7 @@ public class Fase : MonoBehaviour
 
             canvasSucesso.SetActive(true);
             scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
-            txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
+            //txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
             txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
             txtCristalFim.GetComponent<Text>().text = cristais.text;
             txtMoedaFim.GetComponent<Text>().text = moedas.text;
@@ -225,7 +229,7 @@ public class Fase : MonoBehaviour
             Debug.Log(val);
             txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
 
-            //GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>());
+            GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>());
 
         }
         else if(capturado == false)
@@ -234,15 +238,15 @@ public class Fase : MonoBehaviour
             {
                 canvasSucesso.SetActive(true);
                 scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
-                txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
+                //txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
                 txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
                 txtCristalFim.GetComponent<Text>().text = cristais.text;
                 txtMoedaFim.GetComponent<Text>().text = moedas.text;
                 int val = int.Parse(txtPontosFim.GetComponent<Text>().text);
-                Debug.Log(val);
+                
                 txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
 
-                //GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>());
+                GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>());
             }
             else
             {
