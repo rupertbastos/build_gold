@@ -30,16 +30,16 @@ public class Perfil{
         SetSpI(i);
         SetSpP(p);
         SetCorNumber(cor);
-        fase_1_1 = new int[2];
-        SalvaFases(1, 1, 0, 0);
-        fase_1_2 = new int[2];
-        SalvaFases(1, 2, -1, -1);
-        fase_1_3 = new int[2];
-        SalvaFases(1, 2, -1, -1);
-        fase_1_4 = new int[2];
-        SalvaFases(1, 2, -1, -1);
-        fase_1_5 = new int[2];
-        SalvaFases(1, 2, -1, -1);
+        fase_1_1 = new int[3];
+        SalvaFases(1, 1, 0, 0, 0);
+        fase_1_2 = new int[3];
+        SalvaFases(1, 2, -1, -1, -1);
+        fase_1_3 = new int[3];   
+        SalvaFases(1, 3, -1, -1, -1);
+        fase_1_4 = new int[3];   
+        SalvaFases(1, 4, -1, -1, -1);
+        fase_1_5 = new int[3];   
+        SalvaFases(1, 5, -1, -1, -1);
     }
 
     public Perfil(string n, Sprite img, Color c, int xp, int level, int limite, int vidas, int moedas, int cristais, 
@@ -65,7 +65,7 @@ public class Perfil{
         fase_1_5 = fase15;
     }
 
-    public void SalvaFases(int i, int j, int moed, int crist)
+    public void SalvaFases(int i, int j, int moed, int crist, int complet)
 {
     switch (i)
     {
@@ -75,32 +75,37 @@ public class Perfil{
                 {
                     case 1:
                         {
-                            fase_1_1[0] = moed;
-                            fase_1_1[1] = crist;
+                            fase_1_1[0] = complet;
+                            fase_1_1[1] = moed;
+                            fase_1_1[2] = crist;
                             break;
                         }
                     case 2:
                         {
-                            fase_1_2[0] = moed;
-                            fase_1_2[1] = crist;
+                            fase_1_2[0] = complet;
+                            fase_1_2[1] = moed;
+                            fase_1_2[2] = crist;
                             break;
                         }
                     case 3:
                         {
-                            fase_1_3[0] = moed;
-                            fase_1_3[1] = crist;
-                            break;
+                            fase_1_3[0] = complet;
+                            fase_1_3[1] = moed;
+                            fase_1_3[2] = crist;
+                                break;
                         }
                     case 4:
                         {
-                            fase_1_4[0] = moed;
-                            fase_1_4[1] = crist;
+                            fase_1_4[0] = complet;
+                            fase_1_4[1] = moed;
+                            fase_1_4[2] = crist;
                             break;
                         }
                     case 5:
                         {
-                            fase_1_5[0] = moed;
-                            fase_1_5[1] = crist;
+                            fase_1_5[0] = complet;
+                            fase_1_5[1] = moed;
+                            fase_1_5[2] = crist;
                             break;
                         }
                     default:

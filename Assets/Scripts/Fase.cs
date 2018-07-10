@@ -330,7 +330,11 @@ public class Fase : MonoBehaviour
         player.GetComponent<Transform>().position = posInicialPlayer;
         movPos = 0;
         podeJogar = false;
-        btnVel.SetActive(true);
+        btnVel.GetComponent<Button>().interactable = true;
+        ListaBTMetodos.SetActive(false);
+        PainelMovimento.SetActive(false);
+        PainelRepeticao.SetActive(false);
+        fimDeRodada = false;
     }
 
     private void VerificaMoedasFases()

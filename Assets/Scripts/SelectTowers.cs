@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,9 +9,12 @@ public class SelectTowers : MonoBehaviour {
 
     public Text porcentagem, estrelas, cristais, moedas, total, level;
 
+    
+
     private void Start()
     {
         GameController.instance.AtualizaSelectTowers(porcentagem, estrelas, cristais, moedas, total, level);
+
         
     }
 

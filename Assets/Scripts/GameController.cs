@@ -247,7 +247,7 @@ public class GameController : MonoBehaviour
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
         atual.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
         limite.GetComponent<Text>().text = "/   " + perfilAtivo.GetLimite().ToString();
-        perfilAtivo.SalvaFases(mundo, fase, perfilAtivo.GetMoedas(), perfilAtivo.GetCristais());
+        perfilAtivo.SalvaFases(mundo, fase, perfilAtivo.GetMoedas(), perfilAtivo.GetCristais(),1);
         SaveGame();
     }
 
