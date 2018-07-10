@@ -13,6 +13,8 @@ public class Fase : MonoBehaviour
     public int mundoAtual, faseAtual;
     public AudioClip btVelocidadeClip;
     public Sprite BTVel1, BTVel2, BTVel3;
+    public AudioClip perdeuVida;
+
 
     private GameObject[] listaMoedas;
 
@@ -221,6 +223,7 @@ public class Fase : MonoBehaviour
             Debug.Log("Cristal foi Capturado - Fim");
 
             canvasSucesso.SetActive(true);
+            canvasSucesso.GetComponent<AudioSource>().Play();
             scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
             //txtLevel = GameObject.FindGameObjectWithTag("LevelEstagioCompleto");
             txtPontosFim.GetComponent<Text>().text = (int.Parse(total.text) + 100).ToString();
@@ -258,9 +261,12 @@ public class Fase : MonoBehaviour
                     audioFase.Stop();
                     canvasInGame.SetActive(false);
                     canvasGameOver.SetActive(true);
+                    canvasGameOver.GetComponent<AudioSource>().Play();
                 }
                 else
                 {
+                    audioClipFase.clip = perdeuVida;
+                    audioClipFase.Play();
                     GameController.instance.perfilAtivo.DiminuiVida();
                     RemoveCoracao(GameController.instance.perfilAtivo.GetVidas());
                     ReiniciarFase();
@@ -424,7 +430,9 @@ public class Fase : MonoBehaviour
     {
         movimentos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
         btnPlay.GetComponent<Button>().interactable = false;
+        btnPlay.GetComponent<AudioSource>().Play();
         btnVel.GetComponent<Button>().interactable = false;
+        
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
         PainelRepeticao.SetActive(false);
@@ -547,5 +555,31 @@ public class Fase : MonoBehaviour
     {
         SceneManager.LoadScene("03_01_SelectTowers");
         //SceneManager.LoadScene("03_02_SelecaoFases");
+    }
+
+    /*public void AcaoBotaoMenuMetodos(GameObject go)
+    {
+        GameController.instance.ExecutaClip("");
+        if (go.activeSelf == false)
+        {
+            go.gameObject.SetActive(true);
+        }
+        else
+        {
+            go.gameObject.SetActive(false);
+        }
+    }*/
+
+    public void AcaoBtMetodos(GameObject go)
+    {
+        GameController.instance.ExecutaClip("Metodos");
+        if (go.activeSelf == false)
+        {
+            go.gameObject.SetActive(true);
+        }
+        else
+        {
+            go.gameObject.SetActive(false);
+        }
     }
 }

@@ -11,6 +11,7 @@ public class SelectTowers : MonoBehaviour {
     private void Start()
     {
         GameController.instance.AtualizaSelectTowers(porcentagem, estrelas, cristais, moedas, total, level);
+        
     }
 
     public void AcaoBotaoSelectTowers(string opcao)
@@ -20,33 +21,33 @@ public class SelectTowers : MonoBehaviour {
 
             case "Voltar":
                 {
-                    GameController.instance.ExecutaSomVoltar();
+                    GameController.instance.ExecutaClip("Voltar");
                     SceneManager.LoadScene("02_02_Continue");
                     break;
                 }
 
             case "Madeira":
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Torres");
                     SceneManager.LoadScene("03_02_SelecaoFases");
                     break;
                 }
             
             case "Concreto":
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Torres");
                     Debug.LogWarning("Concreto");
                     break;
                 }
             case "Jade":
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Torres");
                     Debug.LogWarning("Jade");
                     break;
                 }
             case "Gelo":
                 {
-                    GameController.instance.ExecutaSomContinuar();
+                    GameController.instance.ExecutaClip("Torres");
                     Debug.LogWarning("Gelo");
                     break;
                 }
