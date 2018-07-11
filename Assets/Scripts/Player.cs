@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public int posColisor;
 
     private Transform slots;
-    private Animator animator;
+    public Animator animator;
     private GameObject painelInventario;
     private GameObject painelWork;
     private GameObject btPlay;

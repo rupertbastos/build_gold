@@ -78,10 +78,6 @@ public class Fase : MonoBehaviour
 
     private void Awake()
     {
-        
-        
-
-
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Transform>().position = posInicialPlayer;
         playerColetador = GameObject.FindGameObjectWithTag("Coletador");
@@ -166,6 +162,9 @@ public class Fase : MonoBehaviour
         cristalFim.SetActive(false);
         estaPausado = false;
         coracoes = GameObject.FindGameObjectsWithTag("Coracao");
+
+
+        
     }
 
     private void Update()
@@ -221,7 +220,7 @@ public class Fase : MonoBehaviour
         if (capturado == true)
         {
             Debug.Log("Cristal foi Capturado - Fim");
-
+            
             canvasSucesso.SetActive(true);
             canvasSucesso.GetComponent<AudioSource>().Play();
             scrollXPEstagioCompleto = GameObject.FindGameObjectWithTag("ScrollEstagioCompleto");
@@ -255,16 +254,18 @@ public class Fase : MonoBehaviour
             else
             {
                 //ReiniciarFase();
-                Debug.Log("Não chegou ao fim da fase!");
+                Debug.Log("Não chegou ao fim da fase! - Game Over");
                 if(GameController.instance.perfilAtivo.GetVidas() == 1)
                 {
                     audioFase.Stop();
                     canvasInGame.SetActive(false);
                     canvasGameOver.SetActive(true);
                     canvasGameOver.GetComponent<AudioSource>().Play();
+                    //player.GetComponent<Player>().estadoAtual = EstadosPlayer.Morto;
                 }
                 else
                 {
+                    Debug.Log("Não chegou ao fim da fase! - Perdeu vida");
                     audioClipFase.clip = perdeuVida;
                     audioClipFase.Play();
                     GameController.instance.perfilAtivo.DiminuiVida();
@@ -375,6 +376,7 @@ public class Fase : MonoBehaviour
                 {
                     Debug.Log("Mover");
                     //player.GetComponent<Player>().estadoAtual = EstadosPlayer.Movendo;
+                    Debug.Log("Força x: " + pos);
                     player.GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
                     countdown = timeCountdown;
                     entraDelay = true;
