@@ -76,6 +76,10 @@ public class Fase : MonoBehaviour
 
     public GameObject[] coracoes;
 
+    public GameObject balaObject;
+    public Transform balaSpawn;
+    public float fareRate, nextFire;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -422,6 +426,15 @@ public class Fase : MonoBehaviour
                 {
                     player.GetComponent<Player>().estadoAtual = estadoAnterior;
                     Debug.Log("Entrou em Pause");
+                    break;
+                }
+            case "Atirar":
+                {
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.Atirando;
+                    Debug.Log("Atirou");
+                    GameObject cloneBala = Instantiate(balaObject, balaSpawn.position, balaSpawn.rotation);
+
+
                     break;
                 }
             default:

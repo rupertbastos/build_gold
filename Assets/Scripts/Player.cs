@@ -703,5 +703,6 @@ public enum EstadosPlayer
     VirarDireita,
     VirarEsquerda,
     Pegando,
-    Pausado
+    Pausado,
+    Atirando
 }
