@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Perfil{
 
     public string nome;
+
     public Sprite imagem, spI, spP;
     public Color cor;
     public int xp, level, limite, vidas;
