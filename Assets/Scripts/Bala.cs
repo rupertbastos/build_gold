@@ -9,9 +9,7 @@ public class Bala : MonoBehaviour {
 
 
 	void Start () {
-
-        timeDestroy = 1.0f;
-        //Destroy(gameObject, timeDestroy);
+        Destroy(gameObject, timeDestroy);
 	}
 	
 	void Update () {

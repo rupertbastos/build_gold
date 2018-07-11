@@ -432,16 +432,45 @@ public class Fase : MonoBehaviour
                 {
                     player.GetComponent<Player>().estadoAtual = EstadosPlayer.Atirando;
                     Debug.Log("Atirou");
-                    GameObject cloneBala = Instantiate(balaObject, balaSpawn.position, balaSpawn.rotation);
-
-
+                    if(direcao == 1)
+                    {
+                        balaSpawn.position = new Vector3(player.transform.position.x + 0.1f, balaSpawn.position.y, balaSpawn.position.z);
+                        GameObject cloneBala = Instantiate(balaObject, balaSpawn.position, balaSpawn.rotation);
+                    }
+                    else
+                    {
+                        balaSpawn.position = new Vector3(player.transform.position.x - 0.1f, balaSpawn.position.y, balaSpawn.position.z);
+                        GameObject cloneBala = Instantiate(balaObject, balaSpawn.position, balaSpawn.rotation);
+                        cloneBala.transform.eulerAngles = new Vector3(0, 0, 180);
+                    }
+                    entraDelay = true;
+                    break;
+                }
+            case "VirarDireita":
+                {
+                    player.GetComponent<Animator>().enabled = false;
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.VirarDireita;
+                    direcao = 1;
+                    player.GetComponent<SpriteRenderer>().flipX = false;
+                    Debug.Log("Virou: Direita");
+                    entraDelay = true;
+                    break;
+                }
+            case "VirarEsquerda":
+                {
+                    player.GetComponent<Animator>().enabled = false;
+                    player.GetComponent<Player>().estadoAtual = EstadosPlayer.VirarEsquerda;
+                    direcao = -1;
+                    player.GetComponent<SpriteRenderer>().flipX = true;
+                    Debug.Log("Virou: Esquerda");
+                    entraDelay = true;
                     break;
                 }
             default:
                 player.GetComponent<Player>().estadoAtual = EstadosPlayer.Parado;
                 break;
         }
-            
+        
         
     }
 
