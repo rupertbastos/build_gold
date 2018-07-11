@@ -526,12 +526,12 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("ColisorInferior"))
+        /*if (collision.gameObject.CompareTag("ColisorInferior"))
         {
             Debug.LogWarning("entrou2");
             estadoAtual = EstadosPlayer.Morto;
             ChamaFimJogo();
-        }
+        }*/
     }
 
     private void ChamaFimJogo()

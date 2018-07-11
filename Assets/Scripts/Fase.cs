@@ -14,7 +14,7 @@ public class Fase : MonoBehaviour
     public AudioClip btVelocidadeClip;
     public Sprite BTVel1, BTVel2, BTVel3;
     public AudioClip perdeuVida;
-
+    public bool caindo;
 
     private GameObject[] listaMoedas;
 
@@ -49,7 +49,7 @@ public class Fase : MonoBehaviour
     public GameObject btnPlay, btnVel;
 
     public float delay;
-    public bool entraDelay, podeJogar, fimDeRodada, estaPausado;
+    public bool entraDelay, podeJogar, fimDeRodada, estaPausado, entraDelayBlocoFalso;
     public int movPos;
     public float pos, speed;
     public int direcao;
@@ -79,6 +79,9 @@ public class Fase : MonoBehaviour
     public GameObject balaObject;
     public Transform balaSpawn;
     public float fareRate, nextFire;
+
+    public GameObject blocoFalso;
+    public GameObject blocoFalsoPai;
 
     private void Awake()
     {
@@ -145,7 +148,7 @@ public class Fase : MonoBehaviour
         estadoAnterior = player.GetComponent<Player>().estadoAtual;
 
         listaMoedas = GameObject.FindGameObjectsWithTag("Coin");
-
+        caindo = false;
         
 
 
@@ -155,8 +158,8 @@ public class Fase : MonoBehaviour
         slotsZerado = painelWork.GetComponentsInChildren<Slot>();
         btnPlay = GameObject.FindGameObjectWithTag("BtPlay");
         btnVel = GameObject.FindGameObjectWithTag("BtVel");
-
-        
+        blocoFalso = GameObject.FindGameObjectWithTag("BlocoFalso");
+        blocoFalsoPai = GameObject.FindGameObjectWithTag("BlocoFalsoPai");
 
         podeJogar = false;
         direcao = 1;
@@ -189,9 +192,13 @@ public class Fase : MonoBehaviour
                 cristalFim.SetActive(true);
             }
 
-
+            bool blocoFalsoAtivo = false;
             VerificaMoedasFases();
-
+            if(blocoFalso != null)
+            {
+                blocoFalsoAtivo = blocoFalso.GetComponent<ColisorBlocoFalso>().ativo;
+            }
+            
 
             if (entraDelay)
             {
@@ -205,13 +212,36 @@ public class Fase : MonoBehaviour
                     }
                 }
             }
+            else if(entraDelayBlocoFalso)
+            {
+                blocoFalsoPai.GetComponent<BoxCollider2D>().enabled = false;
+                countdown -= Time.deltaTime;
+                if (countdown <= 0.0f)
+                {
+                    
+                        
+                        VerificaResultado();
+                    
+                }
+            }
             else
             {
-                if (podeJogar)
+                
+                if (blocoFalsoAtivo)
                 {
-                    entraDelay = true;
-                    ExecutaMovimento(ProximoMovimento());
+                    entraDelay = false;
+                    entraDelayBlocoFalso = true;
+                    countdown = 1.5f;
+                    Debug.Log("Bloco falso ativo");
+                }
+                else
+                {
+                    if (podeJogar)
+                    {
+                        entraDelay = true;
+                        ExecutaMovimento(ProximoMovimento());
 
+                    }
                 }
             }
         }
@@ -265,11 +295,13 @@ public class Fase : MonoBehaviour
                     canvasInGame.SetActive(false);
                     canvasGameOver.SetActive(true);
                     canvasGameOver.GetComponent<AudioSource>().Play();
+                    entraDelayBlocoFalso = false;
                     //player.GetComponent<Player>().estadoAtual = EstadosPlayer.Morto;
                 }
                 else
                 {
                     Debug.Log("Não chegou ao fim da fase! - Perdeu vida");
+                    entraDelayBlocoFalso = false;
                     audioClipFase.clip = perdeuVida;
                     audioClipFase.Play();
                     GameController.instance.perfilAtivo.DiminuiVida();
@@ -340,6 +372,8 @@ public class Fase : MonoBehaviour
         PainelMovimento.SetActive(false);
         PainelRepeticao.SetActive(false);
         fimDeRodada = false;
+        blocoFalso.GetComponent<ColisorBlocoFalso>().ativo = false;
+        caindo = false;
     }
 
     private void VerificaMoedasFases()
@@ -629,5 +663,10 @@ public class Fase : MonoBehaviour
         {
             go.gameObject.SetActive(false);
         }
+    }
+
+    public void BlocoFalso()
+    {
+        caindo = true;
     }
 }
