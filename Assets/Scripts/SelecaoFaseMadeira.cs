@@ -87,16 +87,43 @@ public class SelecaoFaseMadeira : MonoBehaviour {
         {
             case 1:
                 {
-                    //SceneManager.LoadScene("04_01_towerWood");
                     GameController.instance.ExecutaClip("Fases");
-                    SceneManager.LoadScene("04_01_towerWood_TESTE");
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Um;
+                    SceneManager.LoadScene("04_01_towerWood");
                     break;
                 }
 
             case 2:
                 {
                     GameController.instance.ExecutaClip("Fases");
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Dois;
                     SceneManager.LoadScene("04_02_towerWood");
+                    break;
+                }
+            case 3:
+                {
+                    GameController.instance.ExecutaClip("Fases");
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Tres;
+                    SceneManager.LoadScene("04_03_towerWood");
+                    break;
+                }
+            case 4:
+                {
+                    GameController.instance.ExecutaClip("Fases");
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Quatro;
+                    SceneManager.LoadScene("04_04_towerWood");
+                    break;
+                }
+            case 5:
+                {
+                    GameController.instance.ExecutaClip("Fases");
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Cinco;
+                    SceneManager.LoadScene("04_05_towerWood");
                     break;
                 }
             case -1:

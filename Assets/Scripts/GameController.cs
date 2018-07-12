@@ -38,6 +38,8 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
 
+    public 
+
     void Awake()
     {
         if (instance == null)
@@ -286,7 +288,9 @@ public class GameController : MonoBehaviour
             SGDfase_1_2 = perfilAtivo.GetFase_1_2(),
             SGDfase_1_3 = perfilAtivo.GetFase_1_3(),
             SGDfase_1_4 = perfilAtivo.GetFase_1_4(),
-            SGDfase_1_5 = perfilAtivo.GetFase_1_5()
+            SGDfase_1_5 = perfilAtivo.GetFase_1_5(),
+            SGDmundoPlayer = perfilAtivo.GetMundoPlayer(),
+            SGDfaseplayer = perfilAtivo.GetFasePlayer()
         };
 
         bf.Serialize(file, save);
@@ -306,7 +310,7 @@ public class GameController : MonoBehaviour
 
             Color c = new Color(saveGame.SGDr, saveGame.SGDg, saveGame.SGDb, saveGame.SGDa);
 
-            perfilAtivo = new Perfil(saveGame.SGDnome, saveGame.SGDimagem, c, saveGame.SGDxp, saveGame.SGDlevel, saveGame.SGDlimite, saveGame.SGDvidas, saveGame.SGDmoedas, saveGame.SGDcristais, saveGame.SGDestrelas, saveGame.SGDspI, saveGame.SGDspP, saveGame.SGDcorNumber, saveGame.SGDfase_1_1, saveGame.SGDfase_1_2, saveGame.SGDfase_1_3, saveGame.SGDfase_1_4, saveGame.SGDfase_1_5);
+            perfilAtivo = new Perfil(saveGame.SGDnome, saveGame.SGDimagem, c, saveGame.SGDxp, saveGame.SGDlevel, saveGame.SGDlimite, saveGame.SGDvidas, saveGame.SGDmoedas, saveGame.SGDcristais, saveGame.SGDestrelas, saveGame.SGDspI, saveGame.SGDspP, saveGame.SGDcorNumber, saveGame.SGDmundoPlayer, saveGame.SGDfaseplayer ,saveGame.SGDfase_1_1, saveGame.SGDfase_1_2, saveGame.SGDfase_1_3, saveGame.SGDfase_1_4, saveGame.SGDfase_1_5);
 
             file.Close();
         }
@@ -325,5 +329,6 @@ class SaveGameData
     public int SGDdia, SGDmes, SGDano, SGDhora, SGDminuto, SGDsegundo;
     public int[] SGDfase_1_1, SGDfase_1_2, SGDfase_1_3, SGDfase_1_4, SGDfase_1_5;
     public float SGDr, SGDg, SGDb, SGDa;
-
+    public MundoPlayer SGDmundoPlayer;
+    public FasePlayer SGDfaseplayer;
 }

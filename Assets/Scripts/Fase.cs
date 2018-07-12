@@ -83,8 +83,11 @@ public class Fase : MonoBehaviour
     public GameObject blocoFalso;
     public GameObject blocoFalsoPai;
 
+    public Animator animator;
+
     private void Awake()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Transform>().position = posInicialPlayer;
         playerColetador = GameObject.FindGameObjectWithTag("Coletador");
@@ -137,6 +140,41 @@ public class Fase : MonoBehaviour
 
     private void Start()
     {
+
+        switch (GameController.instance.perfilAtivo.GetFasePlayer())
+        {
+            case FasePlayer.Um:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena1");
+                    break;
+                }
+            case FasePlayer.Dois:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena2");
+                    break;
+                }
+            case FasePlayer.Tres:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena3");
+                    break;
+                }
+            case FasePlayer.Quatro:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena4");
+                    break;
+                }
+            case FasePlayer.Cinco:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena5");
+                    break;
+                }
+            default:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena1");
+                    break;
+                }
+        }
+        
         canvasPause.SetActive(false);
         canvasSucesso.SetActive(false);
         canvasGameOver.SetActive(false);
@@ -372,7 +410,11 @@ public class Fase : MonoBehaviour
         PainelMovimento.SetActive(false);
         PainelRepeticao.SetActive(false);
         fimDeRodada = false;
-        blocoFalso.GetComponent<ColisorBlocoFalso>().ativo = false;
+        if(blocoFalso != null)
+        {
+            blocoFalso.GetComponent<ColisorBlocoFalso>().ativo = false;
+        }
+        
         caindo = false;
     }
 
@@ -669,4 +711,88 @@ public class Fase : MonoBehaviour
     {
         caindo = true;
     }
+
+    public void AcaoProximaFase(int i)
+    {
+        switch (i)
+        {
+            /*case 1:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Dois;
+                    SceneManager.LoadScene("04_01_towerWood");
+                    break;
+                }*/
+
+            case 2:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Dois;
+                    SceneManager.LoadScene("04_02_towerWood");
+                    break;
+                }
+            case 3:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Tres;
+                    SceneManager.LoadScene("04_03_towerWood");
+                    break;
+                }
+            case 4:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Quatro;
+                    SceneManager.LoadScene("04_04_towerWood");
+                    break;
+                }
+            case 5:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Cinco;
+                    SceneManager.LoadScene("04_05_towerWood");
+                    break;
+                }
+            case 6:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Um;
+                    //SceneManager.LoadScene("05_02_towerConcrete");
+                    break;
+                }
+            case 7:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Dois;
+                    //SceneManager.LoadScene("05_03_towerConcrete");
+                    break;
+                }
+            case 8:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Tres;
+                    //SceneManager.LoadScene("05_04_towerConcrete");
+                    break;
+                }
+            case 9:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Quatro;
+                    //SceneManager.LoadScene("05_04_towerConcrete");
+                    break;
+                }
+            case 10:
+                {
+                    GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
+                    GameController.instance.perfilAtivo.faseAtual = FasePlayer.Cinco;
+                    //SceneManager.LoadScene("05_05_towerConcrete");
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Opção Inválida");
+                    break;
+                }
+        }
+    }
+
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Perfil{
+public class Perfil {
 
     public string nome;
 
@@ -12,7 +12,8 @@ public class Perfil{
     public Color cor;
     public int xp, level, limite, vidas;
     public int moedas, cristais, estrelas, corNumber;
-
+    public MundoPlayer mundoAtual;
+    public FasePlayer faseAtual;
     public int[] fase_1_1, fase_1_2, fase_1_3, fase_1_4, fase_1_5;
 
 
@@ -36,16 +37,18 @@ public class Perfil{
         SalvaFases(1, 1, 0, 0, 0);
         fase_1_2 = new int[3];
         SalvaFases(1, 2, -1, -1, -1);
-        fase_1_3 = new int[3];   
+        fase_1_3 = new int[3];
         SalvaFases(1, 3, -1, -1, -1);
-        fase_1_4 = new int[3];   
+        fase_1_4 = new int[3];
         SalvaFases(1, 4, -1, -1, -1);
-        fase_1_5 = new int[3];   
+        fase_1_5 = new int[3];
         SalvaFases(1, 5, -1, -1, -1);
+        mundoAtual = MundoPlayer.Madeira;
+        faseAtual = FasePlayer.Um;
     }
 
-    public Perfil(string n, Sprite img, Color c, int xp, int level, int limite, int vidas, int moedas, int cristais, 
-        int estrelas, Sprite i, Sprite p, int cor, int[] fase11, int[] fase12, int[] fase13, int[] fase14, int[] fase15)
+    public Perfil(string n, Sprite img, Color c, int xp, int level, int limite, int vidas, int moedas, int cristais,
+        int estrelas, Sprite i, Sprite p, int cor, MundoPlayer ma, FasePlayer fp, int[] fase11, int[] fase12, int[] fase13, int[] fase14, int[] fase15)
     {
         SetNome(n);
         SetImagem(img);
@@ -68,63 +71,81 @@ public class Perfil{
     }
 
     public void SalvaFases(int i, int j, int moed, int crist, int complet)
-{
-    switch (i)
     {
-        case 1:
-            {
-                switch (j)
+        switch (i)
+        {
+            case 1:
                 {
-                    case 1:
-                        {
-                            fase_1_1[0] = complet;
-                            fase_1_1[1] = moed;
-                            fase_1_1[2] = crist;
-                            break;
-                        }
-                    case 2:
-                        {
-                            fase_1_2[0] = complet;
-                            fase_1_2[1] = moed;
-                            fase_1_2[2] = crist;
-                            break;
-                        }
-                    case 3:
-                        {
-                            fase_1_3[0] = complet;
-                            fase_1_3[1] = moed;
-                            fase_1_3[2] = crist;
-                                break;
-                        }
-                    case 4:
-                        {
-                            fase_1_4[0] = complet;
-                            fase_1_4[1] = moed;
-                            fase_1_4[2] = crist;
-                            break;
-                        }
-                    case 5:
-                        {
-                            fase_1_5[0] = complet;
-                            fase_1_5[1] = moed;
-                            fase_1_5[2] = crist;
-                            break;
-                        }
-                    default:
+                    switch (j)
                     {
-                        Debug.LogWarning("Erro ao salvar a fase");
-                        break;
+                        case 1:
+                            {
+                                fase_1_1[0] = complet;
+                                fase_1_1[1] = moed;
+                                fase_1_1[2] = crist;
+                                break;
+                            }
+                        case 2:
+                            {
+                                fase_1_2[0] = complet;
+                                fase_1_2[1] = moed;
+                                fase_1_2[2] = crist;
+                                break;
+                            }
+                        case 3:
+                            {
+                                fase_1_3[0] = complet;
+                                fase_1_3[1] = moed;
+                                fase_1_3[2] = crist;
+                                break;
+                            }
+                        case 4:
+                            {
+                                fase_1_4[0] = complet;
+                                fase_1_4[1] = moed;
+                                fase_1_4[2] = crist;
+                                break;
+                            }
+                        case 5:
+                            {
+                                fase_1_5[0] = complet;
+                                fase_1_5[1] = moed;
+                                fase_1_5[2] = crist;
+                                break;
+                            }
+                        default:
+                            {
+                                Debug.LogWarning("Erro ao salvar a fase");
+                                break;
+                            }
                     }
+                    break;
                 }
-                break;
-            }
-        default:
-            {
-                break;
-            }
+            default:
+                {
+                    break;
+                }
+        }
     }
-}
+    public MundoPlayer GetMundoPlayer()
+    {
+        return mundoAtual;
+    }
 
+    public void SetMundoPlayer(MundoPlayer mp)
+    {
+        mundoAtual = mp;
+    }
+
+    public FasePlayer GetFasePlayer()
+    {
+        return faseAtual;
+    }
+
+    public void SetFasePlayer(FasePlayer fp)
+    {
+        faseAtual = fp;
+    }
 
     public int[] GetFase_1_1()
     {
@@ -318,4 +339,23 @@ public class Perfil{
         vidas = 4;
     }
 
+}
+
+[Serializable]
+public enum MundoPlayer
+{
+    Madeira,
+    Concreto,
+    Jade,
+    Gelo
+}
+
+[Serializable]
+public enum FasePlayer
+{
+    Um,
+    Dois,
+    Tres,
+    Quatro,
+    Cinco
 }
