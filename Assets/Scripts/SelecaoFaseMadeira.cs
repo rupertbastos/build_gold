@@ -22,6 +22,8 @@ public class SelecaoFaseMadeira : MonoBehaviour {
         AtivaFases(btStageComplete3, btStageActive3, GameController.instance.perfilAtivo.GetFase_1_3());
         AtivaFases(btStageComplete4, btStageActive4, GameController.instance.perfilAtivo.GetFase_1_4());
         AtivaFases(btStageComplete5, btStageActive5, GameController.instance.perfilAtivo.GetFase_1_5());
+
+        
         
     }
 
@@ -37,26 +39,23 @@ public class SelecaoFaseMadeira : MonoBehaviour {
             case 0:
                 {
                     btStageActive.gameObject.SetActive(true);
-                    break;
-                }
-            case 1:
-                {
-                    btStageActive.gameObject.SetActive(false);
-                    btStageComplete.gameObject.SetActive(true);
                     Text[] opcoes = btStageComplete.GetComponentsInChildren<Text>();
+                    Text[] opcoes2 = btStageActive.GetComponentsInChildren<Text>();
 
-                    foreach(Text t in opcoes)
+                    foreach (Text t in opcoes)
                     {
                         switch (t.name)
                         {
                             case "count-coin":
                                 {
                                     t.text = aux[1].ToString();
+                                    Debug.Log("Count coin: " + t.text);
                                     break;
                                 }
                             case "count-cristal":
                                 {
                                     t.text = aux[2].ToString();
+                                    Debug.Log("Count cristal: " + t.text);
                                     break;
                                 }
                             case "number-stage":
@@ -71,6 +70,103 @@ public class SelecaoFaseMadeira : MonoBehaviour {
                                 }
                         }
                     }
+
+                    foreach (Text t in opcoes2)
+                    {
+                        switch (t.name)
+                        {
+                            case "count-coin":
+                                {
+                                    t.text = aux[1].ToString();
+                                    Debug.Log("Count coin: " + t.text);
+                                    break;
+                                }
+                            case "count-cristal":
+                                {
+                                    t.text = aux[2].ToString();
+                                    Debug.Log("Count cristal: " + t.text);
+                                    break;
+                                }
+                            case "number-stage":
+                                {
+                                    Debug.Log("Não fazer nada");
+                                    break;
+                                }
+                            default:
+                                {
+                                    Debug.Log("Erro");
+                                    break;
+                                }
+                        }
+                    }
+                    break;
+                }
+            case 1:
+                {
+                    
+                    Text[] opcoes = btStageComplete.GetComponentsInChildren<Text>();
+                    Text[] opcoes2 = btStageActive.GetComponentsInChildren<Text>();
+
+                    foreach(Text t in opcoes)
+                    {
+                        switch (t.name)
+                        {
+                            case "count-coin":
+                                {
+                                    t.text = aux[1].ToString();
+                                    Debug.Log("Count coin: " + t.text);
+                                    break;
+                                }
+                            case "count-cristal":
+                                {
+                                    t.text = aux[2].ToString();
+                                    Debug.Log("Count cristal: " + t.text);
+                                    break;
+                                }
+                            case "number-stage":
+                                {
+                                    Debug.Log("Não fazer nada");
+                                    break;
+                                }
+                            default:
+                                {
+                                    Debug.Log("Erro");
+                                    break;
+                                }
+                        }
+                    }
+
+                    foreach (Text t in opcoes2)
+                    {
+                        switch (t.name)
+                        {
+                            case "count-coin":
+                                {
+                                    t.text = aux[1].ToString();
+                                    Debug.Log("Count coin: " + t.text);
+                                    break;
+                                }
+                            case "count-cristal":
+                                {
+                                    t.text = aux[2].ToString();
+                                    Debug.Log("Count cristal: " + t.text);
+                                    break;
+                                }
+                            case "number-stage":
+                                {
+                                    Debug.Log("Não fazer nada");
+                                    break;
+                                }
+                            default:
+                                {
+                                    Debug.Log("Erro");
+                                    break;
+                                }
+                        }
+                    }
+
+                    btStageActive.gameObject.SetActive(false);
+                    btStageComplete.gameObject.SetActive(true);
 
                     break;
                 }

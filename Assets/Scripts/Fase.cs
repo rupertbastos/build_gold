@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -85,9 +84,10 @@ public class Fase : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject escada;
+
     private void Awake()
     {
-        
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<Transform>().position = posInicialPlayer;
         playerColetador = GameObject.FindGameObjectWithTag("Coletador");
@@ -346,7 +346,7 @@ public class Fase : MonoBehaviour
             Debug.Log(val);
             txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
 
-            GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>(), mundoAtual, faseAtual);
+            GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>(), mundoAtual, faseAtual, int.Parse(txtCristalFim.GetComponent<Text>().text), int.Parse(txtMoedaFim.GetComponent<Text>().text));
 
         }
         else if(capturado == false)
@@ -363,7 +363,7 @@ public class Fase : MonoBehaviour
                 
                 txtPontosTotalFaseFim.GetComponent<Text>().text = val.ToString();
 
-                GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>(), mundoAtual, faseAtual);
+                GameController.instance.AtualizaXPEstagioCompleto(val, scrollXPEstagioCompleto, txtLevel.GetComponent<Text>(), txtXPAtual.GetComponent<Text>(), txtXPLimite.GetComponent<Text>().GetComponent<Text>(), mundoAtual, faseAtual, int.Parse(txtCristalFim.GetComponent<Text>().text), int.Parse(txtMoedaFim.GetComponent<Text>().text));
             }
             else
             {
@@ -504,6 +504,14 @@ public class Fase : MonoBehaviour
                     //player.GetComponent<Player>().estadoAtual = EstadosPlayer.Movendo;
                     Debug.Log("Força x: " + pos);
                     player.GetComponent<Rigidbody2D>().AddForce(new Vector2((GetComponent<Transform>().transform.position.x + pos) * direcao, GetComponent<Transform>().transform.position.y));
+                    countdown = timeCountdown;
+                    entraDelay = true;
+                    break;
+                }
+            case "Descer":
+                {
+                    Debug.Log("Descer");
+                    escada.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     countdown = timeCountdown;
                     entraDelay = true;
                     break;
@@ -813,35 +821,35 @@ public class Fase : MonoBehaviour
                 {
                     GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
                     GameController.instance.perfilAtivo.faseAtual = FasePlayer.Um;
-                    //SceneManager.LoadScene("05_02_towerConcrete");
+                    SceneManager.LoadScene("05_01_towerConcrete");
                     break;
                 }
             case 7:
                 {
                     GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
                     GameController.instance.perfilAtivo.faseAtual = FasePlayer.Dois;
-                    //SceneManager.LoadScene("05_03_towerConcrete");
+                    SceneManager.LoadScene("05_02_towerConcrete");
                     break;
                 }
             case 8:
                 {
                     GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
                     GameController.instance.perfilAtivo.faseAtual = FasePlayer.Tres;
-                    //SceneManager.LoadScene("05_04_towerConcrete");
+                    SceneManager.LoadScene("05_03_towerConcrete");
                     break;
                 }
             case 9:
                 {
                     GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
                     GameController.instance.perfilAtivo.faseAtual = FasePlayer.Quatro;
-                    //SceneManager.LoadScene("05_04_towerConcrete");
+                   SceneManager.LoadScene("05_04_towerConcrete");
                     break;
                 }
             case 10:
                 {
                     GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Concreto;
                     GameController.instance.perfilAtivo.faseAtual = FasePlayer.Cinco;
-                    //SceneManager.LoadScene("05_05_towerConcrete");
+                    SceneManager.LoadScene("05_05_towerConcrete");
                     break;
                 }
             default:

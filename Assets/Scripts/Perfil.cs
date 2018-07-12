@@ -19,6 +19,9 @@ public class Perfil {
     
 
     public int[] fase_1_1, fase_1_2, fase_1_3, fase_1_4, fase_1_5;
+    public int[] fase_2_1, fase_2_2, fase_2_3, fase_2_4, fase_2_5;
+    public int[] fase_3_1, fase_3_2, fase_3_3, fase_3_4, fase_3_5;
+    public int[] fase_4_1, fase_4_2, fase_4_3, fase_4_4, fase_4_5;
 
     public Sprite GetImagemSprite(int i)
     {
@@ -174,13 +177,43 @@ public class Perfil {
         fase_1_1 = new int[3];
         SalvaFases(1, 1, 0, 0, 0);
         fase_1_2 = new int[3];
-        SalvaFases(1, 2, -1, -1, -1);
+        SalvaFases(1, 2, 0, 0, -1);
         fase_1_3 = new int[3];
-        SalvaFases(1, 3, -1, -1, -1);
+        SalvaFases(1, 3, 0, 0, -1);
         fase_1_4 = new int[3];
-        SalvaFases(1, 4, -1, -1, -1);
+        SalvaFases(1, 4, 0, 0, -1);
         fase_1_5 = new int[3];
-        SalvaFases(1, 5, -1, -1, -1);
+        SalvaFases(1, 5, 0, 0, -1);
+        fase_2_1 = new int[3];
+        SalvaFases(2, 1, 0, 0, 0);
+        fase_2_2 = new int[3];
+        SalvaFases(2, 2, 0, 0, -1);
+        fase_2_3 = new int[3];
+        SalvaFases(2, 3, 0, 0, -1);
+        fase_2_4 = new int[3];
+        SalvaFases(2, 4, 0, 0, -1);
+        fase_2_5 = new int[3];
+        SalvaFases(2, 5, 0, 0, -1);
+        fase_3_1 = new int[3];
+        SalvaFases(3, 1, 0, 0, 0);
+        fase_3_2 = new int[3];
+        SalvaFases(3, 2, 0, 0, -1);
+        fase_3_3 = new int[3];
+        SalvaFases(3, 3, 0, 0, -1);
+        fase_3_4 = new int[3];
+        SalvaFases(3, 4, 0, 0, -1);
+        fase_3_5 = new int[3];
+        SalvaFases(3, 5, 0, 0, -1);
+        fase_4_1 = new int[3];
+        SalvaFases(4, 1, 0, 0, 0);
+        fase_4_2 = new int[3];
+        SalvaFases(4, 2, 0, 0, -1);
+        fase_4_3 = new int[3];
+        SalvaFases(4, 3, 0, 0, -1);
+        fase_4_4 = new int[3];
+        SalvaFases(4, 4, 0, 0, -1);
+        fase_4_5 = new int[3];
+        SalvaFases(4, 5, 0, 0, -1);
         mundoAtual = MundoPlayer.Madeira;
         faseAtual = FasePlayer.Um;
         
@@ -207,6 +240,306 @@ public class Perfil {
         fase_1_3 = fase13;
         fase_1_4 = fase14;
         fase_1_5 = fase15;
+    }
+
+
+    public int GetFasesPassadasMundo1()
+    {
+        int tot = 0;
+        if (fase_1_1[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_1_1[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_1_2[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_1_2[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_1_3[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_1_3[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_1_4[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_1_4[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_1_5[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_1_5[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        return tot;
+    }
+
+    public int GetFasesPassadasMundo2()
+    {
+        int tot = 0;
+        if (fase_2_1[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_2_1[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_2_2[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_2_2[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_2_3[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_2_3[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_2_4[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_2_4[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_2_5[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_2_5[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        return tot;
+    }
+
+    public int GetFasesPassadasMundo3()
+    {
+        int tot = 0;
+        if (fase_3_1[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_3_1[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_3_2[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_3_2[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_3_3[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_3_3[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_3_4[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_3_4[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_3_5[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_3_5[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        return tot;
+    }
+
+    public int GetFasesPassadasMundo4()
+    {
+        int tot = 0;
+        if (fase_4_1[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_4_1[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_4_2[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_4_2[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_4_3[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_4_3[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_4_4[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_4_4[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        if (fase_4_5[0] == 0)
+        {
+            tot = tot + 10;
+            if (fase_4_5[0] == 1)
+            {
+                tot = tot + 10;
+            }
+        }
+
+        return tot;
+    }
+
+    public int GetMoedasMundo1()
+    {
+        int tot = 0;
+
+        tot = tot + fase_1_1[1];
+        tot = tot + fase_1_2[1];
+        tot = tot + fase_1_3[1];
+        tot = tot + fase_1_4[1];
+        tot = tot + fase_1_5[1];
+        return tot;
+    }
+
+    public int GetMoedasMundo2()
+    {
+        int tot = 0;
+
+        tot = tot + fase_2_1[1];
+        tot = tot + fase_2_2[1];
+        tot = tot + fase_2_3[1];
+        tot = tot + fase_2_4[1];
+        tot = tot + fase_2_5[1];
+        return tot;
+    }
+
+    public int GetMoedasMundo3()
+    {
+        int tot = 0;
+
+        tot = tot + fase_3_1[1];
+        tot = tot + fase_3_2[1];
+        tot = tot + fase_3_3[1];
+        tot = tot + fase_3_4[1];
+        tot = tot + fase_3_5[1];
+        return tot;
+    }
+
+    public int GetMoedasMundo4()
+    {
+        int tot = 0;
+
+        tot = tot + fase_4_1[1];
+        tot = tot + fase_4_2[1];
+        tot = tot + fase_4_3[1];
+        tot = tot + fase_4_4[1];
+        tot = tot + fase_4_5[1];
+        return tot;
+    }
+
+    public int GetCristaisMundo1()
+    {
+        int tot = 0;
+
+        tot = tot + fase_1_1[2];
+        tot = tot + fase_1_2[2];
+        tot = tot + fase_1_3[2];
+        tot = tot + fase_1_4[2];
+        tot = tot + fase_1_5[2];
+        return tot;
+    }
+
+    public int GetCristaisMundo2()
+    {
+        int tot = 0;
+
+        tot = tot + fase_2_1[2];
+        tot = tot + fase_2_2[2];
+        tot = tot + fase_2_3[2];
+        tot = tot + fase_2_4[2];
+        tot = tot + fase_2_5[2];
+        return tot;
+    }
+    public int GetCristaisMundo3()
+    {
+        int tot = 0;
+
+        tot = tot + fase_3_1[2];
+        tot = tot + fase_3_2[2];
+        tot = tot + fase_3_3[2];
+        tot = tot + fase_3_4[2];
+        tot = tot + fase_3_5[2];
+        return tot;
+    }
+
+    public int GetCristaisMundo4()
+    {
+        int tot = 0;
+
+        tot = tot + fase_4_1[2];
+        tot = tot + fase_4_2[2];
+        tot = tot + fase_4_3[2];
+        tot = tot + fase_4_4[2];
+        tot = tot + fase_4_5[2];
+        return tot;
     }
 
     public void SalvaFases(int i, int j, int moed, int crist, int complet)
@@ -250,6 +583,147 @@ public class Perfil {
                                 fase_1_5[0] = complet;
                                 fase_1_5[1] = moed;
                                 fase_1_5[2] = crist;
+                                break;
+                            }
+                        default:
+                            {
+                                Debug.LogWarning("Erro ao salvar a fase");
+                                break;
+                            }
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    switch (j)
+                    {
+                        case 1:
+                            {
+                                fase_2_1[0] = complet;
+                                fase_2_1[1] = moed;
+                                fase_2_1[2] = crist;
+                                break;
+                            }
+                        case 2:
+                            {
+                                fase_2_2[0] = complet;
+                                fase_2_2[1] = moed;
+                                fase_2_2[2] = crist;
+                                break;
+                            }
+                        case 3:
+                            {
+                                fase_2_3[0] = complet;
+                                fase_2_3[1] = moed;
+                                fase_2_3[2] = crist;
+                                break;
+                            }
+                        case 4:
+                            {
+                                fase_2_4[0] = complet;
+                                fase_2_4[1] = moed;
+                                fase_2_4[2] = crist;
+                                break;
+                            }
+                        case 5:
+                            {
+                                fase_2_5[0] = complet;
+                                fase_2_5[1] = moed;
+                                fase_2_5[2] = crist;
+                                break;
+                            }
+                        default:
+                            {
+                                Debug.LogWarning("Erro ao salvar a fase");
+                                break;
+                            }
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    switch (j)
+                    {
+                        case 1:
+                            {
+                                fase_3_1[0] = complet;
+                                fase_3_1[1] = moed;
+                                fase_3_1[2] = crist;
+                                break;
+                            }
+                        case 2:
+                            {
+                                fase_3_2[0] = complet;
+                                fase_3_2[1] = moed;
+                                fase_3_2[2] = crist;
+                                break;
+                            }
+                        case 3:
+                            {
+                                fase_3_3[0] = complet;
+                                fase_3_3[1] = moed;
+                                fase_3_3[2] = crist;
+                                break;
+                            }
+                        case 4:
+                            {
+                                fase_3_4[0] = complet;
+                                fase_3_4[1] = moed;
+                                fase_3_4[2] = crist;
+                                break;
+                            }
+                        case 5:
+                            {
+                                fase_3_5[0] = complet;
+                                fase_3_5[1] = moed;
+                                fase_3_5[2] = crist;
+                                break;
+                            }
+                        default:
+                            {
+                                Debug.LogWarning("Erro ao salvar a fase");
+                                break;
+                            }
+                    }
+                    break;
+                }
+            case 4:
+                {
+                    switch (j)
+                    {
+                        case 1:
+                            {
+                                fase_4_1[0] = complet;
+                                fase_4_1[1] = moed;
+                                fase_4_1[2] = crist;
+                                break;
+                            }
+                        case 2:
+                            {
+                                fase_4_2[0] = complet;
+                                fase_4_2[1] = moed;
+                                fase_4_2[2] = crist;
+                                break;
+                            }
+                        case 3:
+                            {
+                                fase_4_3[0] = complet;
+                                fase_4_3[1] = moed;
+                                fase_4_3[2] = crist;
+                                break;
+                            }
+                        case 4:
+                            {
+                                fase_4_4[0] = complet;
+                                fase_4_4[1] = moed;
+                                fase_4_4[2] = crist;
+                                break;
+                            }
+                        case 5:
+                            {
+                                fase_4_5[0] = complet;
+                                fase_4_5[1] = moed;
+                                fase_4_5[2] = crist;
                                 break;
                             }
                         default:

@@ -220,10 +220,12 @@ public class GameController : MonoBehaviour
 
     public void AtualizaSelectTowers(Text porcentagem, Text estrelas, Text cristais, Text moedas, Text total, Text level)
     {
-        porcentagem.GetComponent<Text>().text = "0%";
+        
+
+        porcentagem.GetComponent<Text>().text = perfilAtivo.GetFasesPassadasMundo1().ToString() + "%";
         estrelas.GetComponent<Text>().text = perfilAtivo.GetEstrelas().ToString();
-        cristais.GetComponent<Text>().text = perfilAtivo.GetCristais().ToString();
-        moedas.GetComponent<Text>().text = perfilAtivo.GetMoedas().ToString();
+        cristais.GetComponent<Text>().text = perfilAtivo.GetCristaisMundo1().ToString();
+        moedas.GetComponent<Text>().text = perfilAtivo.GetMoedasMundo1().ToString();
         total.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
     }
@@ -246,7 +248,7 @@ public class GameController : MonoBehaviour
         audioS.Stop();
     }
 
-    public void AtualizaXPEstagioCompleto(int val, GameObject sXp, Text level, Text atual, Text limite, int mundo, int fase)
+    public void AtualizaXPEstagioCompleto(int val, GameObject sXp, Text level, Text atual, Text limite, int mundo, int fase, int moedas, int cristais)
     {
         perfilAtivo.AumentaXp(val);
         sXp.GetComponent<Slider>().maxValue = int.Parse(perfilAtivo.GetLimite().ToString());
@@ -254,7 +256,7 @@ public class GameController : MonoBehaviour
         level.GetComponent<Text>().text = perfilAtivo.GetLevel().ToString();
         atual.GetComponent<Text>().text = perfilAtivo.GetXp().ToString();
         limite.GetComponent<Text>().text = "/   " + perfilAtivo.GetLimite().ToString();
-        perfilAtivo.SalvaFases(mundo, fase, perfilAtivo.GetMoedas(), perfilAtivo.GetCristais(),1);
+        perfilAtivo.SalvaFases(mundo, fase, moedas, cristais,1);
         SaveGame();
     }
 
