@@ -125,6 +125,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 {
                     GameController.instance.ExecutaClip("Ir");
                     GameController.instance.SetPerfilAtivo(p);
+                    GameController.instance.ativaTutorial = true;
                     SceneManager.LoadScene("03_01_SelectTowers");
                     
                     

@@ -90,7 +90,17 @@ public class SelecaoFaseMadeira : MonoBehaviour {
                     GameController.instance.ExecutaClip("Fases");
                     GameController.instance.perfilAtivo.mundoAtual = MundoPlayer.Madeira;
                     GameController.instance.perfilAtivo.faseAtual = FasePlayer.Um;
-                    SceneManager.LoadScene("04_01_towerWood");
+
+                    if (GameController.instance.ativaTutorial)
+                    {
+                        SceneManager.LoadScene("04_00_towerWood");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("04_01_towerWood");
+                    }
+
+                    
                     break;
                 }
 

@@ -255,73 +255,77 @@ public class Fase : MonoBehaviour
 
     private void Update()
     {
-        if (estaPausado == false){
-            movimentos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
-            if (movimentos.Length > 1 && podeJogar == false)
-            {
-                btnPlay.GetComponent<Button>().interactable = true;
-            }
-            else
-            {
-                btnPlay.GetComponent<Button>().interactable = false;
-            }
 
-            if (MostraCristal())
+        if(GameController.instance.ativaTutorial == false)
+        {
+            if (estaPausado == false)
             {
-                cristalFim.SetActive(true);
-            }
-
-            bool blocoFalsoAtivo = false;
-            VerificaMoedasFases();
-            if(blocoFalso != null)
-            {
-                blocoFalsoAtivo = blocoFalso.GetComponent<ColisorBlocoFalso>().ativo;
-            }
-            
-
-            if (entraDelay)
-            {
-                countdown -= Time.deltaTime;
-                if (countdown <= 0.0f)
+                movimentos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
+                if (movimentos.Length > 1 && podeJogar == false)
                 {
-                    entraDelay = false;
-                    if (fimDeRodada)
+                    btnPlay.GetComponent<Button>().interactable = true;
+                }
+                else
+                {
+                    btnPlay.GetComponent<Button>().interactable = false;
+                }
+
+                if (MostraCristal())
+                {
+                    cristalFim.SetActive(true);
+                }
+
+                bool blocoFalsoAtivo = false;
+                VerificaMoedasFases();
+                if (blocoFalso != null)
+                {
+                    blocoFalsoAtivo = blocoFalso.GetComponent<ColisorBlocoFalso>().ativo;
+                }
+
+
+                if (entraDelay)
+                {
+                    countdown -= Time.deltaTime;
+                    if (countdown <= 0.0f)
+                    {
+                        entraDelay = false;
+                        if (fimDeRodada)
+                        {
+                            VerificaResultado();
+                        }
+                    }
+                }
+                else if (entraDelayBlocoFalso)
+                {
+                    blocoFalsoPai.GetComponent<BoxCollider2D>().enabled = false;
+                    countdown -= Time.deltaTime;
+                    if (countdown <= 0.0f)
                     {
                         VerificaResultado();
                     }
                 }
-            }
-            else if(entraDelayBlocoFalso)
-            {
-                blocoFalsoPai.GetComponent<BoxCollider2D>().enabled = false;
-                countdown -= Time.deltaTime;
-                if (countdown <= 0.0f)
-                {
-                    VerificaResultado();
-                }
-            }
-            else
-            {
-                
-                if (blocoFalsoAtivo)
-                {
-                    entraDelay = false;
-                    entraDelayBlocoFalso = true;
-                    countdown = 1.5f;
-                    Debug.Log("Bloco falso ativo");
-                }
                 else
                 {
-                    if (podeJogar)
-                    {
-                        entraDelay = true;
-                        ExecutaMovimento(ProximoMovimento());
 
+                    if (blocoFalsoAtivo)
+                    {
+                        entraDelay = false;
+                        entraDelayBlocoFalso = true;
+                        countdown = 1.5f;
+                        Debug.Log("Bloco falso ativo");
+                    }
+                    else
+                    {
+                        if (podeJogar)
+                        {
+                            entraDelay = true;
+                            ExecutaMovimento(ProximoMovimento());
+
+                        }
                     }
                 }
             }
         }
-		
     }
 
     private void VerificaResultado()

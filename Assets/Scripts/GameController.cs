@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     public Sprite imagem1, imagem2, imagem3, imagem4, imagem5, imagem6;
     public Sprite spI1, spI2, spI3, spI4, spI5, spI6;
     public Sprite spP1, spP2, spP3, spP4, spP5, spP6;
+    public bool ativaTutorial;
 
     void Awake()
     {
@@ -69,6 +70,7 @@ public class GameController : MonoBehaviour
         {
             audioS.Play();
         }
+        ativaTutorial = false;
     }
     /*public void SaveGame()
     {
