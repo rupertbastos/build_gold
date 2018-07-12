@@ -33,14 +33,14 @@ public class SelectTowers : MonoBehaviour {
             case "Madeira":
                 {
                     GameController.instance.ExecutaClip("Torres");
-                    SceneManager.LoadScene("03_02_SelecaoFases");
+                    SceneManager.LoadScene("03_02_SelecaoFasesWood");
                     break;
                 }
             
             case "Concreto":
                 {
                     GameController.instance.ExecutaClip("Torres");
-                    Debug.LogWarning("Concreto");
+                    SceneManager.LoadScene("03_02_SelecaoFasesConcrete");
                     break;
                 }
             case "Jade":

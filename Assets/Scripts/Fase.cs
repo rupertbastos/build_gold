@@ -146,41 +146,82 @@ public class Fase : MonoBehaviour
             case FasePlayer.Um:
                 {
                     animator.GetComponent<Animator>().SetTrigger("Cena1");
+                    faseAtual = 1;
                     break;
                 }
             case FasePlayer.Dois:
                 {
                     animator.GetComponent<Animator>().SetTrigger("Cena2");
+                    faseAtual = 2;
                     break;
                 }
             case FasePlayer.Tres:
                 {
                     animator.GetComponent<Animator>().SetTrigger("Cena3");
+                    faseAtual = 3;
                     break;
                 }
             case FasePlayer.Quatro:
                 {
                     animator.GetComponent<Animator>().SetTrigger("Cena4");
+                    faseAtual = 4;
                     break;
                 }
             case FasePlayer.Cinco:
                 {
                     animator.GetComponent<Animator>().SetTrigger("Cena5");
+                    faseAtual = 5;
                     break;
                 }
             default:
                 {
                     animator.GetComponent<Animator>().SetTrigger("Cena1");
+                    faseAtual = 1;
                     break;
                 }
         }
-        
+
+        switch (GameController.instance.perfilAtivo.GetMundoPlayer())
+        {
+            case MundoPlayer.Madeira:
+                {
+                    mundoAtual = 1;
+                    break;
+                }
+            case MundoPlayer.Concreto:
+                {
+                    mundoAtual = 2;
+                    break;
+                }
+            case MundoPlayer.Jade:
+                {
+                    mundoAtual = 3;
+                    break;
+                }
+            case MundoPlayer.Gelo:
+                {
+                    mundoAtual = 4;
+                    break;
+                }
+            default:
+                {
+                    animator.GetComponent<Animator>().SetTrigger("Cena1");
+                    faseAtual = 1;
+                    break;
+                }
+        }
+
         canvasPause.SetActive(false);
         canvasSucesso.SetActive(false);
         canvasGameOver.SetActive(false);
+
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
-        PainelRepeticao.SetActive(false);
+        if(PainelRepeticao != null)
+        {
+            PainelRepeticao.SetActive(false);
+        }
+        
 
         audioFase.Play();
         estadoAnterior = player.GetComponent<Player>().estadoAtual;
@@ -256,10 +297,7 @@ public class Fase : MonoBehaviour
                 countdown -= Time.deltaTime;
                 if (countdown <= 0.0f)
                 {
-                    
-                        
-                        VerificaResultado();
-                    
+                    VerificaResultado();
                 }
             }
             else
@@ -408,7 +446,11 @@ public class Fase : MonoBehaviour
         btnVel.GetComponent<Button>().interactable = true;
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
-        PainelRepeticao.SetActive(false);
+        if(PainelRepeticao != null)
+        {
+            PainelRepeticao.SetActive(false);
+        }
+        
         fimDeRodada = false;
         if(blocoFalso != null)
         {
@@ -559,7 +601,10 @@ public class Fase : MonoBehaviour
         
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
-        PainelRepeticao.SetActive(false);
+        if (PainelRepeticao != null)
+        {
+            PainelRepeticao.SetActive(false);
+        }
         podeJogar = true;
         //delayInicial = true;
 
@@ -570,9 +615,6 @@ public class Fase : MonoBehaviour
     {
         string moveTxt = movimentos[movPos].ToString();
         movPos = movPos + 1;
-
-       
-
         return (moveTxt.Trim());
     }
 
@@ -607,6 +649,13 @@ public class Fase : MonoBehaviour
         string nomeFase = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(nomeFase);
         
+    }
+
+    public void ReiniciarFaseTotalSucesso()
+    {
+        string nomeFase = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(nomeFase);
+
     }
 
     public void AcaoBotaoPause(GameObject go)
@@ -678,7 +727,11 @@ public class Fase : MonoBehaviour
     public void Home()
     {
         SceneManager.LoadScene("03_01_SelectTowers");
-        //SceneManager.LoadScene("03_02_SelecaoFases");
+    }
+
+    public void HomeSucesso()
+    {
+        SceneManager.LoadScene("03_01_SelectTowers");
     }
 
     /*public void AcaoBotaoMenuMetodos(GameObject go)

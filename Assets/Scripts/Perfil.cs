@@ -9,19 +9,155 @@ public class Perfil {
     public string nome;
 
     public Sprite imagem, spI, spP;
+    public int imagemNumero, spINumero, spPNumero;
     public Color cor;
     public int xp, level, limite, vidas;
     public int moedas, cristais, estrelas, corNumber;
     public MundoPlayer mundoAtual;
     public FasePlayer faseAtual;
+
+    
+
     public int[] fase_1_1, fase_1_2, fase_1_3, fase_1_4, fase_1_5;
 
+    public Sprite GetImagemSprite(int i)
+    {
+        Sprite imag = null;
+        switch (i)
+        {
+            case 1:
+                {
+                    imag = GameController.instance.imagem1;
+                    break;
+                }
+            case 2:
+                {
+                    imag = GameController.instance.imagem2;
+                    break;
+                }
+            case 3:
+                {
+                    imag = GameController.instance.imagem3;
+                    break;
+                }
+            case 4:
+                {
+                    imag = GameController.instance.imagem4;
+                    break;
+                }
+            case 5:
+                {
+                    imag = GameController.instance.imagem5;
+                    break;
+                }
+            case 6:
+                {
+                    imag = GameController.instance.imagem6;
+                    break;
+                }
+            default:
+                {
+                    imag = GameController.instance.imagem1;
+                    break;
+                }
+        }
+        return imag;
+    }
+
+    public Sprite GetSpISprite(int i)
+    {
+        Sprite spi;
+        switch (i)
+        {
+            case 1:
+                {
+                    spi = GameController.instance.spI1;
+                    break;
+                }
+            case 2:
+                {
+                    spi = GameController.instance.spI2;
+                    break;
+                }
+            case 3:
+                {
+                    spi = GameController.instance.spI3;
+                    break;
+                }
+            case 4:
+                {
+                    spi = GameController.instance.spI4;
+                    break;
+                }
+            case 5:
+                {
+                    spi = GameController.instance.spI5;
+                    break;
+                }
+            case 6:
+                {
+                    spi = GameController.instance.spI6;
+                    break;
+                }
+            default:
+                {
+                    spi = GameController.instance.spI1;
+                    break;
+                }
+        }
+        return spi;
+    }
+
+    public Sprite GetSpPSprite(int i)
+    {
+        Sprite spp;
+        switch (i)
+        {
+            case 1:
+                {
+                    spp = GameController.instance.spP1;
+                    break;
+                }
+            case 2:
+                {
+                    spp = GameController.instance.spP2;
+                    break;
+                }
+            case 3:
+                {
+                    spp = GameController.instance.spP3;
+                    break;
+                }
+            case 4:
+                {
+                    spp = GameController.instance.spP4;
+                    break;
+                }
+            case 5:
+                {
+                    spp = GameController.instance.spP5;
+                    break;
+                }
+            case 6:
+                {
+                    spp = GameController.instance.spP6;
+                    break;
+                }
+            default:
+                {
+                    spp = GameController.instance.spP1;
+                    break;
+                }
+        }
+        return spp;
+    }
 
 
-    public Perfil(string n, Sprite img, Color c, Sprite i, Sprite p, int cor)
+    public Perfil(string n, int img, Color c, int i, int p, int cor)
     {
         SetNome(n);
-        SetImagem(img);
+        SetImagemNumero(img);
+        imagem = GetImagemSprite(img);
         SetColor(c);
         SetXp(0);
         SetLevel(1);
@@ -30,8 +166,10 @@ public class Perfil {
         SetMoedas(0);
         SetCristais(0);
         SetEstrelas(0);
-        SetSpI(i);
-        SetSpP(p);
+        SetSpINumero(i);
+        spI = GetSpISprite(i);
+        SetSpPNumero(p);
+        spP = GetSpPSprite(p);
         SetCorNumber(cor);
         fase_1_1 = new int[3];
         SalvaFases(1, 1, 0, 0, 0);
@@ -45,13 +183,14 @@ public class Perfil {
         SalvaFases(1, 5, -1, -1, -1);
         mundoAtual = MundoPlayer.Madeira;
         faseAtual = FasePlayer.Um;
+        
     }
 
-    public Perfil(string n, Sprite img, Color c, int xp, int level, int limite, int vidas, int moedas, int cristais,
-        int estrelas, Sprite i, Sprite p, int cor, MundoPlayer ma, FasePlayer fp, int[] fase11, int[] fase12, int[] fase13, int[] fase14, int[] fase15)
+    public Perfil(string n, int img, Color c, int xp, int level, int limite, int vidas, int moedas, int cristais,
+        int estrelas, int i, int p, int cor, MundoPlayer ma, FasePlayer fp, int[] fase11, int[] fase12, int[] fase13, int[] fase14, int[] fase15)
     {
         SetNome(n);
-        SetImagem(img);
+        imagem = GetImagemSprite(img);
         SetColor(c);
         SetXp(xp);
         SetLevel(level);
@@ -60,8 +199,8 @@ public class Perfil {
         SetMoedas(moedas);
         SetCristais(cristais);
         SetEstrelas(estrelas);
-        SetSpI(i);
-        SetSpP(p);
+        spI = GetSpISprite(i);
+        spP = GetSpPSprite(p);
         SetCorNumber(cor);
         fase_1_1 = fase11;
         fase_1_2 = fase12;
@@ -337,6 +476,36 @@ public class Perfil {
     public void RenovaVidas()
     {
         vidas = 4;
+    }
+
+    public int GetImagemNumero()
+    {
+        return imagemNumero;
+    }
+
+    public int GetSpINumero()
+    {
+        return spINumero;
+    }
+
+    public int GetSpPNumero()
+    {
+        return spPNumero;
+    }
+
+    public void SetImagemNumero(int inu)
+    {
+        imagemNumero = inu;
+    }
+
+    public void SetSpINumero(int sn)
+    {
+        spINumero = sn;
+    }
+
+    public void SetSpPNumero(int sn)
+    {
+        spPNumero = sn;
     }
 
 }

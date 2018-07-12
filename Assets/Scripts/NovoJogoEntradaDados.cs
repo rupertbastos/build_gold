@@ -11,6 +11,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
     public GameObject canvasNome, canvasAvatar, canvasConfirmacao;
     public Button btContinuarAvatar, btNovaCena, btPlayer, btCor;
     public Sprite sp, sp1, sp2, sp3, sp4, sp5, sp6;
+    public int spNumero;
     public Sprite spI, spI1, spI2, spI3, spI4, spI5, spI6;
     public Sprite spP, spP1, spP2, spP3, spP4, spP5, spP6;
     public Image avatar, icon, player;
@@ -144,36 +145,43 @@ public class NovoJogoEntradaDados : MonoBehaviour {
             case ":: bt - avatar 01":
                 {
                     sp = sp1;
+                    spNumero = 1;
                     break;
                 }
             case ":: bt - avatar 02":
                 {
                     sp = sp2;
+                    spNumero = 2;
                     break;
                 }
             case ":: bt - avatar 03":
                 {
                     sp = sp3;
+                    spNumero = 3;
                     break;
                 }
             case ":: bt - avatar 04":
                 {
                     sp = sp4;
+                    spNumero = 4;
                     break;
                 }
             case ":: bt - avatar 05":
                 {
                     sp = sp5;
+                    spNumero = 5;
                     break;
                 }
             case ":: bt - avatar 06":
                 {
                     sp = sp6;
+                    spNumero = 6;
                     break;
                 }
             default:
                 {
                     sp = sp1;
+                    spNumero = 1;
                     break;
                 }
         }
@@ -238,7 +246,7 @@ public class NovoJogoEntradaDados : MonoBehaviour {
                 }
         }
 
-        p = new Perfil(nome.text.ToString().ToUpper(), sp, c, spI, spP, corNumber);
+        p = new Perfil(nome.text.ToString().ToUpper(), spNumero, c, corNumber, corNumber, corNumber);
     }
 
     public void SelecionaPlayer(GameObject go)

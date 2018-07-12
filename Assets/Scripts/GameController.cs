@@ -38,7 +38,9 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
 
-    public 
+    public Sprite imagem1, imagem2, imagem3, imagem4, imagem5, imagem6;
+    public Sprite spI1, spI2, spI3, spI4, spI5, spI6;
+    public Sprite spP1, spP2, spP3, spP4, spP5, spP6;
 
     void Awake()
     {
@@ -263,9 +265,9 @@ public class GameController : MonoBehaviour
         SaveGameData save = new SaveGameData
         {
             SGDnome = perfilAtivo.GetNome(),
-            SGDimagem = perfilAtivo.GetImagem(),
-            SGDspI = perfilAtivo.GetSpI(),
-            SGDspP = perfilAtivo.GetSpP(),
+            SGDimagem = perfilAtivo.GetImagemNumero(),
+            SGDspI = perfilAtivo.GetSpINumero(),
+            SGDspP = perfilAtivo.GetSpPNumero(),
             SGDa = perfilAtivo.GetCor().a,
             SGDr = perfilAtivo.GetCor().r,
             SGDg = perfilAtivo.GetCor().g,
@@ -323,7 +325,7 @@ class SaveGameData
     
 
     public string SGDnome;
-    public Sprite SGDimagem, SGDspI, SGDspP;
+    public int SGDimagem, SGDspI, SGDspP;
     public int SGDxp, SGDlevel, SGDlimite, SGDvidas;
     public int SGDmoedas, SGDcristais, SGDestrelas, SGDcorNumber;
     public int SGDdia, SGDmes, SGDano, SGDhora, SGDminuto, SGDsegundo;
