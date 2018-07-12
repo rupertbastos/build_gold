@@ -178,9 +178,14 @@ public class Fase : MonoBehaviour
         canvasPause.SetActive(false);
         canvasSucesso.SetActive(false);
         canvasGameOver.SetActive(false);
+
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
-        PainelRepeticao.SetActive(false);
+        if(PainelRepeticao != null)
+        {
+            PainelRepeticao.SetActive(false);
+        }
+        
 
         audioFase.Play();
         estadoAnterior = player.GetComponent<Player>().estadoAtual;
@@ -408,7 +413,11 @@ public class Fase : MonoBehaviour
         btnVel.GetComponent<Button>().interactable = true;
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
-        PainelRepeticao.SetActive(false);
+        if(PainelRepeticao != null)
+        {
+            PainelRepeticao.SetActive(false);
+        }
+        
         fimDeRodada = false;
         if(blocoFalso != null)
         {
@@ -559,7 +568,10 @@ public class Fase : MonoBehaviour
         
         ListaBTMetodos.SetActive(false);
         PainelMovimento.SetActive(false);
-        PainelRepeticao.SetActive(false);
+        if (PainelRepeticao != null)
+        {
+            PainelRepeticao.SetActive(false);
+        }
         podeJogar = true;
         //delayInicial = true;
 
